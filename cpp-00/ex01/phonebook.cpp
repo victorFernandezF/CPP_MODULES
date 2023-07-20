@@ -9,36 +9,37 @@ void Phonebook::addContact(Contact contact){
     this->contacts[this->index] = contact;
     this->index++;
 }
-void Phonebook::test(void){
-    for (size_t i = 0; i < this->max_contacts; i++)
-        std::cout<<this->contacts[i].getFirstName()<<std::endl;    
-}
 
 void    Phonebook::showListing(void){
     for (size_t i = 0; i < this->max_contacts; i++)
     {
         if (this->contacts[i].getFirstName() == "")
             continue;
-        std::cout<<std::setw(10);
-        std::cout<<i + 1<<'|';
-        std::cout<<contacts[i].stringParser(contacts[i].getFirstName())<<'|';
-        std::cout<<contacts[i].stringParser(contacts[i].getLastName())<<'|';
-        std::cout<<contacts[i].stringParser(contacts[i].getNickName())<<'|'<<std::endl;
+
+        std::cout<<std::setw(10)<<B<<i + 1<<W<<'|';
+        std::cout<<std::setw(10)<<contacts[i].stringParser(contacts[i].getFirstName())<<'|';
+        std::cout<<std::setw(10)<<contacts[i].stringParser(contacts[i].getLastName())<<'|';
+        std::cout<<std::setw(10)<<contacts[i].stringParser(contacts[i].getNickName())<<'|'<<std::endl;
     }
 }
 
 void    Phonebook::printIndexSearch(void){
     std::string searchIndexStr;
     int searchIndex;
+    int flag;
 
-
-    std::cout<<std::endl<<"Insert an index > ";
+    std::cout<<std::endl<<B<<"-> Insert an index > "<<W;
     std::getline(std::cin, searchIndexStr);
-    std::cout<<std::endl;
-    searchIndex = std::stoi(searchIndexStr);
-    if (this->contacts[searchIndex - 1].getFirstName() == "")
+    searchIndex = checkSearchIndex(searchIndexStr);
+    std::cout<<searchIndex<<std::endl;
+    if (this->contacts[searchIndex - 1].getFirstName() == "" || searchIndex <= 0)
     {
-        std::cout<<"Index "<<searchIndex <<" does not exist"<<std::endl;
+        if (searchIndex == 0)
+            std::cout<<R<<"  *Index must be a number"<<W<<std::endl<<std::endl;
+        else if (searchIndex == -1)
+           std::cout<<R<<"  *Index does not exist"<<W<<std::endl<<std::endl;
+        else
+           std::cout<<R<<"  *Index "<<searchIndex<<" does not exist"<<W<<std::endl<<std::endl;
         this->showListing();
         this->printIndexSearch();
     }

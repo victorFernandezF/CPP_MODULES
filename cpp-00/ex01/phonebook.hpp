@@ -12,5 +12,4 @@ class Phonebook{
         void addContact(Contact contact);
         void showListing(void);
         void printIndexSearch(void);
-        void test(void);
 };

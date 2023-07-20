@@ -20,47 +20,47 @@ std::string Contact::getSecret(void){
 }
 
 void Contact::setFirstName(void){
-    std::cout<<"First Name: ";
+    std::cout<<G<<" First Name: "<<W;
     std::getline(std::cin, this->_firstName);
     if (this->_firstName == "")
     {
-        std::cout<<"First name can not be null"<<std::endl;
+        std::cout<<R<<"     *First name can not be null*"<<W<<std::endl;
         this->setFirstName();
     }
 }
 void Contact::setLastName(void){
-    std::cout<<"Last Name: ";
+    std::cout<<G<<" Last Name: "<<W;
     std::getline(std::cin, this->_lastName);
     if (this->_lastName == "")
     {
-        std::cout<<"Last name can not be null"<<std::endl;
+        std::cout<<R<<"     *Last name can not be null*"<<W<<std::endl;
         this->setLastName();
     }
 }
 void Contact::setNickName(void){
-    std::cout<<"Nick Name: ";
+    std::cout<<G<<" Nick Name: "<<W;
     std::getline(std::cin, this->_nickName);
     if (this->_nickName == "")
     {
-        std::cout<<"Nick name can not be null"<<std::endl;
+        std::cout<<R<<"     *Nick name can not be null*"<<W<<std::endl;
         this->setNickName();
     }
 }
 void Contact::setPhoneNumber(void){
-    std::cout<<"Phone number: ";
+    std::cout<<G<<" Phone number: "<<W;
     std::getline(std::cin, this->_phoneNumber);
     if (this->_phoneNumber == "")
     {
-        std::cout<<"Phone number can not be null"<<std::endl;
+        std::cout<<R<<"     *Phone number can not be null*"<<W<<std::endl;
         this->setPhoneNumber();
     }
 }
 void Contact::setSecret(void){
-    std::cout<<"Darkest Secret: ";
+    std::cout<<G<<" Darkest Secret: "<<W;
     std::getline(std::cin, this->_darkestSecret);
     if (this->_darkestSecret == "")
     {
-        std::cout<<"Darkest secret can not be null"<<std::endl;
+        std::cout<<R<<"     *Darkest secret can not be null*"<<W<<std::endl;
         this->setSecret();
     }
 }
@@ -71,8 +71,6 @@ void Contact::fakestructor(void){
     this->setNickName();
     this->setPhoneNumber();
     this->setSecret();
-    //std::getline(std::cin, this->_firstName);
-
 }
 
 std::string Contact::stringParser(std::string str){
@@ -82,9 +80,9 @@ std::string Contact::stringParser(std::string str){
 }
 
 std::string Contact::toString(void){
-    return ("First name: " + this->getFirstName() + "\n"+
-     "Last name: " + this->getLastName() + "\n"+
-     "Nick name: " + this->getNickName() + "\n"+
-     "Phone number: " + this->getPhoneNumber() + "\n"+
-     "Darkest secret: " + this->getSecret() + "\n");
+    return ("\x1B[32mFirst name:\x1B[0m " + this->getFirstName() + "\n"+
+     "\x1B[32mLast name:\x1B[0m " + this->getLastName() + "\n"+
+     "\x1B[32mNick name:\x1B[0m " + this->getNickName() + "\n"+
+     "\x1B[32mPhone number:\x1B[0m " + this->getPhoneNumber() + "\n"+
+     "\x1B[32mDarkest secret:\x1B[0m " + this->getSecret() + "\n");
 }

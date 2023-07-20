@@ -1,28 +1,20 @@
 #include "agenda.hpp"
 
-Contact addNewContact()
-{
-    std::string first;
-    std::string last;
-    std::string nick;
-    std::string secret;
-    std::string number;
-    
-    std::cout<<"First Name: ";
-    std::getline(std::cin, first);
-    std::cout<<"Last Name: ";
-    std::getline(std::cin, last);
-    std::cout<<"Nick Name: ";
-    std::getline(std::cin, nick);
-    std::cout<<"phone Number: ";
-    std::getline(std::cin, number);
-    std::cout<<"Secret: ";
-    std::getline(std::cin, secret);
-    Contact contact(first, last, nick, number, secret);
-    return (contact);
+int is_alpha(std::string str){
+    for (size_t i = 0; i < str.length(); i++)
+        if (std::isdigit(str[i]) == 0)
+            return (1);
+    return (0);
 }
 
-void searchContact()
-{
+int checkSearchIndex(std::string str){
+    int SearchIndex;
 
+    if (is_alpha(str))
+        return (0);
+    else
+        SearchIndex = std::stoi(str);
+    if (SearchIndex <= 0 || SearchIndex > 8)
+        SearchIndex = -1;
+    return (SearchIndex);
 }

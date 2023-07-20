@@ -3,13 +3,11 @@
 int main(int argc, char const *argv[])
 {
     std::string cmd;
-    std::string searchIndex;
     Phonebook phonebook;
-
 
     while (1)
     {
-        std::cout<<"Insert a command > ";
+        std::cout<<Y<<std::endl<<"Insert a command > "<<W;
         std::getline(std::cin, cmd);
         if (cmd == "EXIT" || cmd == "exit")
             return (0);
@@ -23,14 +21,10 @@ int main(int argc, char const *argv[])
             phonebook.showListing();
             phonebook.printIndexSearch();
         }
-        else if (cmd == "TEST" || cmd == "test") {
-
-            phonebook.test();
-        }
         else
         {
-            std::cout<<std::endl<<"Command '"<<cmd<<"' not found."<<std::endl;
-            std::cout<<"Commands: ADD SEARCH EXIT."<<std::endl<<std::endl;
+            std::cout<<R<<"  Command '"<<cmd<<"' not found."<<W<<std::endl;
+            std::cout<<"  Commands: ADD SEARCH EXIT."<<std::endl;
         }
     }
     return (0);

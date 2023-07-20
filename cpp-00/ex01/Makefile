@@ -14,7 +14,7 @@ NAME = phonelist
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
 
-SRC = main.cpp contact.cpp phonebook.cpp
+SRC = main.cpp contact.cpp functions.cpp phonebook.cpp
 OBJ = $(SRC:.cpp=.o)
 
 # T E X T   S T U F F
