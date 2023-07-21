@@ -2,8 +2,8 @@
 # define AGENDA_HPP
 # include <iostream>
 # include <iomanip>
-# include "contact.hpp"
-# include "phonebook.hpp"
+# include "Contact.hpp"
+# include "Phonebook.hpp"
 
 // C O L O R
 # define R	"\x1B[31m"
