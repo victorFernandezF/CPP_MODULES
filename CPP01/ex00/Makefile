@@ -29,6 +29,7 @@ nice_text:
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@echo "$(G) brainz created $(E)"
 
 clean:
 	@rm -rf $(OBJ)
