@@ -3,8 +3,8 @@
 class Phonebook{
     private:
         Contact contacts[8];
-        int     index = 0;
-        int     max_contacts = 8;
+        int     index;
+        int     maxContacts;
     
     public:
         Phonebook(void);

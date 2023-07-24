@@ -1,17 +1,21 @@
 #include "agenda.hpp"
 
-Phonebook::Phonebook(void){};
+Phonebook::Phonebook(void){
+	this->index = 0;
+	this->maxContacts = 8;
+};
+
 Phonebook::~Phonebook(void){};
 
 void Phonebook::addContact(Contact contact){
-    if (this->index == this->max_contacts)
+    if (this->index == this->maxContacts)
         this->index = 0;
     this->contacts[this->index] = contact;
     this->index++;
 }
 
 void    Phonebook::showListing(void){
-    for (size_t i = 0; i < this->max_contacts; i++)
+    for (size_t i = 0; i < this->maxContacts; i++)
     {
         if (this->contacts[i].getFirstName() == "")
             continue;
@@ -31,7 +35,7 @@ void    Phonebook::printIndexSearch(void){
     std::cout<<std::endl<<B<<"-> Insert an index > "<<W;
     std::getline(std::cin, searchIndexStr);
     searchIndex = checkSearchIndex(searchIndexStr);
-    std::cout<<searchIndex<<std::endl;
+    std::cout<<std::endl;
     if (this->contacts[searchIndex - 1].getFirstName() == "" || searchIndex <= 0)
     {
         if (searchIndex == 0)
