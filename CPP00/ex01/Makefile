@@ -6,11 +6,11 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 18:12:44 by victofer          #+#    #+#              #
-#    Updated: 2023/06/23 12:53:39 by victofer         ###   ########.fr        #
+#    Updated: 2023/07/24 10:22:36 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonelist
+NAME = agenda
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
 
@@ -42,6 +42,7 @@ nice_text:
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@echo "$(G) agenda created $(E)"
 
 clean:
 	@rm -rf $(OBJ)
