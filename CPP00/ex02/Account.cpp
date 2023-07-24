@@ -89,5 +89,5 @@ void	Account::_displayTimestamp(void){
     time_t  timestamp;
 
     timestamp = time(NULL);
-    std::cout<<"["<<std::put_time(localtime(&timestamp), "%Y%m%d_%H%M%S")<<"]";
+    std::cout<<"["<<std::put_time(localtime(&timestamp), "%Y%m%d_%H%M%S")<<"] ";
 }
