@@ -1,7 +1,7 @@
 NAME = weapon
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
-SRC = main.cpp
+SRC = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 # T E X T   S T U F F
