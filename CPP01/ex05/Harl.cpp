@@ -33,9 +33,9 @@ void Harl::_error(void){
 
 void Harl::complain(std::string lavel){
 	std::string	positions[4] = {"debug", "info", "warning", "error"};
-	void (Harl::*array[4])() = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
+	void (Harl::*funcPtrs[4])() = {&Harl::_debug, &Harl::_info, &Harl::_warning, &Harl::_error};
 	
 	for (int i = 0; i < 4; i++)
 		if (lavel == positions[i])
-			(this->*array[i])();
+			(this->*funcPtrs[i])();
 }

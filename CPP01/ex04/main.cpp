@@ -26,17 +26,22 @@ static void replace(char **argv, std::string fName, std::ifstream &file){
 			word = "";
 		}
 	}
+	ofile.close();
 }
 
 int main(int argc, char **argv)
 {
 	std::ifstream file;
-	std::string newFileName(argv[1]);
 	std::string rest;
 	
 	if (argc != 4)
+	{
+		std::cout<<"ERROR: Too few arguments."<<std::endl
+		<<" [filename][s1][s2]"<<std::endl;
 		return 1;
+	}
 	rest = ".replace";
+	std::string newFileName(argv[1]);
 	newFileName += rest;
 	file.open(argv[1]);
 	if (file.fail())
@@ -45,5 +50,7 @@ int main(int argc, char **argv)
 		return 1;
 	}
 	replace(argv, newFileName, file);
+	std::cout<<"SUCCESS"<<std::endl;
+	file.close();
 	return 0;
 }
