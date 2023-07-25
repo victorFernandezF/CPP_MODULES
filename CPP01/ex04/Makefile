@@ -1,4 +1,4 @@
-NAME = filestream
+NAME = ex04
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
 SRC = main.cpp
@@ -24,12 +24,12 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║ ██║ "
 	@echo "╚██████╗██║     ██║           ╚██████╔╝ ██║ "
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝  ╚═╝ "
-	@echo "$(B)       EX03 FILESTREAME		 $(E)"                   
+	@echo "$(B)   	 EX04: SED IS FOR LOSERS		 $(E)"                   
 	@echo ""  
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo "$(G) filestream created $(E)"
+	@echo "$(G) Program name : $(NAME)$(E)"
 
 clean:
 	@rm -rf $(OBJ)
