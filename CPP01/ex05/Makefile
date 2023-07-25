@@ -1,7 +1,7 @@
-NAME = ex03
+NAME = ex05
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
-SRC = HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
+SRC = Harl.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 # T E X T   S T U F F
@@ -24,13 +24,12 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║ ██║ "
 	@echo "╚██████╗██║     ██║           ╚██████╔╝ ██║ "
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝  ╚═╝ "
-	@echo "$(B)        EX03: UNNECESSARY VIOLENCE	$(E)"                   
+	@echo "$(B)   	 EX05: HARL 2.0		 $(E)"                   
 	@echo ""  
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo "$(G) Program name : $(NAME)$(E)"
-	@echo " "
 
 clean:
 	@rm -rf $(OBJ)
