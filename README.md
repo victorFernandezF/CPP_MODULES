@@ -7,8 +7,9 @@
 
 ## CPP01
 ### ⚫ Brainz
-### ⚫ Moar_brainz
-### ⚫ Brain
-<!-- ### ⚫ Weapon -->
-<!-- ### ⚫ ¿¿?? -->
-<!-- ### ⚫ ¿¿?? -->
+### ⚫ Moar brainz
+### ⚫ Hi this is Brain
+### ⚫ Unnecessary Violence
+### ⚫ Sed is for Losers
+<!-- ### ⚫ Harl -->
+<!-- ### ⚫ Harl filter -->
