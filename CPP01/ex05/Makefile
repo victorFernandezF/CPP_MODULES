@@ -34,6 +34,7 @@ $(NAME): $(OBJ)
 clean:
 	@rm -rf $(OBJ)
 	@echo "$(M) Everything cleaned. $(E)"
+	@echo ""
 
 fclean: clean
 	@rm -rf $(NAME)
