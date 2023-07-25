@@ -1,4 +1,4 @@
-NAME = brainz
+NAME = ex00
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
 SRC = Zombie.cpp newZombie.cpp randomChump.cpp main.cpp
@@ -24,12 +24,12 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║ ██║ "
 	@echo "╚██████╗██║     ██║           ╚██████╔╝ ██║ "
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝  ╚═╝ "
-	@echo "$(B)             EX00 BRAIIIINZZZZ 		 $(E)"                   
+	@echo "$(B)            EX00: BRAIIIINZZZZ 		 $(E)"                   
 	@echo ""  
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo "$(G) brainz created $(E)"
+	@echo "$(G) Program name : $(NAME)$(E)"
 
 clean:
 	@rm -rf $(OBJ)

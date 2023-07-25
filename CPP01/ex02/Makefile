@@ -1,4 +1,4 @@
-NAME = brain
+NAME = ex02
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
 SRC = main.cpp
@@ -24,12 +24,12 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║ ██║ "
 	@echo "╚██████╗██║     ██║           ╚██████╔╝ ██║ "
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝  ╚═╝ "
-	@echo "$(B)           EX01 BRAIN 		 $(E)"                   
+	@echo "$(B)         EX02: HI THIS IS BRAIN		 $(E)"                   
 	@echo ""  
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo "$(G) brain created $(E)"
+	@echo "$(G) Program name : $(NAME)$(E)"
 
 clean:
 	@rm -rf $(OBJ)

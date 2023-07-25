@@ -1,4 +1,4 @@
-NAME = moar_brainz
+NAME = ex01
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
 SRC = Zombie.cpp zombieHorde.cpp main.cpp
@@ -24,12 +24,12 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║ ██║ "
 	@echo "╚██████╗██║     ██║           ╚██████╔╝ ██║ "
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝  ╚═╝ "
-	@echo "$(B)           EX01 MOAR BRAIN 		 $(E)"                   
+	@echo "$(B)             EX01: MOAR BRAINZ! 		 $(E)"                   
 	@echo ""  
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo "$(G) moar_brainz created $(E)"
+	@echo "$(G) Program name : $(NAME)$(E)"
 
 clean:
 	@rm -rf $(OBJ)
