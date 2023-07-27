@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:38:37 by victofer          #+#    #+#             */
-/*   Updated: 2023/07/26 19:04:29 by victofer         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:30:36 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ class Fixed{
 		static const int _fractBits; 
 	public:
 		Fixed(void);
-		Fixed(const Fixed&);
+		Fixed(const Fixed &obj);
 		Fixed & operator=(const Fixed &obj);
 		~Fixed(void);
-		int getRawBits(void);
+		int getRawBits(void) const;
 		void setRawBits(int const raw);
 };
 #endif
