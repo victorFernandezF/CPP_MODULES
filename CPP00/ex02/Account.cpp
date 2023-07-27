@@ -23,6 +23,7 @@ Account::~Account(void){
     Account::_nbAccounts--;
 }
 
+// GETTERS
 int     Account::getNbAccounts(void){
     return (_nbAccounts);
 }
@@ -39,6 +40,7 @@ int	    Account::getNbWithdrawals(void){
     return (_totalNbWithdrawals);
 }
 
+// Displays Accounts Info.
 void    Account::displayAccountsInfos(void){
     Account::_displayTimestamp();
     std::cout<<"accounts:"<<Account::getNbAccounts()<<";total:"<<Account::getTotalAmount()
@@ -46,6 +48,7 @@ void    Account::displayAccountsInfos(void){
     <<Account::getNbWithdrawals()<<std::endl;
 }
 
+// Makes deposits.
 void	Account::makeDeposit(int deposit){
     Account::_displayTimestamp();
     this->_nbDeposits++;
@@ -57,6 +60,7 @@ void	Account::makeDeposit(int deposit){
     std::cout<<std::endl;
 }
 
+// Checks if is possible to do withdrawal and does it.
 bool	Account::makeWithdrawal(int withdrawal){
     Account::_displayTimestamp();
     std::cout<<"index:"<<this->_accountIndex<<";p_ammount:"<<this->checkAmount();
@@ -74,10 +78,13 @@ bool	Account::makeWithdrawal(int withdrawal){
     }
     return (0);
 }
+
+// Returns the amount of money in the account.
 int		Account::checkAmount(void) const{
     return (this->_amount);
 }
 
+// Displays the status.
 void	Account::displayStatus(void) const{
     Account::_displayTimestamp();
     std::cout<<"index:"<<this->_accountIndex<<";amount:"<<this->checkAmount()
@@ -85,6 +92,7 @@ void	Account::displayStatus(void) const{
     <<";withdrawals:"<<this->_nbWithdrawals<<std::endl;
 }
 
+// Displays the timestamp well formatted.
 void	Account::_displayTimestamp(void){
     time_t  timestamp;
 
