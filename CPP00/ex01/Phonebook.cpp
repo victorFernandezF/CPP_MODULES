@@ -1,12 +1,15 @@
 #include "agenda.hpp"
 
+// Default Constructor
 Phonebook::Phonebook(void){
 	this->index = 0;
 	this->maxContacts = 8;
 };
 
+// Destructor
 Phonebook::~Phonebook(void){};
 
+// Add a new contact. if there are 8. it will overwrite the older one.
 void Phonebook::addContact(Contact contact){
     if (this->index == this->maxContacts)
         this->index = 0;
@@ -14,6 +17,7 @@ void Phonebook::addContact(Contact contact){
     this->index++;
 }
 
+// Shows the complete list of existing contacte with an index.
 void    Phonebook::showListing(void){
     for (size_t i = 0; i < this->maxContacts; i++)
     {
@@ -27,6 +31,7 @@ void    Phonebook::showListing(void){
     }
 }
 
+// Ask an index and show the contact info for this index. 
 void    Phonebook::printIndexSearch(void){
     std::string searchIndexStr;
     int searchIndex;

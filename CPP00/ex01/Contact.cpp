@@ -1,8 +1,12 @@
 #include "agenda.hpp"
 
+// Default constructor
 Contact::Contact(void){}
+
+// Destructor
 Contact::~Contact(void){}
 
+// GETTERS
 std::string Contact::getFirstName(void){
     return (_firstName);
 }
@@ -19,6 +23,7 @@ std::string Contact::getSecret(void){
     return (_darkestSecret);
 }
 
+// SETTERS
 void Contact::setFirstName(void){
     std::cout<<G<<" First Name: "<<W;
     std::getline(std::cin, this->_firstName);
@@ -64,7 +69,6 @@ void Contact::setSecret(void){
         this->setSecret();
     }
 }
-
 void Contact::fakestructor(void){
     this->setFirstName();
     this->setLastName();
@@ -73,12 +77,14 @@ void Contact::fakestructor(void){
     this->setSecret();
 }
 
+// Cuts strings longer	than 10 chars and add a dot at the end.
 std::string Contact::stringParser(std::string str){
     if (str.length() < 10)
         return (str);
     return (str.substr(0, 9) + '.');
 }
 
+// Return a well formated string ready to be printed. (search result)
 std::string Contact::toString(void){
     return ("\x1B[32mFirst name:\x1B[0m " + this->getFirstName() + "\n"+
      "\x1B[32mLast name:\x1B[0m " + this->getLastName() + "\n"+
