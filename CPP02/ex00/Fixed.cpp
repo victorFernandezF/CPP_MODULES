@@ -6,11 +6,13 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:46:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/07/27 12:37:06 by victofer         ###   ########.fr       */
+/*   Updated: 2023/07/27 12:43:11 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
+
+int const Fixed::_fractBits = 0; 
 
 Fixed::Fixed(void): _fixedValue(0){
 	std::cout<<"Default constructor called"<<std::endl;
