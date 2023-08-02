@@ -12,7 +12,7 @@
 
 #include "Fixed.hpp"
 
-int const Fixed::_fractBits = 0; 
+int const Fixed::_fractBits = 8; 
 
 //D efault Constructor
 Fixed::Fixed(void): _fixedValue(0){
@@ -23,6 +23,16 @@ Fixed::Fixed(void): _fixedValue(0){
 Fixed::Fixed(const Fixed& obj){
 	std::cout<<"Copy constructor called"<<std::endl;
 	this->_fixedValue = obj.getRawBits();
+}
+
+Fixed::Fixed(const int nb){
+	std::cout<<"Int constructor called"<<std::endl;
+	this->_fixedValue = nb << this->_fractBits;
+}
+
+Fixed::Fixed(const float nb){
+	std::cout<<"Float constructor called"<<std::endl;
+	this->_fixedValue = roundf(nb * (1 << this->_fractBits));
 }
 
 // Operator Overload
@@ -47,4 +57,18 @@ int Fixed::getRawBits(void) const{
 // Function member setRaeBits
 void Fixed::setRawBits(int const raw){
 	this->_fixedValue = raw;
+}
+
+float Fixed::toFloat(void) const{
+	return ((float)this->_fixedValue / (float)(1 << this->_fractBits));
+}
+
+int Fixed::toInt(void) const{
+	return (this->_fixedValue >> this->_fractBits);
+};
+
+std::ostream &operator<<(std::ostream &obj, Fixed const &fixed)
+{
+	obj << fixed.toFloat();
+	return (obj);
 }
