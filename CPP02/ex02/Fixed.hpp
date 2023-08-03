@@ -25,10 +25,29 @@ class Fixed{
 		Fixed(const int nb); //Int contructor
 		Fixed(const float nb); //Float contructor
 		Fixed & operator=(const Fixed &obj);
+		
+		// OVERLOAD OPERATOR 
+		bool operator<(Fixed fix) const;
+		bool operator>(Fixed fix) const;
+		bool operator<=(Fixed fix) const;
+		bool operator>=(Fixed fix) const;
+		bool operator!=(Fixed fix) const;
+		bool operator==(Fixed fix) const;
+
 		float operator+(Fixed fix) const;
 		float operator-(Fixed fix) const;
 		float operator*(Fixed fix) const;
 		float operator/(Fixed fix) const;
+		Fixed & operator++(void);
+		Fixed & operator--(void);
+		Fixed operator++(int val);
+		Fixed operator--(int val);
+
+		//max min
+		static const Fixed &min(const Fixed &f1, const Fixed &f2);
+		static const Fixed &max(const Fixed &f1, const Fixed &f2);
+		static Fixed &min(Fixed &f1, Fixed &f2);
+		static Fixed &max(Fixed &f1, Fixed &f2);
 		~Fixed(void);
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
