@@ -16,6 +16,13 @@
 #include <fstream>
 #include <cmath>
 
+
+# define Y	"\x1B[33m"
+# define BY	"\x1B[93m"
+# define G	"\x1B[32m"
+# define BG	"\x1B[92m"
+# define W	"\x1B[0m"
+
 class Fixed{
 	private:
 		int _fixedValue;

@@ -98,7 +98,7 @@ Fixed Fixed::operator++(int val){
 	Fixed aux = *this;
 	if (!val)
 		val = 1;
-	aux.setRawBits(aux.getRawBits() + val);
+	this->setRawBits(this->getRawBits() + val);
 	return (aux);
 }
 
@@ -106,7 +106,7 @@ Fixed Fixed::operator--(int val){
 	Fixed aux = *this;
 	if (!val)
 		val = 1;
-	aux.setRawBits(aux.getRawBits() - val);
+	this->setRawBits(this->getRawBits() - val);
 	return (aux);
 }
 
