@@ -14,17 +14,19 @@
 # define FIXED_HPP
 # include <iostream>
 #include <fstream>
+#include <cmath>
 
 class Fixed{
 	private:
 		int _fixedValue;
 		static const int _fractBits; 
 	public:
-		Fixed(void); //Default contructor
-		Fixed(const Fixed &obj); //Copy contructor
-		Fixed(const int nb); //Int contructor
-		Fixed(const float nb); //Float contructor
-		Fixed & operator=(const Fixed &obj);
+		Fixed(void); // Default contructor
+		Fixed(const Fixed &obj); // Copy contructor
+		Fixed(const int nb); // Int contructor
+		Fixed(const float nb); // Float contructor
+		~Fixed(void); // Destructor
+		Fixed & operator=(const Fixed &obj); // asignaent operator
 		
 		// OVERLOAD OPERATOR 
 		bool operator<(Fixed fix) const;
@@ -33,7 +35,6 @@ class Fixed{
 		bool operator>=(Fixed fix) const;
 		bool operator!=(Fixed fix) const;
 		bool operator==(Fixed fix) const;
-
 		float operator+(Fixed fix) const;
 		float operator-(Fixed fix) const;
 		float operator*(Fixed fix) const;
@@ -43,12 +44,13 @@ class Fixed{
 		Fixed operator++(int val);
 		Fixed operator--(int val);
 
-		//max min
+		//MAX MIN STUFF
 		static const Fixed &min(const Fixed &f1, const Fixed &f2);
 		static const Fixed &max(const Fixed &f1, const Fixed &f2);
 		static Fixed &min(Fixed &f1, Fixed &f2);
 		static Fixed &max(Fixed &f1, Fixed &f2);
-		~Fixed(void);
+		
+		// GETTERS AND SETTERS
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 		float toFloat(void) const;
