@@ -17,14 +17,16 @@
 #include <cmath>
 
 
-# define Y	"\x1B[33m"
-# define BY	"\x1B[93m"
-# define G	"\x1B[32m"
-# define BG	"\x1B[92m"
-# define W	"\x1B[0m"
-# define BB	"\x1B[96m"
-# define B	"\x1B[36m"
-# define BR	"\x1B[95m"
+# define Y	"\x1B[0;33m"
+# define BY	"\x1B[0;93m"
+# define G	"\x1B[0;32m"
+# define BG	"\x1B[0;92m"
+# define W	"\x1B[0;0m"
+# define BB	"\x1B[0;96m"
+# define B	"\x1B[0;36m"
+# define BR	"\x1B[0;95m"
+# define BW	"\x1B[1;37m"
+
 
 class Fixed{
 	private:
