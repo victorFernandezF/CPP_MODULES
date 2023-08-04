@@ -22,6 +22,9 @@
 # define G	"\x1B[32m"
 # define BG	"\x1B[92m"
 # define W	"\x1B[0m"
+# define BB	"\x1B[96m"
+# define B	"\x1B[36m"
+# define BR	"\x1B[95m"
 
 class Fixed{
 	private:
