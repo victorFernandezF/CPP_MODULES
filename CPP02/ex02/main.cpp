@@ -30,9 +30,9 @@ int main( void ) {
 		Fixed a(5);
 		Fixed b(2);
 		std::cout<<std::endl<<BR<<"--- [MY TESTS] --- "<<W<<std::endl;
-		std::cout<<std::endl<<G<<" - [ARITHMETIC OPERATORS] - "<<W<<std::endl;
-		std::cout <<BW<<"	Initial value of a:      "<<a <<std::endl;
-		std::cout <<BW<<"	Initial value of b:      "<<b<<Y<<std::endl;
+		std::cout<<std::endl<<G<<" ** [ARITHMETIC OPERATORS] ** "<<W<<std::endl;
+		std::cout <<BOLD<<"	Initial value of a:      "<<a <<std::endl;
+		std::cout <<BOLD<<"	Initial value of b:      "<<b<<Y<<std::endl;
 		std::cout <<Y<<"	Testing '+' -> {a + b}:  "<<W<<a + b<<std::endl;
 		std::cout <<BY<<"	Testing '-' -> {a - b}:  "<<W<<a - b<<std::endl;
 		std::cout <<Y<<"	Testing '*' -> {a * b}:  "<<W<<a * b<<std::endl;
@@ -42,10 +42,10 @@ int main( void ) {
 	{
 		Fixed a(5);
 		Fixed b(5);
-		std::cout<<G<<" - [INCREMETN DECREMENT] - "<<W<<std::endl;
+		std::cout<<G<<" ** [INCREMETN DECREMENT] ** "<<W<<std::endl;
 		std::cout<<BB<<"     [INCREMENT]"<<std::endl;
-		std::cout <<BW<<"	Initial value of a:  "<<a<<std::endl;
-		std::cout <<BW<<"	Initial value of b:  "<<b<<std::endl;
+		std::cout <<BOLD<<"	Initial value of a:  "<<a<<std::endl;
+		std::cout <<BOLD<<"	Initial value of b:  "<<b<<std::endl;
 		std::cout <<Y<<"	Result of doing a++: "<<W<<a++<<std::endl;
 		std::cout <<BY<<"	Result of doing ++b: "<<W<<++b<<std::endl;
 		std::cout <<B<<"	  Current values "<<std::endl;
@@ -56,8 +56,8 @@ int main( void ) {
 		Fixed a(5);
 		Fixed b(5);
 		std::cout<<std::endl<<BB<<"     [DECREMENT]"<<std::endl;
-		std::cout <<BW<<"	Initial value of a:  "<<a<<std::endl;
-		std::cout <<BW<<"	Initial value of b:  "<<b<<std::endl;
+		std::cout <<BOLD<<"	Initial value of a:  "<<a<<std::endl;
+		std::cout <<BOLD<<"	Initial value of b:  "<<b<<std::endl;
 		std::cout <<Y<<"	Result of doing a--: "<<W<<a--<<std::endl;
 		std::cout <<BY<<"	Result of doing --b: "<<W<<--b<<std::endl;
 		std::cout <<B<<"	  Current values "<<std::endl;
@@ -67,18 +67,18 @@ int main( void ) {
 	{
 		Fixed a(27);
 		Fixed b(42);
-		std::cout<<std::endl<<G<<" - [MAX MIN FUNCTIONS] - "<<W<<std::endl;
-		std::cout <<BW<<"	Initial value of a: "<<a<<std::endl;
-		std::cout <<BW<<"	Initial value of b: "<<b<<std::endl;
+		std::cout<<std::endl<<G<<" ** [MAX MIN FUNCTIONS] ** "<<W<<std::endl;
+		std::cout <<BOLD<<"	Initial value of a: "<<a<<std::endl;
+		std::cout <<BOLD<<"	Initial value of b: "<<b<<std::endl;
 		std::cout <<Y<<"	Result of doing max(a, b): "<<W<<Fixed::max(a, b)<<std::endl;
 		std::cout <<BY<<"	Result of doing min(a, b): "<<W<<Fixed::min(a, b)<<std::endl;
 	}
 	{
 		Fixed a(405);
 		Fixed b(30);
-		std::cout<<std::endl<<G<<" - [COMPARISION OPERATORS] - "<<W<<std::endl;
-		std::cout<<BW<<"	Initial value of a: "<<a<<std::endl;
-		std::cout <<BW<<"	Initial value of b: "<<b<<std::endl;
+		std::cout<<std::endl<<G<<" ** [COMPARISION OPERATORS] ** "<<W<<std::endl;
+		std::cout<<BOLD<<"	Initial value of a: "<<a<<std::endl;
+		std::cout <<BOLD<<"	Initial value of b: "<<b<<std::endl;
 		std::cout <<Y<<"	Comparing {a > b}:  "<<W<<(a > b)<<std::endl;
 		std::cout <<BY<<"	Comparing {a >= b}: "<<W<<(a >= b)<<std::endl;
 		std::cout <<Y<<"	Comparing {a < b}:  "<<W<<(a < b)<<std::endl;

@@ -16,7 +16,6 @@
 #include <fstream>
 #include <cmath>
 
-
 # define Y	"\x1B[0;33m"
 # define BY	"\x1B[0;93m"
 # define G	"\x1B[0;32m"
@@ -25,8 +24,7 @@
 # define BB	"\x1B[0;96m"
 # define B	"\x1B[0;36m"
 # define BR	"\x1B[0;95m"
-# define BW	"\x1B[1;37m"
-
+# define BOLD "\x1B[1;37m"
 
 class Fixed{
 	private:
