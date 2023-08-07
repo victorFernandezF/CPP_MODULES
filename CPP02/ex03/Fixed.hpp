@@ -6,26 +6,28 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:38:37 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/07 13:11:47 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/07 13:34:41 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FIXED_HPP
 # define FIXED_HPP
 # include <iostream>
-#include <fstream>
-#include <cmath>
+# include <fstream>
+# include <cmath>
 
-# define BY	"\x1B[1;33m"
-# define Y	"\x1B[0;33m"
-# define BG	"\x1B[1;32m"
-# define G	"\x1B[0;32m"
-# define BB	"\x1B[1;36m"
-# define B	"\x1B[0;36m"
-# define BR	"\x1B[1;95m"
-# define R	"\x1B[0;95m"
-# define W	"\x1B[0;0m"
-# define BW "\x1B[1;37m"
+# define BY	"\x1B[0;1;33m"
+# define Y	"\x1B[0;0;33m"
+# define BG	"\x1B[0;1;32m"
+# define G	"\x1B[0;0;32m"
+# define BB	"\x1B[0;1;36m"
+# define B	"\x1B[0;0;36m"
+# define BR	"\x1B[0;1;95m"
+# define R	"\x1B[0;0;95m"
+# define W	"\x1B[0;0;0m"
+# define BW "\x1B[0;1;37m"
+# define BU "\x1B[4;1;37m"
+# define GR "\x1B[0;0;90m"
 
 class Fixed{
 	private:
