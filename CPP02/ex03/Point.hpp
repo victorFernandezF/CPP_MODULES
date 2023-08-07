@@ -6,12 +6,12 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:05:36 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/07 12:52:25 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/07 17:54:23 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef POINT_H
-# define POINT_H
+#ifndef POINT_HPP
+# define POINT_HPP
 # include <iostream>
 # include "Fixed.hpp"
 

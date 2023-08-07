@@ -68,6 +68,7 @@
 		"optional": "cpp",
 		"ratio": "cpp",
 		"string_view": "cpp",
-		"stack": "cpp"
+		"stack": "cpp",
+		"__functional_03": "cpp"
 	}
 }
