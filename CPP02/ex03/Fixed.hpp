@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:38:37 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/07 13:02:57 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/07 13:11:47 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@
 # define B	"\x1B[0;36m"
 # define BR	"\x1B[1;95m"
 # define R	"\x1B[0;95m"
-
 # define W	"\x1B[0;0m"
-# define BOLD "\x1B[1;37m"
+# define BW "\x1B[1;37m"
 
 class Fixed{
 	private:
