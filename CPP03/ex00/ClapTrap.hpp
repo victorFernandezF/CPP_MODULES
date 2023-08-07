@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:52:51 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/07 18:43:34 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/07 19:01:40 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ class ClapTrap{
 		int getAttack(void); 			
 		
 		bool checkHitAndEnergy(void);
+		void printStatus(void);
 
 		void setName(std::string name);
 		void setHit(int hit);

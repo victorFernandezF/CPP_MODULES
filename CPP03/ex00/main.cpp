@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/07 19:00:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/07 19:17:22 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,16 @@
 
 int main(void)
 {
-	ClapTrap claptrap;
+	ClapTrap claptrap("MAQUINITA");
 
+	claptrap.printStatus();
 	claptrap.attack("juan");
+	claptrap.printStatus();
 	claptrap.takeDamage(2);
-	//std::cout<<claptrap.getEnergy()<<std::endl;
+	claptrap.printStatus();
 	claptrap.beRepaired(5);
+	claptrap.printStatus();
+	claptrap.attack("Pepe");
+	//std::cout<<claptrap.getEnergy()<<std::endl;
 	return 0;
 }

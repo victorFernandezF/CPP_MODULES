@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/07 18:59:30 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/07 19:16:20 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void ClapTrap::takeDamage(unsigned int amount){
 	std::cout<<"ClapTrap "<<this->getName()<<" has been attacked "
 	<<" causing the lost of "<<amount<<" hit points"
 	<<std::endl;
-	this->setEnergy(this->_hitPoints - 1);
+	this->setHit(this->_hitPoints - amount);
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
@@ -98,6 +98,7 @@ void ClapTrap::beRepaired(unsigned int amount){
 	<<", getting back "<<amount<<" hit points."
 	<<std::endl;
 	this->setEnergy(this->_energyPoints - 1);
+	this->setHit(this->_hitPoints + amount);
 }
 
 bool ClapTrap::checkHitAndEnergy(void){
@@ -113,4 +114,16 @@ bool ClapTrap::checkHitAndEnergy(void){
 		return (false);
 	}
 	return (true);
+}
+
+void ClapTrap::printStatus(void){
+	std::cout<<std::endl;
+	std::cout<<Y<<" -- [STATUS] --" <<std::endl
+	<<Y<<"|             	|"<<std::endl
+	<<Y<<"|"<<W<<"  HIT: "<<this->getHit()<<Y<<"	|"<<std::endl
+	<<Y<<"|"<<W<<"  ENERGY:"<<this->getEnergy()<<Y<<"	|"<<std::endl
+	<<Y<<"|"<<W<<"  ATTACK: "<<this->getAttack()<<Y<<"	|"<<std::endl
+	<<Y<<"|             	|"<<std::endl
+	<<" --------------"<<std::endl;
+	std::cout<<W<<std::endl;
 }
