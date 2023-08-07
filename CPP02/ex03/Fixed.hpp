@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:38:37 by victofer          #+#    #+#             */
-/*   Updated: 2023/07/27 13:37:28 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/07 13:02:57 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@
 #include <fstream>
 #include <cmath>
 
+# define BY	"\x1B[1;33m"
 # define Y	"\x1B[0;33m"
-# define BY	"\x1B[0;93m"
+# define BG	"\x1B[1;32m"
 # define G	"\x1B[0;32m"
-# define BG	"\x1B[0;92m"
-# define W	"\x1B[0;0m"
-# define BB	"\x1B[0;96m"
+# define BB	"\x1B[1;36m"
 # define B	"\x1B[0;36m"
-# define BR	"\x1B[0;95m"
+# define BR	"\x1B[1;95m"
+# define R	"\x1B[0;95m"
+
+# define W	"\x1B[0;0m"
 # define BOLD "\x1B[1;37m"
 
 class Fixed{

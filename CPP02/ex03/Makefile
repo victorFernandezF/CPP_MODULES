@@ -1,7 +1,7 @@
 NAME = bsp
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
-SRC = Point.cpp Fixed.cpp main.cpp
+SRC = bsp.cpp Point.cpp Fixed.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 # T E X T   S T U F F
