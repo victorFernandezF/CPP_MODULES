@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:52:51 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/07 19:01:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:45:27 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # define W	"\x1B[0m"
 # define BY	"\x1B[93m"
 # define BM	"\x1B[95m"
+# define BR	"\x1B[0;95m"
 
 class ClapTrap{
 	private:

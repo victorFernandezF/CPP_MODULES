@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/07 19:16:20 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/08 17:52:55 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void ClapTrap::setAttack(int attack){
 
 // M E M B E R   F U N C T I O N S 
 
+// Attacks a target. This action costs one energy point.
 void ClapTrap::attack(const std::string& target){
 	if (this->checkHitAndEnergy() == false)
 		return ;
@@ -82,15 +83,21 @@ void ClapTrap::attack(const std::string& target){
 	this->setEnergy(this->_energyPoints - 1);
 }
 
+// Decrements the number of hit points by the given amount. 
 void ClapTrap::takeDamage(unsigned int amount){
 	if (this->checkHitAndEnergy() == false)
 		return ;
+	if (amount > this->getHit())
+		this->setHit(0);
+	else
+		this->setHit(this->_hitPoints - amount);
 	std::cout<<"ClapTrap "<<this->getName()<<" has been attacked "
 	<<" causing the lost of "<<amount<<" hit points"
 	<<std::endl;
-	this->setHit(this->_hitPoints - amount);
 }
 
+// Repaires itself. This action costs one energy point.
+// It will get back 1 hit point.
 void ClapTrap::beRepaired(unsigned int amount){
 	if (this->checkHitAndEnergy() == false)
 		return ;
@@ -101,6 +108,7 @@ void ClapTrap::beRepaired(unsigned int amount){
 	this->setHit(this->_hitPoints + amount);
 }
 
+// Checks if claptrap has enought energy and hit points to continue.
 bool ClapTrap::checkHitAndEnergy(void){
 	
 	if (this->getHit() <= 0)
@@ -116,6 +124,7 @@ bool ClapTrap::checkHitAndEnergy(void){
 	return (true);
 }
 
+// Prints the status current of claptrap. 
 void ClapTrap::printStatus(void){
 	std::cout<<std::endl;
 	std::cout<<Y<<" -- [STATUS] --" <<std::endl
