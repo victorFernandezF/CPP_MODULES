@@ -6,10 +6,11 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:38:37 by victofer          #+#    #+#             */
-/*   Updated: 2023/07/27 13:37:28 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:41:38 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef FIXED_HPP
 # define FIXED_HPP
 # include <iostream>

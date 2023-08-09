@@ -6,10 +6,11 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 10:05:36 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/07 17:54:23 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:41:49 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef POINT_HPP
 # define POINT_HPP
 # include <iostream>
