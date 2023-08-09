@@ -6,16 +6,16 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/08 18:55:10 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/09 11:06:07 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): _name("Default"), _hitPoints(100), _energyPoints(100), _attackDamage(30){
+ClapTrap::ClapTrap(): _name("Default"), _hitPoints(10), _energyPoints(2), _attackDamage(0){
 	std::cout<<B<<"ClapTrap Default constructor."<<W<<std::endl;
 }	
-ClapTrap::ClapTrap(std::string name):_hitPoints(100), _energyPoints(100), _attackDamage(30){
+ClapTrap::ClapTrap(std::string name):_hitPoints(10), _energyPoints(2), _attackDamage(0){
 	std::cout<<B<<"ClapTrap Constructor with name."<<W<<std::endl;
 	this->_name = name;
 }
@@ -75,50 +75,60 @@ void ClapTrap::setAttack(int attack){
 
 // Attacks a target. This action costs one energy point.
 void ClapTrap::attack(const std::string& target){
-	if (this->checkHitAndEnergy() == false)
+	if (this->checkHitAndEnergy("attacks", 0) == false)
 		return ;
-	std::cout<<"ClapTrap "<<this->getName()<<" attacks "
-	<<target<<", causing "<<this->getAttack()<<" points of damage"
+	std::cout<<"ClapTrap "<<this->getName()<<G<<" attacks "<<W
+	<<target<<", causing "<<G<<this->getAttack()<<W<<" points of damage"
 	<<std::endl;
+	std::cout<<R<<" *"<<W<<"This action costs "<<R<<"1"<<W<<" energy point."<<W<<std::endl;
 	this->setEnergy(this->_energyPoints - 1);
 }
 
 // Decrements the number of hit points by the given amount. 
 void ClapTrap::takeDamage(unsigned int amount){
-	if (this->checkHitAndEnergy() == false)
+	if (this->checkHitAndEnergy("take damage", 1) == false)
 		return ;
 	if (amount > this->getHit())
 		this->setHit(0);
 	else
 		this->setHit(this->_hitPoints - amount);
-	std::cout<<"ClapTrap "<<this->getName()<<" has been attacked "
-	<<" causing the lost of "<<amount<<" hit points"
+	std::cout<<"ClapTrap "<<this->getName()<<G<<" has been attacked "<<W
+	<<"causing the lost of "<<G<<amount<<W<<" hit points"
 	<<std::endl;
 }
 
 // Repaires itself. This action costs one energy point.
 // It will get back 1 hit point.
 void ClapTrap::beRepaired(unsigned int amount){
-	if (this->checkHitAndEnergy() == false)
+	if (this->checkHitAndEnergy("be repaired", 0) == false)
 		return ;
-	std::cout<<"ClapTrap "<<this->getName()<<" repaired itself"
-	<<", getting back "<<amount<<" hit points."
+	std::cout<<"ClapTrap "<<this->getName()<<G<<" repaired itself, "<<W
+	<<" getting back "<<G<<amount<<W<<" hit points."
 	<<std::endl;
+	std::cout<<R<<" *"<<W<<"This action costs "<<R<<"1"<<W<<" energy point."<<W<<std::endl;
 	this->setEnergy(this->_energyPoints - 1);
 	this->setHit(this->_hitPoints + amount);
 }
 
 // Checks if claptrap has enought energy and hit points to continue.
-bool ClapTrap::checkHitAndEnergy(void){
+bool ClapTrap::checkHitAndEnergy(std::string action, int flag){
 	
+	if (this->getHit() <= 0 && flag == 1)
+	{
+		std::cout<<this->getName()<<R<<" is dead."<<W
+		"Why do you still attacking?"<<std::endl;
+		return (false);
+	}
 	if (this->getHit() <= 0)
 	{
-		std::cout<<R<<"[ALERT]: NO HIT POINTS!"<<W<<std::endl;
+		std::cout<<R<<"**[ALERT]: "<<W<<"Unable to "<<action
+		<<" because "<<this->getName()<<R<<" is dead."<<W<<std::endl;
 		return (false);
 	}
 	if (this->getEnergy() <= 0)
 	{
-		std::cout<<R<<"[ASLERT]: NO ENERGY POINTS!"<<W<<std::endl;
+		std::cout<<R<<"**[ALERT]: "<<W<<"Unable to "<<action
+		<<" because "<<this->getName()<<R<<" has no energy points"<<W<<std::endl;
 		return (false);
 	}
 	return (true);
@@ -127,12 +137,12 @@ bool ClapTrap::checkHitAndEnergy(void){
 // Prints the status current of claptrap. 
 void ClapTrap::printStatus(void){
 	std::cout<<std::endl;
-	std::cout<<Y<<" -- [STATUS] --" <<std::endl
-	<<Y<<"|             	|"<<std::endl
-	<<Y<<"|"<<W<<"  HIT: "<<this->getHit()<<Y<<"	|"<<std::endl
-	<<Y<<"|"<<W<<"  ENERGY:"<<this->getEnergy()<<Y<<"	|"<<std::endl
-	<<Y<<"|"<<W<<"  ATTACK: "<<this->getAttack()<<Y<<"	|"<<std::endl
-	<<Y<<"|             	|"<<std::endl
-	<<" --------------"<<std::endl;
+	std::cout<<Y<<" _______[STATUS]________" <<std::endl
+	<<std::endl
+	<<"  NAME: "<<this->getName()<<std::endl
+	<<"  HIT: "<<this->getHit()<<std::endl
+	<<"  ENERGY:"<<this->getEnergy()<<std::endl
+	<<"  ATTACK: "<<this->getAttack()<<std::endl
+	<<Y<<" _______________________"<<std::endl;
 	std::cout<<W<<std::endl;
 }

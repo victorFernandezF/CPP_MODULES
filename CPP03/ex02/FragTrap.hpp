@@ -6,10 +6,11 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 17:59:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/08 18:56:08 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:04:12 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef FRAGTRAP_HPP
 # define FRAGTRAP_HPP
 # include <iostream>

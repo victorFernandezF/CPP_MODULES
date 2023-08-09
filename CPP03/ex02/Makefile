@@ -1,7 +1,7 @@
 NAME = ex02
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
-SRC = main.cpp ClapTrap.cpp FragTrap.cpp
+SRC = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 
 # T E X T   S T U F F
