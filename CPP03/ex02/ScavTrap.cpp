@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/09 11:10:36 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:23:28 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ ScavTrap::~ScavTrap(){
 void ScavTrap::attack(const std::string& target){
 	if (this->checkHitAndEnergy("attack", 0) == false)
 		return ;
-	std::cout<<" ScavTrap "<<this->getName()<<" attacks "
+	std::cout<<"ScavTrap "<<this->getName()<<" attacks "
 	<<target<<", causing "<<this->getAttack()<<" points of damage"
 	<<std::endl;
 	std::cout<<R<<" This action costs 1 energy point."<<W<<std::endl;
@@ -67,6 +67,6 @@ void ScavTrap::attack(const std::string& target){
 }
 
 void ScavTrap::guardGate(){
-	std::cout<<" ScavTrap "<<this->getName()
+	std::cout<<"ScavTrap "<<this->getName()
 	<<"  is now in Gate keeper mode."<<std::endl;
 }

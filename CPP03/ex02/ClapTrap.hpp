@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:52:51 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/09 12:04:17 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:12:27 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <iostream>
 
 # define R	"\x1B[31m"
+# define GR	"\x1B[90m"
 # define G	"\x1B[32m"
 # define BG	"\x1B[92m"
 # define BB	"\x1B[94m"

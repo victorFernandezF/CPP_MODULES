@@ -6,10 +6,11 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 17:59:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/08 18:39:02 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:40:13 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef SCAVTRAP_HPP
 # define SCAVTRAP_HPP
 # include <iostream>

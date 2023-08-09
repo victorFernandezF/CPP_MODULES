@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/09 11:10:36 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:25:10 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void ScavTrap::attack(const std::string& target){
 	std::cout<<" ScavTrap "<<this->getName()<<" attacks "
 	<<target<<", causing "<<this->getAttack()<<" points of damage"
 	<<std::endl;
-	std::cout<<R<<" This action costs 1 energy point."<<W<<std::endl;
+	std::cout<<R<<" *"<<W<<"This action costs "<<R<<"1"<<W<<" energy point."<<W<<std::endl;
 	this->setEnergy(this->getEnergy() - 1);
 }
 

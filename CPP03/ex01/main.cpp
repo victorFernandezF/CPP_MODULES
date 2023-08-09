@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/09 10:41:45 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:36:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int main(void)
 {
-	std::cout<<BR<<" -- [TESTING CLAPTRAP]-- "<<std::endl<<std::endl;
+	std::cout<<std::endl<<BM<<"◉ -- [TEST 1] -- ◉"<<std::endl
+	<<GR<<"	This test instances an object from the class: ClapTrap "<<std::endl
+	<<"	and does some actions."<<std::endl<<std::endl;
 	{
 		ClapTrap clap("Clappy");
 		clap.printStatus();
@@ -23,7 +25,12 @@ int main(void)
 		clap.beRepaired(1);
 		clap.printStatus();
 	}
-	std::cout<<std::endl<<BR<<" -- [TESTING SCAVTRAP] -- "<<std::endl<<std::endl;
+	std::cout<<std::endl
+	<<"___________________________________"<<std::endl
+	<<std::endl;
+	std::cout<<std::endl<<BM<<"◉ -- TEST 2 -- ◉"<<std::endl
+	<<GR<<"	This test instances an object from the class: ScavTrap "<<std::endl
+	<<"	and does some actions."<<std::endl<<std::endl;
 	{
 		ScavTrap scav("Scavy");
 		scav.printStatus();

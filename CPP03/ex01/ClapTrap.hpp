@@ -6,15 +6,17 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:52:51 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/09 11:08:58 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:39:55 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef CLAPTRAP_HPP
 # define CLAPTRAP_HPP
 # include <iostream>
 
 # define R	"\x1B[31m"
+# define GR	"\x1B[90m"
 # define G	"\x1B[32m"
 # define BG	"\x1B[92m"
 # define BB	"\x1B[94m"

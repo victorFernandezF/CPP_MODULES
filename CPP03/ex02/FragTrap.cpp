@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/09 11:59:22 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/09 12:24:56 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,6 @@ FragTrap::FragTrap(FragTrap &copy){
 	this->setHit(copy.getHit());
 }
 
-void FragTrap::highFivesGuys(void){
-	std::cout<<BG<<" FragTrap HIGHT FIVE."<<W<<std::endl;
-}
-
 FragTrap &FragTrap::operator=(const FragTrap &copy){
 	FragTrap aux;
 	aux = copy;
@@ -57,12 +53,17 @@ FragTrap &FragTrap::operator=(const FragTrap &copy){
 	return (*this);
 }
 
+void FragTrap::highFivesGuys(void){
+	std::cout<<BG<<"GIVE ME A HIGHT FIVE!!!"<<W<<std::endl;
+}
+
 // Attacks a target. This action costs one energy point.
 void FragTrap::attack(const std::string& target){
 	if (this->checkHitAndEnergy("attack", 0) == false)
 		return ;
-	std::cout<<" FragTrap "<<this->getName()<<G<<" attacks "
+	std::cout<<"FragTrap "<<this->getName()<<G<<" attacks "
 	<<W<<target<<", causing "<<G<<this->getAttack()<<W<<" points of damage"
 	<<std::endl;
+	std::cout<<R<<" *"<<W<<"This action costs "<<R<<"1"<<W<<" energy point."<<W<<std::endl;
 	this->setEnergy(this->getEnergy() - 1);
 }
