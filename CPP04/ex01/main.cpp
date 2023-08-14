@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 18:50:26 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 19:11:42 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,15 @@ void testHeaderPrinter(int testNb)
 		<<GR<<" Now we are going to create an array of animals."<<std::endl
 		<<" One half will be cats and the other dogs. Then each"<<std::endl
 		<<" one will be deleted (no leaks)"<<std::endl
+		<<W<<std::endl;
+	}
+	if (testNb == 3)
+	{
+		std::cout<<std::endl
+		<<W<<"___________________________________"<<std::endl
+		<<std::endl;
+		std::cout<<std::endl<<BM<<"◉ -- [TEST 3] -- ◉"<<std::endl
+		<<GR<<" Testing deep copy."<<std::endl
 		<<W<<std::endl;
 	}
 }
@@ -80,7 +89,14 @@ int main(void)
 			delete(animal[i]);
 			std::cout<<std::endl;
 		}
-		 std::cout<<W<<std::endl;
-	} 
+	}
+	testHeaderPrinter(3);
+	{
+		const Animal* cat1 = new Cat();
+		const Animal* cat2 = new Cat();
+		delete cat1;//should not create a leak
+		delete cat2;
+		std::cout<<W<<std::endl;
+	}
 	return 0;
 }

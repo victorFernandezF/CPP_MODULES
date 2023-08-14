@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:37:03 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 18:06:16 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 19:02:14 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Cat : public Animal{
 
 	public:
 		Cat();	
+		Cat(const Cat &copy);
 		Cat(std::string type);
-		Cat(Cat &copy);	
 		Cat &operator=(const Cat &copy);	
 		~Cat();
 		void makeSound() const;

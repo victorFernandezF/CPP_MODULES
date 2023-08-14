@@ -16,20 +16,23 @@ Cat::Cat(){
 	Brain *createdBrain = new Brain();
 	this->setType("Cat");
 	this->_brain = createdBrain;
-	std::cout<<Y<<"Cat constructor called"<<W<<std::endl;
+	std::cout<<"Cat constructor called"<<std::endl;
 }
 
 Cat::Cat(std::string type){
-	std::cout<<Y<<"Cat constructor called"<<W<<std::endl;
+	std::cout<<"Cat constructor called"<<std::endl;
 	this->setType(type);
 }
 
-Cat::Cat(Cat &copy){
+Cat::Cat(const Cat &copy): Animal(){
+	Brain *createdBrain = new Brain();
 	this->_type = copy._type;
+	this->_brain = createdBrain;
+	std::cout<<"Cat Copy constructor called"<<std::endl;	
 }	
 
 Cat &Cat::operator=(const Cat &copy){
-	std::cout<<Y<<"Cat Assignment operand."<<W<<std::endl;
+	std::cout<<"Cat Assignment operand."<<std::endl;
 	if (this != &copy)
 		this->setType(copy._type);
 	return (*this);
@@ -37,7 +40,7 @@ Cat &Cat::operator=(const Cat &copy){
 
 Cat::~Cat(){
 	delete(this->_brain);
-	std::cout<<Y<<"Cat Destructor."<<std::endl;
+	std::cout<<"Cat Destructor."<<std::endl;
 }
 
 void Cat::makeSound()const{	

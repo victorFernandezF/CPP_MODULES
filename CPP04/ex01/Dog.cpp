@@ -24,8 +24,11 @@ Dog::Dog(std::string type){
 	this->setType(type);
 }
 
-Dog::Dog(Dog &copy){
+Dog::Dog(const Dog &copy): Animal(){
+	Brain *createdBrain = new Brain();
 	this->_type = copy._type;
+	this->_brain = createdBrain;
+	std::cout<<Y<<"Cat Copy constructor called"<<W<<std::endl;	
 }	
 
 Dog &Dog::operator=(const Dog &copy){
