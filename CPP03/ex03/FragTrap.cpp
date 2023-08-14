@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 13:50:22 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 17:47:06 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,17 @@ FragTrap::FragTrap(FragTrap &copy){
 	this->setHit(copy.getHit());
 }
 
-/* FragTrap &FragTrap::operator=(const FragTrap &copy){
-	FragTrap aux;
-	aux = copy;
+FragTrap &FragTrap::operator=(const FragTrap &copy){
 	std::cout<<BG<<" FragTrap Assignment operand."<<W<<std::endl;
 	if (this != &copy)
 	{
-		this->setName(aux.getName());
-		this->setHit(aux.getHit());
-		this->setAttack(aux.getAttack());
-		this->setEnergy(aux.getEnergy());
+		this->setName(copy.getName());
+		this->setHit(copy.getHit());
+		this->setAttack(copy.getAttack());
+		this->setEnergy(copy.getEnergy());
 	}
 	return (*this);
-} */
+}
 
 void FragTrap::highFivesGuys(void){
 	std::cout<<BG<<"GIVE ME A HIGHT FIVE!!!"<<W<<std::endl;
