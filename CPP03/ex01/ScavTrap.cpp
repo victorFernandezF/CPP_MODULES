@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/09 12:25:10 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:48:58 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ ScavTrap::ScavTrap(ScavTrap &copy){
 	this->setHit(copy.getHit());
 }	
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &copy){
+/* ScavTrap &ScavTrap::operator=(const ScavTrap &copy){
 	ScavTrap aux;
 	aux = copy;
 	std::cout<<BB<<" cavTrap Assignment operand."<<W<<std::endl;
@@ -49,7 +49,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &copy){
 		this->setEnergy(aux.getEnergy());
 	}
 	return (*this);
-}
+} */
 
 ScavTrap::~ScavTrap(){
 	std::cout<<BB<<" ScavTrap Destructor."<<W<<std::endl;

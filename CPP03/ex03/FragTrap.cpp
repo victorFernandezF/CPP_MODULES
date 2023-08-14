@@ -6,18 +6,18 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/10 17:51:50 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:50:22 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(): ClapTrap(){
+FragTrap::FragTrap(){
 	std::cout<<BG<<" FragTrap Default constructor."<<W<<std::endl;
 	this->setName("Default");
-	this->_hitPoints = 100;
-	this->_energyPoints = 100;
-	this->_attackDamage = 30;
+	this->setHit(100);
+	this->setEnergy(100);
+	this->setAttack(30);
 }	
 FragTrap::FragTrap(std::string name){
 	std::cout<<BG<<" FragTrap Constructor with name."<<W<<std::endl;
@@ -39,7 +39,7 @@ FragTrap::FragTrap(FragTrap &copy){
 	this->setHit(copy.getHit());
 }
 
-FragTrap &FragTrap::operator=(const FragTrap &copy){
+/* FragTrap &FragTrap::operator=(const FragTrap &copy){
 	FragTrap aux;
 	aux = copy;
 	std::cout<<BG<<" FragTrap Assignment operand."<<W<<std::endl;
@@ -51,7 +51,7 @@ FragTrap &FragTrap::operator=(const FragTrap &copy){
 		this->setEnergy(aux.getEnergy());
 	}
 	return (*this);
-}
+} */
 
 void FragTrap::highFivesGuys(void){
 	std::cout<<BG<<"GIVE ME A HIGHT FIVE!!!"<<W<<std::endl;

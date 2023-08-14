@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/09 11:06:07 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:45:40 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ ClapTrap::~ClapTrap(){
 std::string ClapTrap::getName(void){
 	return (this->_name);
 }
-int ClapTrap::getHit(void){
+unsigned int ClapTrap::getHit(void){
 	return (this->_hitPoints);
 } 			
-int ClapTrap::getEnergy(void){
+unsigned int ClapTrap::getEnergy(void){
 	return (this->_energyPoints);
 } 			
-int ClapTrap::getAttack(void){
+unsigned int ClapTrap::getAttack(void){
 	return (this->_attackDamage);
 }
 

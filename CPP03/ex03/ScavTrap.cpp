@@ -6,18 +6,18 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/10 17:52:49 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:50:47 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(): ClapTrap(){
+ScavTrap::ScavTrap(){
 	std::cout<<BB<<" ScavTrap Default constructor."<<W<<std::endl;
 	this->setName("Default");
-	this->_hitPoints = 100;
-	this->_energyPoints = 50;
-	this->_attackDamage = 20;
+	this->setHit(100);
+	this->setEnergy(50);
+	this->setAttack(20);
 }	
 
 ScavTrap::ScavTrap(std::string name){
@@ -37,7 +37,7 @@ ScavTrap::ScavTrap(ScavTrap &copy){
 	this->setHit(copy.getHit());
 }	
 
-ScavTrap &ScavTrap::operator=(const ScavTrap &copy){
+/* ScavTrap &ScavTrap::operator=(const ScavTrap &copy){
 	ScavTrap aux;
 	aux = copy;
 	std::cout<<BB<<" cavTrap Assignment operand."<<W<<std::endl;
@@ -49,7 +49,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &copy){
 		this->setEnergy(aux.getEnergy());
 	}
 	return (*this);
-}
+} */
 
 ScavTrap::~ScavTrap(){
 	std::cout<<BB<<" ScavTrap Destructor."<<W<<std::endl;
