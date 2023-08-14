@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:37:03 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/10 19:47:13 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 12:09:47 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Dog : public Animal{
 		Dog(Dog &copy);	
 		Dog &operator=(const Dog &copy);	
 		~Dog();
-		void makeSound();
+		void makeSound() const;
 };
 
 #endif

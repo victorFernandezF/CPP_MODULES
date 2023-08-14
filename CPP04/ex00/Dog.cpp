@@ -37,7 +37,6 @@ Dog::~Dog(){
 	std::cout<<G<<"Dog Destructor."<<W<<std::endl;
 }
 
-void Dog::makeSound()
-{	
-	std::cout<<"Bark"<<std::endl;
+void Dog::makeSound() const{	
+	std::cout<<"Wof wof"<<std::endl;
 }

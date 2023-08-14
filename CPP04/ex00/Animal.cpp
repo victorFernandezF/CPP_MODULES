@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:23:26 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/10 19:48:05 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 12:13:14 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ Animal::~Animal(){
 void Animal::setType(std::string type){
 	this->_type = type;
 }
-std::string Animal::getType(void){
+std::string Animal::getType(void) const{
 	return (this->_type);
 }
 
-void Animal::makeSound()
-{	
+void Animal::makeSound() const{
+	std::cout<<".. generic animal sound .."<<std::endl;
 }

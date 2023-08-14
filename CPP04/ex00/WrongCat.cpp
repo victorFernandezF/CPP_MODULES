@@ -37,7 +37,6 @@ WrongCat::~WrongCat(){
 	std::cout<<Y<<"WrongCat Destructor."<<W<<std::endl;
 }
 
-void WrongCat::makeSound()
-{	
-	std::cout<<"WrongMew"<<std::endl;
+void WrongCat::makeSound() const{	
+	std::cout<<"Aaaaaa"<<std::endl;
 }

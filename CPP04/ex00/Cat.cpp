@@ -37,7 +37,6 @@ Cat::~Cat(){
 	std::cout<<Y<<"Cat Destructor."<<W<<std::endl;
 }
 
-void Cat::makeSound()
-{	
-	std::cout<<"Mew"<<std::endl;
+void Cat::makeSound()const{	
+	std::cout<<"Meaw Meaw"<<std::endl;
 }

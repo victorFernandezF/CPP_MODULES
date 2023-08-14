@@ -38,10 +38,10 @@ WrongAnimal::~WrongAnimal(){
 void WrongAnimal::setType(std::string type){
 	this->_type = type;
 }
-std::string WrongAnimal::getType(void){
+std::string WrongAnimal::getType(void) const{
 	return (this->_type);
 }
 
-void WrongAnimal::makeSound()
-{	
+void WrongAnimal::makeSound() const{
+	std::cout<<"*Generic animal sound* "<<std::endl;
 }
