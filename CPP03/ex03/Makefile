@@ -1,6 +1,7 @@
 NAME = ex03
 CC = g++
-FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98 
+FLAGS = -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp DiamondTrap.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 OBJ = $(SRC:.cpp=.o)
 
