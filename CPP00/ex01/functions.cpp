@@ -10,7 +10,9 @@ int is_alpha(std::string str){
 int checkSearchIndex(std::string str){
     int SearchIndex;
 
-    if (is_alpha(str))
+	if (str == "exit")
+		return (-2);
+	if (is_alpha(str) || str[0] == '\0')
         return (0);
     else
         SearchIndex = std::stoi(str);

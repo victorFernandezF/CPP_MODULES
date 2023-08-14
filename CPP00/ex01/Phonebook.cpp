@@ -19,7 +19,7 @@ void Phonebook::addContact(Contact contact){
 
 // Shows the complete list of existing contacte with an _index.
 void    Phonebook::showListing(void){
-    for (size_t i = 0; i < this->_maxContacts; i++)
+    for (int i = 0; i < this->_maxContacts; i++)
     {
         if (this->_contacts[i].getFirstName() == "")
             continue;
@@ -35,20 +35,21 @@ void    Phonebook::showListing(void){
 void    Phonebook::printIndexSearch(void){
     std::string search_IndexStr;
     int search_Index;
-    int flag;
 
-    std::cout<<std::endl<<B<<"-> Insert an _index > "<<W;
+    std::cout<<std::endl<<B<<"-> Insert an index > "<<W;
     std::getline(std::cin, search_IndexStr);
     search_Index = checkSearchIndex(search_IndexStr);
     std::cout<<std::endl;
-    if (this->_contacts[search_Index - 1].getFirstName() == "" || search_Index <= 0)
+    if (this->_contacts[search_Index - 1].getFirstName() == "" || search_Index <= 0 || search_Index == -2)
     {
-        if (search_Index == 0)
-            std::cout<<R<<"  *_Index must be a number"<<W<<std::endl<<std::endl;
+		if (search_Index == -2)
+			return;
+		if (search_Index == 0)
+            std::cout<<R<<"  * Index must be a number"<<W<<std::endl;
         else if (search_Index == -1)
-           std::cout<<R<<"  *_Index does not exist"<<W<<std::endl<<std::endl;
+           std::cout<<R<<"  * Index does not exist"<<W<<std::endl;
         else
-           std::cout<<R<<"  *_Index "<<search_Index<<" does not exist"<<W<<std::endl<<std::endl;
+           std::cout<<R<<"  * Index "<<search_Index<<" does not exist"<<W<<std::endl<<std::endl;
         this->showListing();
         this->printIndexSearch();
     }
