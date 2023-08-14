@@ -1,6 +1,7 @@
 NAME = ex05
 CC = g++
-FLAGS = -Wall -Wextra -Werror -std=c++98 
+FLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = Harl.cpp main.cpp
 OBJ = $(SRC:.cpp=.o)
 

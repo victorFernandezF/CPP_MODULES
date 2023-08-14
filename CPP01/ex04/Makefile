@@ -1,6 +1,7 @@
 NAME = ex04
 CC = g++
-FLAGS = -Wall -Wextra -Werror -std=c++98 
+FLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
