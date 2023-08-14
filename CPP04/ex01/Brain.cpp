@@ -6,25 +6,26 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 12:34:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 14:03:27 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 18:31:38 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
+#include "colors.h"
 
 Brain::Brain(){
-	std::cout<<B<<"Brain constructor called"<<W<<std::endl;
+	std::cout<<"Brain constructor called"<<std::endl;
 }
 
-Brain::Brain(Brain &copy){
-	for()
-	this->_ideas = copy._ideas;
+/* Brain::Brain(Brain &copy){
+
 }	
 
-/* Brain &Brain::operator=(const Brain &copy){
-	
+Brain &Brain::operator=(const Brain &copy){
+
 } */
 
 Brain::~Brain(){
-	std::cout<<B<<"Brain Destructor."<<W<<std::endl;
+	std::cout<<"Brain Destructor."<<std::endl;
 }
+

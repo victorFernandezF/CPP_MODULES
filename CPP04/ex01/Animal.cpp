@@ -6,14 +6,14 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:23:26 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 13:59:52 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 18:31:19 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal(){
-	std::cout<<B<<"Animal constructor called"<<W<<std::endl;
+	std::cout<<"Animal constructor called"<<std::endl;
 }
 
 Animal::Animal(std::string type): _type(type){
@@ -32,7 +32,7 @@ Animal &Animal::operator=(const Animal &copy){
 }
 
 Animal::~Animal(){
-	std::cout<<B<<"Animal Destructor."<<W<<std::endl;
+	std::cout<<"Animal Destructor."<<std::endl;
 }
 
 void Animal::setType(std::string type){

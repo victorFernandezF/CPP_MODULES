@@ -13,8 +13,10 @@
 #include "Dog.hpp"
 
 Dog::Dog(){
-	std::cout<<G<<"Dog constructor called"<<W<<std::endl;
+	Brain *createdBrain = new Brain();
 	this->setType("Dog");
+	this->_brain = createdBrain;
+	std::cout<<G<<"Dog constructor called"<<W<<std::endl;
 }
 
 Dog::Dog(std::string type){
@@ -34,7 +36,8 @@ Dog &Dog::operator=(const Dog &copy){
 }
 
 Dog::~Dog(){
-	std::cout<<G<<"Dog Destructor."<<W<<std::endl;
+	delete(this->_brain);
+	std::cout<<G<<"Dog Destructor."<<std::endl;
 }
 
 void Dog::makeSound() const{	
