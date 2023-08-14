@@ -6,13 +6,14 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 18:12:44 by victofer          #+#    #+#              #
-#    Updated: 2023/08/14 10:29:36 by victofer         ###   ########.fr        #
+#    Updated: 2023/08/14 13:15:47 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonelist
 CC = g++
-FLAGS = -Wall -Wextra -Werror -std=c++98 
+FLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp Contact.cpp functions.cpp Phonebook.cpp
 OBJ = $(SRC:.cpp=.o)
@@ -41,7 +42,7 @@ nice_text:
 	@echo ""                   
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo "$(G) program name: phonelist $(E)"
 
 clean:

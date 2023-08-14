@@ -6,14 +6,15 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 18:12:44 by victofer          #+#    #+#              #
-#    Updated: 2023/08/14 10:06:25 by victofer         ###   ########.fr        #
+#    Updated: 2023/08/14 13:13:35 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 SRC = megaphone.cpp
 CC = g++
-FLAGS = -Wall -Wextra -Werror -std=c++98 
+FLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = megaphone.cpp
 OBJ = $(SRC:.cpp=.o)
@@ -42,7 +43,7 @@ nice_text:
 	@echo ""                   
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo "$(G) program name: megaphone$(E)"
 
 clean:
