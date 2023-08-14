@@ -13,7 +13,6 @@
 #include "Dog.hpp"
 
 Dog::Dog(){
-	Brain *brain = new Brain();
 	std::cout<<G<<"Dog constructor called"<<W<<std::endl;
 	this->setType("Dog");
 }

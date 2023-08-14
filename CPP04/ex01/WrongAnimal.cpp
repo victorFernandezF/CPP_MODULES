@@ -21,7 +21,7 @@ WrongAnimal::WrongAnimal(std::string type): _type(type){
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal &copy){
-	
+	this->_type = copy._type;
 }	
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &copy){

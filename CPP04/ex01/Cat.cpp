@@ -13,8 +13,6 @@
 #include "Cat.hpp"
 
 Cat::Cat(){
-	Brain *brain = new Brain();
-	this->brain = brain;
 	std::cout<<Y<<"Cat constructor called"<<W<<std::endl;
 	this->setType("Cat");
 }
@@ -25,7 +23,7 @@ Cat::Cat(std::string type){
 }
 
 Cat::Cat(Cat &copy){
-	//this->_type = copy._type;
+	this->_type = copy._type;
 }	
 
 Cat &Cat::operator=(const Cat &copy){
@@ -37,7 +35,6 @@ Cat &Cat::operator=(const Cat &copy){
 
 Cat::~Cat(){
 	std::cout<<Y<<"Cat Destructor."<<W<<std::endl;
-	delete [] this->brain;
 }
 
 void Cat::makeSound()const{	

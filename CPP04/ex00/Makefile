@@ -1,8 +1,9 @@
-NAME = ex00
-CC = g++
-FLAGS = -Wall -Wextra -Werror -std=c++98 
-SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
-OBJ = $(SRC:.cpp=.o)
+NAME		= ex00
+CC			= g++
+FLAGS		= -Wall -Wextra -Werror -std=c++98 
+CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 
+SRC 		= main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+OBJ 		= $(SRC:.cpp=.o)
 
 # T E X T   S T U F F
 G		= \033[0;92m

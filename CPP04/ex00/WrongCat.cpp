@@ -23,7 +23,7 @@ WrongCat::WrongCat(std::string type){
 }
 
 WrongCat::WrongCat(WrongCat &copy){
-	//this->_type = copy._type;
+	this->_type = copy._type;
 }	
 
 WrongCat &WrongCat::operator=(const WrongCat &copy){

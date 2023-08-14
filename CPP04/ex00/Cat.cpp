@@ -23,7 +23,7 @@ Cat::Cat(std::string type){
 }
 
 Cat::Cat(Cat &copy){
-	//this->_type = copy._type;
+	this->_type = copy._type;
 }	
 
 Cat &Cat::operator=(const Cat &copy){

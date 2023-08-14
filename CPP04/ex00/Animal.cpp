@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:23:26 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 12:13:14 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/14 13:59:52 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Animal::Animal(std::string type): _type(type){
 }
 
 Animal::Animal(Animal &copy){
-	
+	this->_type = copy._type;
 }	
 
 Animal &Animal::operator=(const Animal &copy){
