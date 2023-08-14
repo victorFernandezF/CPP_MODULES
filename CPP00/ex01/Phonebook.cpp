@@ -2,8 +2,8 @@
 
 // Default Constructor
 Phonebook::Phonebook(void){
-	this->index = 0;
-	this->maxContacts = 8;
+	this->_index = 0;
+	this->_maxContacts = 8;
 };
 
 // Destructor
@@ -11,47 +11,47 @@ Phonebook::~Phonebook(void){};
 
 // Add a new contact. if there are 8. it will overwrite the older one.
 void Phonebook::addContact(Contact contact){
-    if (this->index == this->maxContacts)
-        this->index = 0;
-    this->contacts[this->index] = contact;
-    this->index++;
+    if (this->_index == this->_maxContacts)
+        this->_index = 0;
+    this->_contacts[this->_index] = contact;
+    this->_index++;
 }
 
-// Shows the complete list of existing contacte with an index.
+// Shows the complete list of existing contacte with an _index.
 void    Phonebook::showListing(void){
-    for (size_t i = 0; i < this->maxContacts; i++)
+    for (size_t i = 0; i < this->_maxContacts; i++)
     {
-        if (this->contacts[i].getFirstName() == "")
+        if (this->_contacts[i].getFirstName() == "")
             continue;
 
         std::cout<<std::setw(10)<<B<<i + 1<<W<<'|';
-        std::cout<<std::setw(10)<<contacts[i].stringParser(contacts[i].getFirstName())<<'|';
-        std::cout<<std::setw(10)<<contacts[i].stringParser(contacts[i].getLastName())<<'|';
-        std::cout<<std::setw(10)<<contacts[i].stringParser(contacts[i].getNickName())<<'|'<<std::endl;
+        std::cout<<std::setw(10)<<_contacts[i].stringParser(_contacts[i].getFirstName())<<'|';
+        std::cout<<std::setw(10)<<_contacts[i].stringParser(_contacts[i].getLastName())<<'|';
+        std::cout<<std::setw(10)<<_contacts[i].stringParser(_contacts[i].getNickName())<<'|'<<std::endl;
     }
 }
 
-// Ask an index and show the contact info for this index. 
+// Ask an _index and show the contact info for this _index. 
 void    Phonebook::printIndexSearch(void){
-    std::string searchIndexStr;
-    int searchIndex;
+    std::string search_IndexStr;
+    int search_Index;
     int flag;
 
-    std::cout<<std::endl<<B<<"-> Insert an index > "<<W;
-    std::getline(std::cin, searchIndexStr);
-    searchIndex = checkSearchIndex(searchIndexStr);
+    std::cout<<std::endl<<B<<"-> Insert an _index > "<<W;
+    std::getline(std::cin, search_IndexStr);
+    search_Index = checkSearchIndex(search_IndexStr);
     std::cout<<std::endl;
-    if (this->contacts[searchIndex - 1].getFirstName() == "" || searchIndex <= 0)
+    if (this->_contacts[search_Index - 1].getFirstName() == "" || search_Index <= 0)
     {
-        if (searchIndex == 0)
-            std::cout<<R<<"  *Index must be a number"<<W<<std::endl<<std::endl;
-        else if (searchIndex == -1)
-           std::cout<<R<<"  *Index does not exist"<<W<<std::endl<<std::endl;
+        if (search_Index == 0)
+            std::cout<<R<<"  *_Index must be a number"<<W<<std::endl<<std::endl;
+        else if (search_Index == -1)
+           std::cout<<R<<"  *_Index does not exist"<<W<<std::endl<<std::endl;
         else
-           std::cout<<R<<"  *Index "<<searchIndex<<" does not exist"<<W<<std::endl<<std::endl;
+           std::cout<<R<<"  *_Index "<<search_Index<<" does not exist"<<W<<std::endl<<std::endl;
         this->showListing();
         this->printIndexSearch();
     }
     else
-        std::cout<<this->contacts[searchIndex - 1].toString()<<std::endl;
+        std::cout<<this->_contacts[search_Index - 1].toString()<<std::endl;
 }

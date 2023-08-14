@@ -6,11 +6,11 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 18:12:44 by victofer          #+#    #+#              #
-#    Updated: 2023/07/24 10:26:21 by victofer         ###   ########.fr        #
+#    Updated: 2023/08/14 10:28:43 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = account
+NAME = ex02
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98 
 
@@ -37,12 +37,12 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║████╔╝██║"
 	@echo "╚██████╗██║     ██║           ╚██████╔╝╚██████╔╝"
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝  ╚═════╝ "
-	@echo "$(B) 	 	  EX01 ACCOUNT				 $(E)"                   
+	@echo "$(B) 	 	  EX02 ACCOUNT				 $(E)"                   
 	@echo ""                   
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo "$(G) account created $(E)"
+	@echo "$(G) program name: ex02 $(E)"
 
 clean:
 	@rm -rf $(OBJ)

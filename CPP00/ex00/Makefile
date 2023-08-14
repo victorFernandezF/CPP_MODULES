@@ -6,7 +6,7 @@
 #    By: victofer <victofer@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/08 18:12:44 by victofer          #+#    #+#              #
-#    Updated: 2023/07/24 10:28:20 by victofer         ###   ########.fr        #
+#    Updated: 2023/08/14 10:06:25 by victofer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ nice_text:
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
-	@echo "$(G) megaphone created $(E)"
+	@echo "$(G) program name: megaphone$(E)"
 
 clean:
 	@rm -rf $(OBJ)

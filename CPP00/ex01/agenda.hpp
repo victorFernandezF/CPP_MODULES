@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   agenda.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/14 10:16:03 by victofer          #+#    #+#             */
+/*   Updated: 2023/08/14 10:17:45 by victofer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#pragma once
 #ifndef AGENDA_HPP
 # define AGENDA_HPP
 # include <iostream>
@@ -16,6 +29,7 @@
 # define BY	"\x1B[93m"
 # define BM	"\x1B[95m"
 
+// F U N C T I O N S
 int is_alpha(std::string str);
 int transformIndex(std::string searchIndexStr, int searchIndex);
 int checkLimits(int nb);

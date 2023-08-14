@@ -69,7 +69,7 @@ void Contact::setSecret(void){
         this->setSecret();
     }
 }
-void Contact::fakestructor(void){
+void Contact::fillContacts(void){
     this->setFirstName();
     this->setLastName();
     this->setNickName();

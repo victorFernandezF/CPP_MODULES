@@ -2,9 +2,9 @@
 
 class Phonebook{
     private:
-        Contact contacts[8];
-        int     index;
-        int     maxContacts;
+        Contact _contacts[8];
+        int     _index;
+        int     _maxContacts;
     
     public:
         Phonebook(void);

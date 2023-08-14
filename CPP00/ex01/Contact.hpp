@@ -24,5 +24,5 @@ class Contact {
         void setSecret(void);
         std::string stringParser(std::string str);
         std::string toString(void);
-        void fakestructor(void);
+        void fillContacts(void);
 };

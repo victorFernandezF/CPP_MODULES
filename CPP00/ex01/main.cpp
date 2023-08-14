@@ -14,7 +14,7 @@ int main(int argc, char const *argv[])
         if (cmd == "ADD" || cmd == "add")
         {
             Contact contact;
-            contact.fakestructor();
+            contact.fillContacts();
             phonebook.addContact(contact);
         }
         else if (cmd == "SEARCH" || cmd == "search") {
