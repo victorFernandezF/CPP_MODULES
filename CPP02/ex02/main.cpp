@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:54:05 by victofer          #+#    #+#             */
-/*   Updated: 2023/07/27 12:05:29 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:05:25 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int main( void ) {
 	{
-		std::cout<<std::endl<<BR<<"--- [SUBJECT TEST] --- "<<W<<std::endl;
+		std::cout<<std::endl<<BM<<"--- [SUBJECT TEST] --- "<<W<<std::endl;
 		Fixed a;
 		Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
 		std::cout << a << std::endl; //0
@@ -29,7 +29,7 @@ int main( void ) {
 	{
 		Fixed a(5);
 		Fixed b(2);
-		std::cout<<std::endl<<BR<<"--- [MY TESTS] --- "<<W<<std::endl;
+		std::cout<<std::endl<<BM<<"--- [MY TESTS] --- "<<W<<std::endl;
 		std::cout<<std::endl<<G<<" ** [ARITHMETIC OPERATORS] ** "<<W<<std::endl;
 		std::cout <<BOLD<<"	Initial value of a:      "<<a <<std::endl;
 		std::cout <<BOLD<<"	Initial value of b:      "<<b<<Y<<std::endl;
@@ -48,7 +48,7 @@ int main( void ) {
 		std::cout <<BOLD<<"	Initial value of b:  "<<b<<std::endl;
 		std::cout <<Y<<"	Result of doing a++: "<<W<<a++<<std::endl;
 		std::cout <<BY<<"	Result of doing ++b: "<<W<<++b<<std::endl;
-		std::cout <<B<<"	  Current values "<<std::endl;
+		std::cout <<C<<"	  Current values "<<std::endl;
 		std::cout <<Y<<"	Current value of a:  "<<W<<a<<std::endl;
 		std::cout <<BY<<"	Current value of b:  "<<W<<b<<std::endl;
 	}
@@ -60,7 +60,7 @@ int main( void ) {
 		std::cout <<BOLD<<"	Initial value of b:  "<<b<<std::endl;
 		std::cout <<Y<<"	Result of doing a--: "<<W<<a--<<std::endl;
 		std::cout <<BY<<"	Result of doing --b: "<<W<<--b<<std::endl;
-		std::cout <<B<<"	  Current values "<<std::endl;
+		std::cout <<C<<"	  Current values "<<std::endl;
 		std::cout <<Y<<"	Current value of a:  "<<W<<a<<std::endl;
 		std::cout <<BY<<"	Current value of b:  "<<W<<b<<std::endl;
 	}
@@ -85,7 +85,7 @@ int main( void ) {
 		std::cout <<BY<<"	Comparing {a <= b}: "<<W<<(a <= b)<<std::endl;
 		std::cout <<Y<<"	Comparing {a == b}: "<<W<<(a == b)<<std::endl;
 		std::cout <<BY<<"	Comparing {a != b}: "<<W<<(a != b)<<std::endl;
-		std::cout<<std::endl<<BR<<"--- [DONE] --- "<<W<<std::endl;
+		std::cout<<std::endl<<BM<<"--- [DONE] --- "<<W<<std::endl;
 	}
 	return 0;
 }

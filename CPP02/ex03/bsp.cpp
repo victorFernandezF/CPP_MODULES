@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 12:09:41 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/07 13:04:16 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:11:47 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void printP(Point const a, Point const b, Point const c, Point const point)
 {
 	std::cout<<BG<<"Vertice a:      "<<G;
 	a.printPoint();
-	std::cout<<BB<<std::endl<<"Vertice b:      "<<B;
+	std::cout<<BC<<std::endl<<"Vertice b:      "<<C;
 	b.printPoint();
 	std::cout<<BY<<std::endl<<"Vertice c:      "<<Y;
 	c.printPoint();
-	std::cout<<BR<<std::endl<<"Point to check: "<<R;
+	std::cout<<BM<<std::endl<<"Point to check: "<<M;
 	point.printPoint();
 	std::cout<<W<<std::endl<<std::endl;
 }
