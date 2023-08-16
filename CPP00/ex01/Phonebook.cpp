@@ -24,7 +24,7 @@ void    Phonebook::showListing(void){
         if (this->_contacts[i].getFirstName() == "")
             continue;
 
-        std::cout<<std::setw(10)<<B<<i + 1<<W<<'|';
+        std::cout<<std::setw(10)<<C<<i + 1<<W<<'|';
         std::cout<<std::setw(10)<<_contacts[i].stringParser(_contacts[i].getFirstName())<<'|';
         std::cout<<std::setw(10)<<_contacts[i].stringParser(_contacts[i].getLastName())<<'|';
         std::cout<<std::setw(10)<<_contacts[i].stringParser(_contacts[i].getNickName())<<'|'<<std::endl;
@@ -36,10 +36,9 @@ void    Phonebook::printIndexSearch(void){
     std::string search_IndexStr;
     int search_Index;
 
-    std::cout<<std::endl<<B<<"-> Insert an index > "<<W;
+    std::cout<<C<<"\n-> Insert an index > "<<W;
     std::getline(std::cin, search_IndexStr);
     search_Index = checkSearchIndex(search_IndexStr);
-    std::cout<<std::endl;
     if (this->_contacts[search_Index - 1].getFirstName() == "" || search_Index <= 0 || search_Index == -2)
     {
 		if (search_Index == -2)
@@ -49,7 +48,7 @@ void    Phonebook::printIndexSearch(void){
         else if (search_Index == -1)
            std::cout<<R<<"  * Index does not exist"<<W<<std::endl;
         else
-           std::cout<<R<<"  * Index "<<search_Index<<" does not exist"<<W<<std::endl<<std::endl;
+           std::cout<<R<<"  * Index "<<search_Index<<" does not exist"<<W<<std::endl;
         this->showListing();
         this->printIndexSearch();
     }
