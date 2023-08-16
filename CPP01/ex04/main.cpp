@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "colours.h"
 
 
 static int isSpaceTabNewLine(char c){
@@ -36,8 +37,8 @@ int main(int argc, char **argv)
 	
 	if (argc != 4)
 	{
-		std::cout<<"ERROR: Too few arguments."<<std::endl
-		<<" [filename][s1][s2]"<<std::endl;
+		std::cout<<R<<"ERROR: Too few arguments."<<W<<std::endl
+		<<" ->[filename][s1][s2]"<<std::endl;
 		return 1;
 	}
 	rest = ".replace";
@@ -46,11 +47,11 @@ int main(int argc, char **argv)
 	file.open(argv[1]);
 	if (file.fail())
 	{
-		std::cout<<"Input file does not exist or is corrupted"<<std::endl;
+		std::cout<<R<<"Input file does not exist or is corrupted"<<W<<std::endl;
 		return 1;
 	}
 	replace(argv, newFileName, file);
-	std::cout<<"SUCCESS"<<std::endl;
+	std::cout<<G<<"SUCCESS"<<B<<std::endl;
 	file.close();
 	return 0;
 }

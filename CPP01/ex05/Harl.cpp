@@ -12,7 +12,7 @@ void Harl::_debug(void){
 }
 
 void Harl::_info(void){
-	std::cout<<std::endl<<B<<"[INFO]"<<W<<std::endl
+	std::cout<<std::endl<<C<<"[INFO]"<<W<<std::endl
 	<<"I cannot believe adding extra bacon costs more "
 	<<"money. You didn't put enough bacon in my burger!"
 	<< "If you did, I wouldn't be asking for more!"<<std::endl;
