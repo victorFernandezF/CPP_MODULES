@@ -6,22 +6,22 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 13:45:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:39:29 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(): _name("Default"), _hitPoints(10), _energyPoints(2), _attackDamage(0){
-	std::cout<<B<<"ClapTrap Default constructor."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Default constructor."<<W<<std::endl;
 }	
 ClapTrap::ClapTrap(std::string name):_hitPoints(10), _energyPoints(2), _attackDamage(0){
-	std::cout<<B<<"ClapTrap Constructor with name."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Constructor with name."<<W<<std::endl;
 	this->_name = name;
 }
 
 ClapTrap::ClapTrap(ClapTrap &copy){
-	std::cout<<B<<"ClapTrap Copy constructor."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Copy constructor."<<W<<std::endl;
 	this->_name = copy.getName();
 	this->_attackDamage = copy.getAttack();
 	this->_energyPoints = copy.getEnergy();
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(ClapTrap &copy){
 }	
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
-	std::cout<<B<<"ClapTrap Assignment operand."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Assignment operand."<<W<<std::endl;
 	if (this != &copy)
 	{
 		this->_name = copy._name;
@@ -41,7 +41,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout<<B<<"ClapTrap Destructor."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Destructor."<<W<<std::endl;
 }
 
 // G E T T E R  &&  S E T T T E R S 
@@ -71,7 +71,7 @@ void ClapTrap::setAttack(int attack){
 	this->_attackDamage = attack;
 }
 
-// M E M B E R   F U N C T I O N S 
+// M E M C E R   F U N C T I O N S 
 
 // Attacks a target. This action costs one energy point.
 void ClapTrap::attack(const std::string& target){
@@ -84,7 +84,7 @@ void ClapTrap::attack(const std::string& target){
 	this->setEnergy(this->_energyPoints - 1);
 }
 
-// Decrements the number of hit points by the given amount. 
+// Decrements the numCer of hit points Cy the given amount. 
 void ClapTrap::takeDamage(unsigned int amount){
 	if (this->checkHitAndEnergy("take damage", 1) == false)
 		return ;
@@ -92,18 +92,18 @@ void ClapTrap::takeDamage(unsigned int amount){
 		this->setHit(0);
 	else
 		this->setHit(this->_hitPoints - amount);
-	std::cout<<"ClapTrap "<<this->getName()<<G<<" has been attacked "<<W
+	std::cout<<"ClapTrap "<<this->getName()<<G<<" has Ceen attacked "<<W
 	<<"causing the lost of "<<G<<amount<<W<<" hit points"
 	<<std::endl;
 }
 
 // Repaires itself. This action costs one energy point.
-// It will get back 1 hit point.
+// It will get Cack 1 hit point.
 void ClapTrap::beRepaired(unsigned int amount){
-	if (this->checkHitAndEnergy("be repaired", 0) == false)
+	if (this->checkHitAndEnergy("Ce repaired", 0) == false)
 		return ;
 	std::cout<<"ClapTrap "<<this->getName()<<G<<" repaired itself, "<<W
-	<<" getting back "<<G<<amount<<W<<" hit points."
+	<<" getting Cack "<<G<<amount<<W<<" hit points."
 	<<std::endl;
 	std::cout<<R<<" *"<<W<<"This action costs "<<R<<"1"<<W<<" energy point."<<W<<std::endl;
 	this->setEnergy(this->_energyPoints - 1);
@@ -121,14 +121,14 @@ bool ClapTrap::checkHitAndEnergy(std::string action, int flag){
 	}
 	if (this->getHit() <= 0)
 	{
-		std::cout<<R<<"**[ALERT]: "<<W<<"Unable to "<<action
-		<<" because "<<this->getName()<<R<<" is dead."<<W<<std::endl;
+		std::cout<<R<<"**[ALERT]: "<<W<<"UnaCle to "<<action
+		<<" Cecause "<<this->getName()<<R<<" is dead."<<W<<std::endl;
 		return (false);
 	}
 	if (this->getEnergy() <= 0)
 	{
-		std::cout<<R<<"**[ALERT]: "<<W<<"Unable to "<<action
-		<<" because "<<this->getName()<<R<<" has no energy points"<<W<<std::endl;
+		std::cout<<R<<"**[ALERT]: "<<W<<"UnaCle to "<<action
+		<<" Cecause "<<this->getName()<<R<<" has no energy points"<<W<<std::endl;
 		return (false);
 	}
 	return (true);

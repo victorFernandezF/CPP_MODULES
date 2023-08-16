@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/09 12:30:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:48:46 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 int main(void)
 {
 	std::cout<<BM<<" ◉ -- [TEST 1] -- ◉"<<std::endl
-	<<GR<<"	This test only instances an object from each class and prints "<<std::endl
-	<<"	their statuses. Just to see that each one gets "
+	<<BB<<" This test only instances an object from each class and prints "<<std::endl
+	<<" their statuses. Just to see that each one gets "
 	<<"te correct values."<<std::endl<<std::endl;
 	{
 		ClapTrap clap("CLAPPY");
@@ -31,8 +31,8 @@ int main(void)
 	<<"___________________________________"<<std::endl
 	<<std::endl;
 	std::cout<<std::endl<<BM<<"◉ -- [TEST 2] -- ◉"<<std::endl
-	<<GR<<"	This test instances an object from the class: FragTrap "<<std::endl
-	<<"	and does some actions."<<std::endl<<std::endl;
+	<<BB<<" This test instances an object from the class: FragTrap "<<std::endl
+	<<" and does some actions."<<std::endl<<std::endl;
 	{
 		FragTrap frag("FRAGGY");
 		frag.printStatus();

@@ -6,14 +6,14 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 17:50:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:51:40 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 ScavTrap::ScavTrap(){
-	std::cout<<BB<<" ScavTrap Default constructor."<<W<<std::endl;
+	std::cout<<C<<"ScavTrap Default constructor."<<W<<std::endl;
 	this->setName("Default");
 	this->setHit(100);
 	this->setEnergy(50);
@@ -21,7 +21,7 @@ ScavTrap::ScavTrap(){
 }	
 
 ScavTrap::ScavTrap(std::string name){
-	std::cout<<BB<<" ScavTrap constructor with name."<<W<<std::endl;
+	std::cout<<C<<"ScavTrap constructor with name."<<W<<std::endl;
 	this->setName(name);
 	this->setHit(100);
 	this->setEnergy(50);
@@ -30,7 +30,7 @@ ScavTrap::ScavTrap(std::string name){
 
 
 ScavTrap::ScavTrap(ScavTrap &copy){
-	std::cout<<BB<<" ScavTrap Copy constructor."<<W<<std::endl;
+	std::cout<<C<<"ScavTrap Copy constructor."<<W<<std::endl;
 	this->setName(copy.getName());
 	this->setAttack(copy.getAttack());
 	this->setEnergy(copy.getEnergy());
@@ -38,7 +38,7 @@ ScavTrap::ScavTrap(ScavTrap &copy){
 }	
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &copy){
-	std::cout<<BB<<" cavTrap Assignment operand."<<W<<std::endl;
+	std::cout<<C<<"ScavTrap Assignment operand."<<W<<std::endl;
 	if (this != &copy)
 	{
 		this->setName(copy.getName());
@@ -50,7 +50,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &copy){
 }
 
 ScavTrap::~ScavTrap(){
-	std::cout<<BB<<" ScavTrap Destructor."<<W<<std::endl;
+	std::cout<<C<<"ScavTrap Destructor."<<W<<std::endl;
 }
 
 // Attacks a target. This action costs one energy point.

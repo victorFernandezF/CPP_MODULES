@@ -6,22 +6,22 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 13:45:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:43:05 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(): _name("Default"), _hitPoints(10), _energyPoints(2), _attackDamage(0){
-	std::cout<<B<<"ClapTrap Default constructor."<<W<<std::endl;
+	std::cout<<BC<<"ClapTrap Default constructor."<<W<<std::endl;
 }	
 ClapTrap::ClapTrap(std::string name):_hitPoints(10), _energyPoints(2), _attackDamage(0){
-	std::cout<<B<<"ClapTrap Constructor with name."<<W<<std::endl;
+	std::cout<<BC<<"ClapTrap Constructor with name."<<W<<std::endl;
 	this->_name = name;
 }
 
 ClapTrap::ClapTrap(ClapTrap &copy){
-	std::cout<<B<<"ClapTrap Copy constructor."<<W<<std::endl;
+	std::cout<<BC<<"ClapTrap Copy constructor."<<W<<std::endl;
 	this->_name = copy.getName();
 	this->_attackDamage = copy.getAttack();
 	this->_energyPoints = copy.getEnergy();
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(ClapTrap &copy){
 }	
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
-	std::cout<<B<<"ClapTrap Assignment operand."<<W<<std::endl;
+	std::cout<<BC<<"ClapTrap Assignment operand."<<W<<std::endl;
 	if (this != &copy)
 	{
 		this->_name = copy._name;
@@ -41,7 +41,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout<<B<<"ClapTrap Destructor."<<W<<std::endl;
+	std::cout<<BC<<"ClapTrap Destructor."<<W<<std::endl;
 }
 
 // G E T T E R  &&  S E T T T E R S 

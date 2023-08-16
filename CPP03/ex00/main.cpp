@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/09 12:39:36 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:40:18 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int main(void)
 {
 	std::cout<<std::endl<<BM<<"◉ -- [TEST 1] -- ◉"<<std::endl
-	<<GR<<"	This test instances an object from the class: ClapTrap "<<std::endl
-	<<"	and does some actions."<<std::endl<<std::endl;
+	<<BB<<" This test instances an object from the class: ClapTrap "<<std::endl
+	<<" and does some actions."<<std::endl<<std::endl;
 	{
 		ClapTrap claptrap("MAQUINITA");	
 		claptrap.printStatus();
@@ -30,8 +30,8 @@ int main(void)
 	<<"___________________________________"<<std::endl
 	<<std::endl;
 	std::cout<<std::endl<<BM<<"◉ -- [TEST 2] -- ◉"<<std::endl
-	<<GR<<"	This test instances an object from the class: ClapTrap "<<std::endl
-	<<"	and does some actions."<<std::endl<<std::endl;
+	<<BB<<" This test instances an object from the class: ClapTrap "<<std::endl
+	<<" and does some actions."<<std::endl<<std::endl;
 	{
 		ClapTrap claptrap;
 		claptrap.printStatus();
