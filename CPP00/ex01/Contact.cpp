@@ -1,9 +1,6 @@
 #include "agenda.hpp"
 
-// Default constructor
 Contact::Contact(void){}
-
-// Destructor
 Contact::~Contact(void){}
 
 // GETTERS

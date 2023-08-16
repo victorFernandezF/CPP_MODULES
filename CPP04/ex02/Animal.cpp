@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:23:26 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 13:20:26 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 13:50:09 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,4 @@ Animal &Animal::operator=(const Animal &copy){
 
 Animal::~Animal(){
 	std::cout<<"Animal Destructor."<<std::endl;
-}
-
-void Animal::setType(std::string type){
-	this->_type = type;
-}
-std::string Animal::getType(void) const{
-	return (this->_type);
-}
-
-void Animal::makeSound() const{
-	std::cout<<".. generic animal sound .."<<std::endl;
 }
