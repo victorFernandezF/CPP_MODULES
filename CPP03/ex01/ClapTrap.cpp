@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:43:05 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 18:22:10 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,33 +28,33 @@ ClapTrap::ClapTrap(ClapTrap &copy){
 	this->_hitPoints = copy.getHit();
 }	
 
-ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
-	std::cout<<BC<<"ClapTrap Assignment operand."<<W<<std::endl;
+/* ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
+	std::cout<<"Copy assignmen operatorcalled"<<std::endl;
 	if (this != &copy)
 	{
-		this->_name = copy._name;
-		this->_hitPoints = copy._hitPoints;
-		this->_energyPoints = copy._energyPoints;
-		this->_attackDamage = copy._attackDamage;
+		this->setName(copy.getName());
+		this->setAttack(copy.getAttack());
+		this->setEnergy(copy.getEnergy());
+		this->setHit(copy.getHit());
 	}
 	return (*this);
-}
+} */
 
 ClapTrap::~ClapTrap(){
 	std::cout<<BC<<"ClapTrap Destructor."<<W<<std::endl;
 }
 
 // G E T T E R  &&  S E T T T E R S 
-std::string ClapTrap::getName(void){
+std::string ClapTrap::getName(void) const{
 	return (this->_name);
 }
-unsigned int ClapTrap::getHit(void){
+unsigned int ClapTrap::getHit(void) const{
 	return (this->_hitPoints);
 } 			
-unsigned int ClapTrap::getEnergy(void){
+unsigned int ClapTrap::getEnergy(void) const{
 	return (this->_energyPoints);
 } 			
-unsigned int ClapTrap::getAttack(void){
+unsigned int ClapTrap::getAttack(void) const{
 	return (this->_attackDamage);
 }
 
@@ -92,7 +92,7 @@ void ClapTrap::takeDamage(unsigned int amount){
 		this->setHit(0);
 	else
 		this->setHit(this->_hitPoints - amount);
-	std::cout<<"ClapTrap "<<this->getName()<<G<<" has been attacked "<<W
+	std::cout<<W<<"ClapTrap "<<this->getName()<<G<<" has been attacked "<<W
 	<<"causing the lost of "<<G<<amount<<W<<" hit points"
 	<<std::endl;
 }

@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 17:59:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 18:25:42 by victofer         ###   ########.fr       */
+/*   Created: 2023/08/16 19:11:46 by victofer          #+#    #+#             */
+/*   Updated: 2023/08/16 19:13:20 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#ifndef SCAVTRAP_HPP
-# define SCAVTRAP_HPP
-# include <iostream>
-# include "ClapTrap.hpp"
+#include "Character.hpp"
 
-
-class ScavTrap: public ClapTrap{
-	public:
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(ScavTrap &copy);	
-		ScavTrap & operator=(const ScavTrap &copy);
-		~ScavTrap();
-		void guardGate();
-		void attack(const std::string& target);
-};
-
-#endif
+Character::Character(){}
+Character::~Character(){}
+std::string const &Character::getName() const{} 
+void Character::equip(AMateria* m){}
+void Character::unequip(int idx){}
+void Character::use(int idx, ICharacter& target){}

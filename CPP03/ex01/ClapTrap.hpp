@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:52:51 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:41:17 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 17:45:47 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ class ClapTrap{
 		ClapTrap &operator=(const ClapTrap &copy);	
 		~ClapTrap();
 		
-		std::string getName(void); 			
-		unsigned int getHit(void); 			
-		unsigned int getEnergy(void); 			
-		unsigned int getAttack(void); 			
+		std::string getName(void) const; 			
+		unsigned int getHit(void) const; 			
+		unsigned int getEnergy(void) const; 			
+		unsigned int getAttack(void) const; 			
 		
 		bool checkHitAndEnergy(std::string action, int flag);
 		void printStatus(void);
