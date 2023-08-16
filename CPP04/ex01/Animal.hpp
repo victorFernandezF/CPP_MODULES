@@ -14,7 +14,7 @@
 #ifndef ANIMAL_HPP
 # define ANIMAL_HPP
 # include <iostream>
-# include "colors.h"
+# include "colours.h"
 
 class Animal{
 	protected:

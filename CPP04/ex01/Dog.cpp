@@ -16,7 +16,7 @@ Dog::Dog(){
 	Brain *createdBrain = new Brain();
 	this->setType("Dog");
 	this->_brain = createdBrain;
-	std::cout<<G<<"Dog constructor called"<<W<<std::endl;
+	std::cout<<"Dog constructor called"<<W<<std::endl;
 }
 
 Dog::Dog(std::string type){
@@ -40,7 +40,7 @@ Dog &Dog::operator=(const Dog &copy){
 
 Dog::~Dog(){
 	delete(this->_brain);
-	std::cout<<G<<"Dog Destructor."<<std::endl;
+	std::cout<<"Dog Destructor."<<std::endl;
 }
 
 void Dog::makeSound() const{	

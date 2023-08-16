@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 19:11:42 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 13:01:50 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 void leaks(void)
 {
+	std::cout<<M<<" -- [ LEAKS ] -- "<<W<<std::endl;
 	system("leaks -q ex01");
 }
 
@@ -24,7 +25,7 @@ void testHeaderPrinter(int testNb)
 	if (testNb == 1)
 	{
 		std::cout<<std::endl<<BM<<"◉ -- [TEST 1] -- ◉"<<std::endl
-		<<GR<<" This is the subject example. It will creates a Cat, "<<std::endl
+		<<BB<<" This is the subject example. It will creates a Cat, "<<std::endl
 		<<" and a Dog. Then they will be deleted (without leaks)."<<W<<std::endl<<std::endl;
 	}
 	if (testNb == 2)
@@ -33,7 +34,7 @@ void testHeaderPrinter(int testNb)
 		<<W<<"___________________________________"<<std::endl
 		<<std::endl;
 		std::cout<<std::endl<<BM<<"◉ -- [TEST 2] -- ◉"<<std::endl
-		<<GR<<" Now we are going to create an array of animals."<<std::endl
+		<<BB<<" Now we are going to create an array of animals."<<std::endl
 		<<" One half will be cats and the other dogs. Then each"<<std::endl
 		<<" one will be deleted (no leaks)"<<std::endl
 		<<W<<std::endl;
@@ -44,7 +45,7 @@ void testHeaderPrinter(int testNb)
 		<<W<<"___________________________________"<<std::endl
 		<<std::endl;
 		std::cout<<std::endl<<BM<<"◉ -- [TEST 3] -- ◉"<<std::endl
-		<<GR<<" Testing deep copy."<<std::endl
+		<<BB<<" Testing deep copy."<<std::endl
 		<<W<<std::endl;
 	}
 }
@@ -61,7 +62,7 @@ int main(void)
 	}
 	testHeaderPrinter(2);
 	{
-		int maximun = 3;
+		int maximun = 6;
 		const Animal *animal[maximun];
 		for (int i = 0; i < maximun; i++)
 		{
@@ -92,11 +93,22 @@ int main(void)
 	}
 	testHeaderPrinter(3);
 	{
-		const Animal* cat1 = new Cat();
-		const Animal* cat2 = new Cat();
-		delete cat1;//should not create a leak
-		delete cat2;
-		std::cout<<W<<std::endl;
+		const Cat *cats[2];
+		std::cout<<BB<<" *We created one cat 'cat 1'"<<W<<std::endl;
+		cats[0] = new Cat();
+		std::cout<<BB<<"\n *What does cat 1 say? "<<W<<std::endl;
+		cats[0]->makeSound();
+		std::cout<<BB<<"\n *Now we created a new cat 'cat 2' that is a copy "
+		<<"of cat 1."<<W<<std::endl;
+		cats[1] = new Cat(*cats[0]);
+		std::cout<<BB<<"\n *We are goint to delete cat 1"<<W<<std::endl;
+		delete(cats[0]);
+		std::cout<<BB<<"\n *What does cat 2 say? "<<W<<std::endl;
+		cats[1]->makeSound();
+		std::cout<<BB<<"\n *It is alive!! That means the copy works fine \n"
+		<<" Now is time to delete cat 2.\n"<<W<<std::endl;
+		delete(cats[1]);
+		std::cout<<std::endl;
 	}
 	return 0;
 }

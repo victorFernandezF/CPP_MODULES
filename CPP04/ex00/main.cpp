@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 12:24:35 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 12:57:02 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 void leaks(void)
 {
+	std::cout<<M<<"\n -- [ LEAKS ] -- "<<W<<std::endl;
 	system("leaks -q ex00");
 }
 
@@ -23,8 +24,8 @@ int main(void)
 {
 	atexit(leaks);
 	std::cout<<std::endl<<BM<<"◉ -- [TEST 1] -- ◉"<<std::endl
-	<<GR<<"	This is the subject example. It will creates an Animal, "<<std::endl
-	<<"	a Dog and a Cat. Prints their types and prints their sounds.	"<<W<<std::endl<<std::endl;
+	<<BB<<" This is the subject example. It will creates an Animal, "<<std::endl
+	<<" a Dog and a Cat. Prints their types and prints their sounds.	"<<W<<std::endl<<std::endl;
 	{
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
@@ -42,8 +43,8 @@ int main(void)
 	<<"___________________________________"<<std::endl
 	<<std::endl;
 	std::cout<<std::endl<<BM<<"◉ -- [TEST 2] -- ◉"<<std::endl
-	<<GR<<"	In this case the Animal has been replaced by WrongAnimal, "<<std::endl
-	<<"	and the Cat by WrongCat. Prints their types and prints their sounds.	"<<W<<std::endl<<std::endl;
+	<<BB<<" In this case the Animal has been replaced by WrongAnimal, "<<std::endl
+	<<" and the Cat by WrongCat. Prints their types and prints their sounds.	"<<W<<std::endl<<std::endl;
 	{
 		const WrongAnimal* meta = new WrongAnimal();
 		const Animal* dog = new Dog();
