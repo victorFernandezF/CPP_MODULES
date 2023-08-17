@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 18:53:53 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 19:04:07 by victofer         ###   ########.fr       */
+/*   Created: 2023/08/17 13:16:31 by victofer          #+#    #+#             */
+/*   Updated: 2023/08/17 13:16:49 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 # define CURE_HPP
 # include <iostream>
 # include "colours.h"
+# include "AMateria.hpp"
 
-class Cure
+class Cure : public AMateria
 {
 	private:
 		std::string _type;
 	public:
 		Cure();
+		Cure(Cure const &copy);
+		Cure &operator=(const Cure  &copy);
 		~Cure();
-		Cure(const Cure &copy);
-		Cure & operator=(const Cure &copy);
-		void use(ICharacter &character);
+		std::string const &getType() const;
+		virtual Cure* clone() const;
+		//virtual void use(ICharacter& target);
 };
-#endif
+# endif

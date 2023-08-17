@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 18:53:53 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 18:57:45 by victofer         ###   ########.fr       */
+/*   Created: 2023/08/17 12:43:03 by victofer          #+#    #+#             */
+/*   Updated: 2023/08/17 12:55:56 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 # define ICE_HPP
 # include <iostream>
 # include "colours.h"
+# include "AMateria.hpp"
 
-class Ice
+class Ice : public AMateria
 {
 	private:
 		std::string _type;
 	public:
 		Ice();
+		Ice(Ice const &copy);
+		Ice &operator=(const Ice  &copy);
 		~Ice();
-		Ice(const Ice &copy);
-		Ice & operator=(const Ice &copy);
-		void use(ICharacter &character);
+		std::string const &getType() const;
+		virtual Ice* clone() const;
+		//virtual void use(ICharacter& target);
 };
-#endif
+# endif

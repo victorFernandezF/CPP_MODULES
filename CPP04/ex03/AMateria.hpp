@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/16 18:39:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 18:47:48 by victofer         ###   ########.fr       */
+/*   Created: 2023/08/17 12:43:03 by victofer          #+#    #+#             */
+/*   Updated: 2023/08/17 12:55:56 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@
 class AMateria
 {
 	protected:
-		std::string _type;
+		std::string type;
 	public:
+		AMateria();
 		AMateria(std::string const & type);
-		
+		AMateria(AMateria const &copy);
+		AMateria &operator=(const AMateria  &copy);
+		~AMateria();
 		std::string const & getType() const; //Returns the materia type
 		virtual AMateria* clone() const = 0;
 		//virtual void use(ICharacter& target);
 };
-#endif
-
+# endif
