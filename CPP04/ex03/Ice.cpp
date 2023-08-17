@@ -12,9 +12,13 @@
 
 # include "Ice.hpp"
 
-Ice::Ice(){
-	this->_type = "Ice";
+Ice::Ice(): _type("ice") {
+	std::cout<<"aaaaa\n";
 }
+
+Ice::~Ice(){
+}
+
 Ice::Ice(Ice const &copy){
 	if (this != &copy)
 		*this = copy;
