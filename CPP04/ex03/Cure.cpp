@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:16:15 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/17 13:16:19 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/17 13:19:06 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,5 @@ Cure* Cure::clone() const {
 	return (newCure);
 }
 /* void Cure::use(ICharacter& target){
-	std::cout<<"* shoots an Cure bolt at "<<target.getName()<<" *"<<std::endl;
+	std::cout<<"* Heals "<<target.getName()<<"'s wounds *"<<std::endl;
 } */

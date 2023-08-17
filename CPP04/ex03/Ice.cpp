@@ -12,13 +12,15 @@
 
 # include "Ice.hpp"
 
-Ice::Ice(): _type("ice"){}
+Ice::Ice(){
+	this->_type = "Ice";
+}
 Ice::Ice(Ice const &copy){
 	if (this != &copy)
 		*this = copy;
 }
 
-Ice &Ice::operator=(const Ice  &copy){
+Ice &Ice::operator=(const Ice &copy){
 	if (this != &copy)
 		this->_type = copy._type;
 	return (*this);

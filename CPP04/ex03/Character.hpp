@@ -1,33 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/17 12:43:03 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/17 13:55:02 by victofer         ###   ########.fr       */
+/*   Created: 2023/08/17 13:20:31 by victofer          #+#    #+#             */
+/*   Updated: 2023/08/17 13:46:17 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef AMATERIA_HPP
-# define AMATERIA_HPP
+#ifndef CHARACTER_HPP
+# define CHARACTER_HPP
 # include <iostream>
 # include "colours.h"
+# include "ICharacter.hpp"
+# include "AMateria.hpp"
 
-class AMateria
+class Character : public ICharacter
 {
-	protected:
-		std::string type;
+	private:
+		std::string _name;
+		AMateria *_inventory[4];
+		int _maxItems;
 	public:
-		AMateria();
-		AMateria(std::string const & type);
-		AMateria(AMateria const &copy);
-		AMateria &operator=(const AMateria  &copy);
-		virtual ~AMateria();
-		std::string const & getType() const; //Returns the materia type
-		virtual AMateria* clone() const = 0;
-		//virtual void use(ICharacter& target);
+		Character(std::string name);
+		Character(const Character &copy);
+		~Character();
+		Character &operator=(const Character &copy);
+		std::string const & getName() const;
+/* 		void equip(AMateria* m);
+		void unequip(int idx);
+		void use(int idx, Character& target); */
 };
 # endif
