@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:25:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/18 13:11:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/18 13:22:58 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Character::Character(std::string name):  _name(name), _maxItems(4){
 	for (int i = 0; i < this->_maxItems; i++)
-		this->_slots[i] = nullptr;
+		this->_slots[i] = 0;
 }
 
 Character::Character(const Character &copy){
@@ -28,10 +28,9 @@ Character::Character(const Character &copy){
 }
 
 Character::~Character(){
-	//std::cout<<"destructor Wiii"<<std::endl;
-		for (int i = 0; i < this->_maxItems; i++)
-			if (this->_slots[i])
-				delete this->_slots[i];
+	for (int i = 0; i < this->_maxItems; i++)
+		if (this->_slots[i])
+			delete this->_slots[i];
 }
 
 Character &Character::operator=(const Character &copy){
