@@ -1,7 +1,7 @@
 NAME		= ex03
 CC			= g++
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 
-SRC 		= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp
+SRC 		= main.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp MateriaSource.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
 # T E X T   S T U F F
