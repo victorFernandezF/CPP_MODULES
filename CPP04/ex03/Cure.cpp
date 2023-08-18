@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:16:15 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/17 18:43:29 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/18 12:36:46 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ Cure &Cure::operator=(const Cure  &copy){
 	return (*this);
 }
 
-std::string const &Cure::getType() const {
+std::string const & Cure::getType( void ) const
+{
 	return (this->_type);
 }
 
@@ -35,6 +36,6 @@ Cure* Cure::clone() const {
 	Cure *newCure = new Cure();
 	return (newCure);
 }
-/* void Cure::use(ICharacter& target){
+void Cure::use(ICharacter& target){
 	std::cout<<"* Heals "<<target.getName()<<"'s wounds *"<<std::endl;
-} */
+}

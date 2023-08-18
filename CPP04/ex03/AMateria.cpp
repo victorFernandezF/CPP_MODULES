@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 12:47:52 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/17 13:07:50 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/18 12:54:25 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ AMateria &AMateria::operator=(const AMateria  &copy){
 }
 
 AMateria::~AMateria(){}
-std::string const &AMateria::getType() const {
-	return (this->type);
+
+std::string const & AMateria::getType() const
+{
+	return(this->type);
+}
+
+void AMateria::use(ICharacter& target){
+	(void)target;
 }

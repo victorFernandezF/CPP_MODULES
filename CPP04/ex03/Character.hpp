@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:20:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/17 18:56:06 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/18 12:59:13 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,8 @@ class Character : public ICharacter
 		Character &operator=(const Character &copy);
 		std::string const & getName() const;
  		void equip(AMateria* m);
-/*		void unequip(int idx);
-		void use(int idx, Character& target); */
+		void unequip(int idx);
+		void printSlots();
+		void use(int idx, ICharacter& target);
 };
 # endif

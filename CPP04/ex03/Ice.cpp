@@ -13,7 +13,6 @@
 # include "Ice.hpp"
 
 Ice::Ice(): _type("ice") {
-	std::cout<<"aaaaa\n";
 }
 
 Ice::~Ice(){
@@ -30,7 +29,7 @@ Ice &Ice::operator=(const Ice &copy){
 	return (*this);
 }
 
-std::string const &Ice::getType() const {
+std::string const & Ice::getType() const{
 	return (this->_type);
 }
 
@@ -38,6 +37,7 @@ Ice* Ice::clone() const {
 	Ice *newIce = new Ice();
 	return (newIce);
 }
-/* void Ice::use(ICharacter& target){
+
+void Ice::use(ICharacter& target){
 	std::cout<<"* shoots an ice bolt at "<<target.getName()<<" *"<<std::endl;
-} */
+}
