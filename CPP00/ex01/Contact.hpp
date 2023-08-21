@@ -22,7 +22,6 @@ class Contact {
         std::string getNickName(void);
         std::string getPhoneNumber(void);
         std::string getSecret(void);
-		
 		std::string stringParser(std::string str);
         void fillContacts(void);
 		std::string toString(void);

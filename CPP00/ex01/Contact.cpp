@@ -20,7 +20,7 @@ std::string Contact::getSecret(void){
     return (_darkestSecret);
 }
 
-// SETTERS
+// A S K   U S E R  
 std::string Contact::_askFirstName(void){
     std::string first;
 	std::cout<<G<<" First Name: "<<W;
@@ -51,6 +51,8 @@ std::string Contact::_askSecret(void){
     std::getline(std::cin, first);
 	return first;
 }
+
+// Checks if every field contains a value. If correct set the values.
 void Contact::fillContacts(void){
     std::string first = this->_askFirstName();
     std::string last = this->_askLastName();
@@ -60,7 +62,7 @@ void Contact::fillContacts(void){
 	if (first == "" || last == "" || nick == ""
 		|| phone == "" || secret == "")
 	{
-		std::cout<<R<<"Every field must be filled."<<std::endl;
+		std::cout<<R<<" Error: Every field must contains a value"<<std::endl;
 		return ;
 	}
 	this->_firstName = first;

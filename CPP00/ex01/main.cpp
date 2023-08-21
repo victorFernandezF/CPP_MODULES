@@ -12,9 +12,7 @@ int main(void)
         if (cmd == "EXIT" || cmd == "exit")
             return (0);
         if (cmd == "ADD" || cmd == "add")
-        {
             phonebook.addContact();
-        }
         else if (cmd == "SEARCH" || cmd == "search") {
             phonebook.showListing();
             phonebook.printIndexSearch();
