@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:25:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/18 13:40:53 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:56:26 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ void Character::unequip(int idx){
 	
 }
 void Character::use(int idx, ICharacter& target){
-	this->_slots[idx]->use(target);
+	if (this->_slots[idx])
+		this->_slots[idx]->use(target);
 }

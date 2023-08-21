@@ -6,13 +6,13 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:16:15 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/18 12:36:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/21 18:47:52 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "Cure.hpp"
 
-Cure::Cure(): _type("Cure"){}
+Cure::Cure(): _type("cure"){}
 
 Cure::~Cure(){}
 
