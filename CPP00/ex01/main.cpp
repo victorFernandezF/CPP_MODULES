@@ -13,9 +13,7 @@ int main(void)
             return (0);
         if (cmd == "ADD" || cmd == "add")
         {
-            Contact contact;
-            contact.fillContacts();
-            phonebook.addContact(contact);
+            phonebook.addContact();
         }
         else if (cmd == "SEARCH" || cmd == "search") {
             phonebook.showListing();

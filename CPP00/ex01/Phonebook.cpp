@@ -10,10 +10,10 @@ Phonebook::Phonebook(void){
 Phonebook::~Phonebook(void){};
 
 // Add a new contact. if there are 8. it will overwrite the older one.
-void Phonebook::addContact(Contact contact){
+void Phonebook::addContact(){
     if (this->_index == this->_maxContacts)
         this->_index = 0;
-    this->_contacts[this->_index] = contact;
+    this->_contacts[this->_index].fillContacts();
     this->_index++;
 }
 
