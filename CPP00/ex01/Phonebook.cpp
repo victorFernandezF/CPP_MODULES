@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/21 19:04:33 by victofer          #+#    #+#             */
+/*   Updated: 2023/08/21 19:16:37 by victofer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "agenda.hpp"
 
 // Default Constructor
@@ -13,8 +25,8 @@ Phonebook::~Phonebook(void){};
 void Phonebook::addContact(){
     if (this->_index == this->_maxContacts)
         this->_index = 0;
-    this->_contacts[this->_index].fillContacts();
-    this->_index++;
+    if (this->_contacts[this->_index].fillContacts() == 0)
+    	this->_index++;
 }
 
 // Shows the complete list of existing contacte with an _index.

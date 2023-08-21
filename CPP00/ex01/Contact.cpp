@@ -53,7 +53,7 @@ std::string Contact::_askSecret(void){
 }
 
 // Checks if every field contains a value. If correct set the values.
-void Contact::fillContacts(void){
+int Contact::fillContacts(void){
     std::string first = this->_askFirstName();
     std::string last = this->_askLastName();
     std::string nick = this->_askNickName();
@@ -63,13 +63,14 @@ void Contact::fillContacts(void){
 		|| phone == "" || secret == "")
 	{
 		std::cout<<R<<" Error: Every field must contains a value"<<std::endl;
-		return ;
+		return (1);
 	}
 	this->_firstName = first;
 	this->_lastName = last;
 	this->_nickName = nick;
 	this->_phoneNumber = phone;
 	this->_darkestSecret = secret;
+	return (0);
 }
 
 // Cuts strings longer	than 10 chars and add a dot at the end.

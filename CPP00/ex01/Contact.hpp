@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/21 19:04:19 by victofer          #+#    #+#             */
+/*   Updated: 2023/08/21 19:10:49 by victofer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "agenda.hpp"
 
 class Contact {
@@ -23,6 +35,6 @@ class Contact {
         std::string getPhoneNumber(void);
         std::string getSecret(void);
 		std::string stringParser(std::string str);
-        void fillContacts(void);
+        int fillContacts(void);
 		std::string toString(void);
 };
