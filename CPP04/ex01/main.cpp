@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 13:01:50 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/22 10:18:11 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int main(void)
 	}
 	testHeaderPrinter(2);
 	{
-		int maximun = 6;
+		int maximun = 4;
 		const Animal *animal[maximun];
 		for (int i = 0; i < maximun; i++)
 		{
@@ -94,11 +94,11 @@ int main(void)
 	testHeaderPrinter(3);
 	{
 		const Cat *cats[2];
-		std::cout<<BB<<" *We created one cat 'cat 1'"<<W<<std::endl;
+		std::cout<<BB<<" *We are going to create one cat 'cat 1'"<<W<<std::endl;
 		cats[0] = new Cat();
 		std::cout<<BB<<"\n *What does cat 1 say? "<<W<<std::endl;
 		cats[0]->makeSound();
-		std::cout<<BB<<"\n *Now we created a new cat 'cat 2' that is a copy "
+		std::cout<<BB<<"\n *Now we create a new cat 'cat 2' that is a copy "
 		<<"of cat 1."<<W<<std::endl;
 		cats[1] = new Cat(*cats[0]);
 		std::cout<<BB<<"\n *We are goint to delete cat 1"<<W<<std::endl;

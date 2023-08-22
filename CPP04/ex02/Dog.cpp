@@ -14,14 +14,14 @@
 
 Dog::Dog(){
 	Brain *createdBrain = new Brain();
-	this->setType("Dog");
+	this->_type = "Dog";
 	this->_brain = createdBrain;
 	std::cout<<"Dog constructor called"<<W<<std::endl;
 }
 
 Dog::Dog(std::string type){
 	std::cout<<G<<"Dog constructor called"<<W<<std::endl;
-	this->setType(type);
+	this->_type = type;
 }
 
 Dog::Dog(const Dog &copy): Animal(){
@@ -34,7 +34,7 @@ Dog::Dog(const Dog &copy): Animal(){
 Dog &Dog::operator=(const Dog &copy){
 	std::cout<<G<<"Dog Assignment operand."<<W<<std::endl;
 	if (this != &copy)
-		this->setType(copy._type);
+		this->_type = copy._type;
 	return (*this);
 }
 
