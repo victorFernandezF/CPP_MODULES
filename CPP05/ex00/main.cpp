@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/22 12:53:37 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/22 19:14:13 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int main(void)
 {
 	atexit(leaks);
 	std::cout<<std::endl<<BM<<"◉ -- [TEST 1] -- ◉"<<std::endl
-	<<BB<<" We will create a Bureaucrat named 'pepe' with a grade "<<std::endl
-	<<" between 1 abd 150. It shouldn't be any problem"<<W<<std::endl<<std::endl;
+	<<BB<<TEST1<<W<<std::endl<<std::endl;
 	{
 		Bureaucrat buro("pepe", 27);
 		std::cout<<buro.getName()<<"'s grade: "
@@ -34,12 +33,44 @@ int main(void)
 	<<"___________________________________"<<std::endl
 	<<std::endl;
 	std::cout<<std::endl<<BM<<"◉ -- [TEST 2] -- ◉"<<std::endl
-	<<BB<<" Now we will try to create a bureaucrat with a grade "<<std::endl
-	<<" that is not between 1 and 150. It should throw an exception"<<W<<std::endl<<std::endl;
+	<<BB<<TEST2<<W<<std::endl<<std::endl;
 	{
-		Bureaucrat buro("pepe", 180);
-		std::cout<<buro.getName()<<"'s grade: "
-		<<buro.getGrade()<<std::endl;
+		Bureaucrat *buro;
+		
+		try{
+			buro = new Bureaucrat("pepe", 180);		
+		}catch (std::exception &e){
+			std::cout<<e.what()<<std::endl;
+		}
+	}
+
+	std::cout<<std::endl
+	<<"___________________________________"<<std::endl
+	<<std::endl;
+	std::cout<<std::endl<<BM<<"◉ -- [TEST 3] -- ◉"<<std::endl
+	<<BB<<TEST3<<W<<std::endl<<std::endl;
+	{
+		Bureaucrat *buro = new Bureaucrat("pepe", 150);		
+		
+		try{
+			buro->incrementGrade();
+			std::cout<<G<<"incrementation Success."<<W<<std::endl;
+		}catch (std::exception &e){
+			std::cout<<e.what()<<std::endl;
+		}
+		try{
+			buro->decrementGrade();
+			std::cout<<G<<"decrementation Success."<<W<<std::endl;
+		}catch (std::exception &e){
+			std::cout<<e.what()<<std::endl;
+		}
+		try{
+			buro->decrementGrade();
+			std::cout<<G<<"decrementation Success."<<W<<std::endl;
+		}catch (std::exception &e){
+			std::cout<<e.what()<<std::endl;
+		}
+		delete buro; 
 	}
 	return 0;
 }
