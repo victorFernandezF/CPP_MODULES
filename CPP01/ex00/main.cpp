@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:07:07 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 10:07:11 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:29:00 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void randomChump(std::string name);
 
 void leaks(void)
 {
+	std::cout<<"\n___________________________________"<<std::endl;
 	std::cout<<M<<" \n-- [ LEAKS ] -- "<<W<<std::endl;
 	system("leaks -q ex00");
 }

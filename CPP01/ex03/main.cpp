@@ -6,15 +6,24 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:10:00 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 10:27:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:34:51 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"
+#include "colours.h"
 
-int main()
+void leaks(void)
 {
+	std::cout<<"\n___________________________________"<<std::endl;
+	std::cout<<M<<" \n-- [ LEAKS ] -- "<<W<<std::endl;
+	system("leaks -q ex03");
+}
+
+int main(void)
+{
+	atexit(leaks);
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);

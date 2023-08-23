@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:08:34 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 10:08:39 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:31:11 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ Zombie* zombieHorde( int N, std::string name );
 
 void leaks(void)
 {
+	std::cout<<"\n___________________________________"<<std::endl;
 	std::cout<<M<<" \n-- [ LEAKS ] -- "<<W<<std::endl;
 	system("leaks -q ex01");
 }
@@ -28,7 +29,7 @@ int main(void)
     int n;
     
 	n = 10;
-    std::cout<<BM<<" -- [ TEST 1 ] --" <<W<<std::endl;
+    std::cout<<BM<<"\n -- [ TEST 1 ] --" <<W<<std::endl;
     std::cout<<BB<<"  *Creating a Zomby horde "
 	<<"of "<<n<<" zombies"<<G<<std::endl;
 	

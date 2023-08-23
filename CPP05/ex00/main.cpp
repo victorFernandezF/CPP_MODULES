@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 11:20:59 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/23 13:27:45 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,27 @@
 
 void leaks(void)
 {
+	std::cout<<"\n___________________________________"<<std::endl;
 	std::cout<<M<<"\n -- [ LEAKS ] -- "<<W<<std::endl;
 	system("leaks -q ex00");
 }
 
-void printTestHeaders(int test){
-	if (test == 1)
-		std::cout<<std::endl<<BM<<"◉ -- [TEST 1] -- ◉"<<std::endl
-		<<BB<<TEST1<<W<<std::endl<<std::endl<<std::endl;
-	if (test == 2)
-		std::cout<<std::endl<<BM<<"◉ -- [TEST 2] -- ◉"<<std::endl
-		<<BB<<TEST2<<W<<std::endl<<std::endl;
-	if (test == 3)
-		std::cout<<std::endl<<BM<<"◉ -- [TEST 3] -- ◉"<<std::endl
-		<<BB<<TEST3<<W<<std::endl<<std::endl;
+void printTestHeaders(int test, std::string testh, int line){
+	if (line == 1)
+		std::cout<<"\n___________________________________"<<std::endl;
+	std::cout<<std::endl<<BM<<"◉ -- [TEST "<<test<<" ] -- ◉"<<std::endl
+	<<BB<<testh<<W<<std::endl<<std::endl;
 }
 
 int main(void)
 {
 	atexit(leaks);
-	printTestHeaders(1);
+	printTestHeaders(1, TEST1, 0);
 	{
 		Bureaucrat buro("pepe", 27);
 		std::cout<<buro<<std::endl;
 	}
-	std::cout<<"___________________________________\n"<<std::endl;
-	printTestHeaders(2);
+	printTestHeaders(2, TEST2, 1);
 	{
 		Bureaucrat *buro;
 		
@@ -50,8 +45,7 @@ int main(void)
 			std::cout<<e.what()<<std::endl;
 		}
 	}
-	std::cout<<"___________________________________\n"<<std::endl;
-	printTestHeaders(3);
+	printTestHeaders(3, TEST3, 1);
 	{
 		Bureaucrat *buro = new Bureaucrat("pepe", 150);		
 		

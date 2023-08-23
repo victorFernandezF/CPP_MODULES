@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colours.h                                          :+:      :+:    :+:   */
+/*   colors.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 13:26:59 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/16 10:55:12 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,5 @@
 # define BM	"\x1B[95m"	// BRIGHT MAGENTA
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
-
-# define TEST1 " Create a Bureaucrat with a grade \n \
- between 1 abd 150. It shouldn't be any problem"
-# define TEST2 " Create a bureaucrat with a grade \n \
- that is not between 1 and 150. It should throw an exception"
-# define TEST3 " Create a bureaucrat with a valid grade (150)\n \
- Incrementing once should be ok (149). Decrementeing once\n \
- should be ok (150). Decrementing again should throw an exception \n \
- (151 is out of range)."
 
 #endif
