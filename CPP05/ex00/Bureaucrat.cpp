@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:00:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/22 19:03:50 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/23 11:14:06 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,3 +69,7 @@ void Bureaucrat::decrementGrade(){
 	this->_grade += 1;
 }
 
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj){
+	out<<obj.getName()<<", bureaucrat grade: "<<obj.getGrade();
+	return (out);
+}
