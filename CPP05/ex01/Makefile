@@ -1,8 +1,8 @@
-NAME		= ex00
+NAME		= ex01
 CC			= g++
 FLAGS		= -Wall -Wextra -Werror -std=c++98 
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 
-SRC 		= main.cpp Bureaucrat.cpp
+SRC 		= main.cpp Bureaucrat.cpp Form.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
 # T E X T   S T U F F
@@ -25,7 +25,7 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║╚════██║"
 	@echo "╚██████╗██║     ██║           ╚██████╔╝███████║"
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝ ╚══════╝"
-	@echo "$(B)      	EX00:"                   
+	@echo "$(B)            EX01: FORM UP MAGGOTS!"                   
 	@echo "$(B)      	   $(E)"                   
 	@echo ""  
 
