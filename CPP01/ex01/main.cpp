@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/23 10:08:34 by victofer          #+#    #+#             */
+/*   Updated: 2023/08/23 10:08:39 by victofer         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Zombie.hpp"
 #include "colours.h"
 
@@ -13,14 +25,15 @@ int main(void)
 {
 	atexit(leaks);
     Zombie *horde;
-    int N;
+    int n;
     
-	N = 10;
+	n = 10;
     std::cout<<BM<<" -- [ TEST 1 ] --" <<W<<std::endl;
-    std::cout<<BB<<"  *We will create a Zomby horde "
-	<<"of "<<N<<" zombies"<<G<<std::endl;
-    horde = zombieHorde(N, "Mortadelo");
-    for (int i = 0; i < N; i++)
+    std::cout<<BB<<"  *Creating a Zomby horde "
+	<<"of "<<n<<" zombies"<<G<<std::endl;
+	
+    horde = zombieHorde(n, "Agapito");
+    for (int i = 0; i < n; i++)
         horde[i].announce();
     std::cout<<BB<<"\n  *We will now delete the Zomby horde."<<W<<std::endl;
     delete [] horde;
