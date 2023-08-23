@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:00:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 12:52:58 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:57:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void Form::beSigned(Bureaucrat &buro){
 
 // O U T P U T   O P E R A T O R 
 std::ostream &operator<<(std::ostream &out, const Form &obj){
-	out<<obj.getName()<<" signed: "<<obj.getSigned()
+	out<<obj.getName()<<" -> signed: "<<obj.getSigned()
 	<<" grade to sign: "<<obj.getGradeToSign()<<" grade to execute "
 	<<obj.getGradeToExecute();
 	return (out);

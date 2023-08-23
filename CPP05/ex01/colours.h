@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 12:56:38 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/23 19:06:02 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,10 @@
 # define TEST2 " Create an bureaucrat with grade 5 and a form with \n \
  required grade to sign of 3. Since grade 5 is lower than grade 6, \n \
  bureaucrat woun't be able to sign the form."
+# define TEST3 " Create an bureaucrat with grade 5 and a form with \n \
+ required grade to sign of 3. Since grade 5 is lower than grade 6, \n \
+ bureaucrat woun't be able to sign the form.\n  But if we increment the \
+ vureaucrat grade twice, bureaucrat will \n  have at least the required grade so \
+form will be signed in the second try."
 
 #endif
