@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:10:00 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 13:34:51 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/23 18:32:45 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void leaks(void)
 	std::cout<<M<<" \n-- [ LEAKS ] -- "<<W<<std::endl;
 	system("leaks -q ex03");
 }
-
 int main(void)
 {
 	atexit(leaks);

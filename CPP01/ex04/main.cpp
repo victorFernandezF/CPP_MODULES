@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/23 10:29:27 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 10:29:30 by victofer         ###   ########.fr       */
+/*   Created: 2023/08/23 17:51:41 by victofer          #+#    #+#             */
+/*   Updated: 2023/08/23 18:41:03 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,55 +14,57 @@
 #include <fstream>
 #include "colours.h"
 
-static int isSpaceTabNewLine(char c){
-	return (c == ' ' || c == '\t' || c == '\n');
+void leaks(void)
+{
+	std::cout<<W<<"\n___________________________________"<<std::endl;
+	std::cout<<M<<" \n-- [ LEAKS ] -- "<<W<<std::endl;
+	system("leaks -q ex04");
 }
 
-static void replace(char **argv, std::string fName, std::ifstream &file){
-	char c;
-	std::ofstream ofile;
-	std::string word;
-
-	ofile.open(fName, std::ofstream::out | std::ofstream::trunc);
-	while (file >>std::noskipws>>c)
+std::string searchAndReplace(std::string buffer, std::string search, std::string replace){
+	int searchLen;
+	int replaceLen;
+	int searchPosition;
+	
+	searchLen = search.length();
+	replaceLen = replace.length();
+	searchPosition = buffer.find(search);
+	while (searchPosition != (int) std::string::npos)
 	{
-		if (!isSpaceTabNewLine(c))
-			word += c;
-		if (isSpaceTabNewLine(c))
-		{
-			if (word == argv[2])
-				ofile<<argv[3];
-			else
-				ofile<<word;
-			ofile<<c;
-			word = "";
-		}
+		buffer.erase(searchPosition, searchLen);
+		buffer.insert(searchPosition, replace);
+		searchPosition = buffer.find(search, searchPosition + replaceLen);
 	}
-	ofile.close();
+	return buffer;
 }
 
 int main(int argc, char **argv)
 {
-	std::ifstream file;
-	std::string rest;
-	
+	std::string		filename;
+	std::string		search;
+	std::string		replace;
+	std::string		buffer;
+	std::ifstream	input;
+	std::ofstream	output;
+
+	atexit(leaks);
 	if (argc != 4)
-	{
-		std::cout<<R<<"ERROR: Too few arguments."<<W<<std::endl
-		<<" ->[filename][s1][s2]"<<std::endl;
-		return 1;
+		return (std::cout<<BR<<ARGERROR<<"\n"<<W<<ARGS<<std::endl, 1);
+	filename = argv[1];
+	search = argv[2];
+	replace = argv[3];
+	input.open(filename, std::ios::in);
+	output.open(filename + ".replace" , std::ios::out);
+	if (input.fail() || output.fail())
+		return (std::cout<<R<<FILEERROR<<W<<std::endl, 1);
+	while (std::getline(input, buffer)){
+		buffer = searchAndReplace(buffer, search, replace);
+		output<<buffer;
+		if (input.peek() != EOF)
+			output<<"\n";
 	}
-	rest = ".replace";
-	std::string newFileName(argv[1]);
-	newFileName += rest;
-	file.open(argv[1]);
-	if (file.fail())
-	{
-		std::cout<<R<<"Input file does not exist or is corrupted"<<W<<std::endl;
-		return 1;
-	}
-	replace(argv, newFileName, file);
-	std::cout<<G<<"SUCCESS"<<B<<std::endl;
-	file.close();
+	std::cout<<G<<"\nSUCCESS"<<W<<std::endl;
+	input.close();
+	output.close();
 	return 0;
 }
