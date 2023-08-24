@@ -49,7 +49,7 @@
 ### STATUS
 | Project status | FINISHED          |
 |--------------|---------------------------|
-| project mark |    ...             |
+| project mark |    ![result](https://img.shields.io/badge/RESULT-100%25-green)            |
 
 <!-- ![result](https://img.shields.io/badge/RESULT-125%25-green) -->
 <hr>
@@ -62,7 +62,7 @@
 ### ESTADO
 | Estado del proyecto | TERMINADO          |
 |--------------|---------------------------|
-| Nota del proyecto   |  ...  |
+| Nota del proyecto   |  ![result](https://img.shields.io/badge/RESULT-125%25-green)  |
 
 <!-- ![result](https://img.shields.io/badge/RESULTADO-125%25-green) -->
 
