@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:31:01 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 10:31:03 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:28:48 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int main(int argc, char **argv)
 {
 	Harl harl;
+	int i;
+	std::string tag;
 
 	if (argc != 2)
 	{
@@ -26,6 +28,10 @@ int main(int argc, char **argv)
 			<<W<<" ex:. ./HarlFilter warning"<<W<<std::endl;
 		return 1;
 	}
-	harl.complain(argv[1]);
+	tag = argv[1];
+	i = -1;
+	while (tag[++i])
+		tag[i] = (char)std::tolower(tag[i]);
+	harl.complain(tag);
 	return 0;
 }

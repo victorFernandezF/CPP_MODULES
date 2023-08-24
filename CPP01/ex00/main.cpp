@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:07:07 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 13:29:00 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:03:54 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ int main(void)
 	atexit(leaks);
     std::string stackName;
     std::string heapName;
-    std::cout<<std::endl<<Y<<"Insert a name for zombie created on stack>"<<W;
+    std::cout<<std::endl<<Y<<"Insert a name for zombie created on stack: "<<W;
     std::getline(std::cin, stackName);
-    std::cout<<Y<<"Insert a name for zombie created on heap>"<<W;
+    std::cout<<Y<<"Insert a name for zombie created on heap: "<<W;
     std::getline(std::cin, heapName);
     std::cout<<std::endl;
-    Zombie *zombo = newZombie(heapName);
-    zombo->announce();
+    Zombie *zombie = newZombie(heapName);
+    zombie->announce();
     randomChump(stackName);
-    delete zombo;
+    delete zombie;
     return (0);
 }

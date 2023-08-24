@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/23 10:30:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 13:41:32 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/24 10:23:41 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,16 @@ void printTestHeaders(int test, std::string testh, int line){
 
 int main(void)
 {
-	printTestHeaders(1, TEST1, 0);
-	{
-		Harl harl;
-		harl.complain("debug");
-		harl.complain("info");
-		harl.complain("warning");
-		harl.complain("error");
-		harl.complain("doesntexist");
-	}
-	printTestHeaders(2, TEST2, 1);
-	{
-		Harl harl2;
-
-		harl2.complain("error");
-		harl2.complain("debug");
-		harl2.complain("");
-		harl2.complain("warning");
-	}
+	std::string tag;
+	int			j;
+	
+	std::cout<<BY<<"Insert the complain tag: "<<W;
+	std::getline(std::cin, tag);
+	j = -1;
+	while (tag[++j])
+		tag[j] = (char)std::tolower(tag[j]);
+	Harl harl;
+	harl.complain(tag);
+	std::cout<<std::endl;
 	return 0;
 }
