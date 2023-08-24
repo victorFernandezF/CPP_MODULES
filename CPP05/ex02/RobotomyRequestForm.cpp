@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 11:11:41 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/24 11:34:27 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/24 19:12:52 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ class RobotomyRequestForm::GradeTooLowException : public std::exception
 	}
 };
 
+class RobotomyRequestForm::FormNotSignedException : public std::exception
+{
+	public: virtual char *what() const throw(){
+		return ((char *)"Form not signed");
+	}
+};
+
 RobotomyRequestForm::RobotomyRequestForm(): AForm("Shrubbery", 72, 45){}
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("Shrubbery", 72, 45){
@@ -40,5 +47,17 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &copy) : AForm(copy
 		this->setSigned(copy.getSigned());
 	return (*this);
 } */
+
+
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
+	int grade = executor.getGrade();
+	if (this->getSigned() == 0)
+		throw FormNotSignedException();
+	std::cout<<grade<<"\n";
+	if (grade > this->getGradeToExecute())
+		throw GradeTooLowException();
+	std::cout<<G<<this->_target<<" has been pardoned by Zaphod Beeblebrox."
+	<<std::endl;
+}
 
 RobotomyRequestForm::~RobotomyRequestForm(){}

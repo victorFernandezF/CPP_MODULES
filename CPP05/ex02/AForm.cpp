@@ -75,7 +75,7 @@ void AForm::setSigned(bool isSigned){
 	this->_signed = isSigned;
 }
 
-void AForm::beSigned(Bureaucrat &buro){
+void AForm::beSigned(const Bureaucrat &buro){
 	int gradeNeeded = this->getGradeToSign();
 	if (buro.getGrade() > gradeNeeded)
 		throw GradeTooLowException();
@@ -83,11 +83,7 @@ void AForm::beSigned(Bureaucrat &buro){
 }
 
 void AForm::execute(Bureaucrat const & executor) const{
-	if (this->_signed == 0)
-		throw FormIsNotSignedException();
-	if (executor.getGrade() > this->getGradeToExecute())
-		throw GradeTooLowException();
-	std::cout<<B<<" "<<W<<std::endl;
+(void)executor;
 }
 
 // O U T P U T   O P E R A T O R 

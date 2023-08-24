@@ -3,7 +3,7 @@ CC			= g++
 FLAGS		= -Wall -Wextra -Werror -std=c++98 
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 
 SRC 		= main.cpp Bureaucrat.cpp AForm.cpp RobotomyRequestForm.cpp \
-ShrubberyCreationForm.cpp PresidentialPardonForm.cpp
+			  ShrubberyCreationForm.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
 # T E X T   S T U F F

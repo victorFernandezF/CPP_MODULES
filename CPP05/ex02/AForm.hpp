@@ -43,7 +43,7 @@ class AForm {
 		
 		virtual void execute(Bureaucrat const & executor) const;
 
-		void beSigned(Bureaucrat &buro);
+		void beSigned(const Bureaucrat &buro);
 		class GradeTooHighException;
 		class GradeTooLowException; 
 		class FormIsNotSignedException; 

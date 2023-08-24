@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 10:51:35 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/24 10:36:36 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/24 19:17:13 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "colours.h"
 #include "AForm.hpp"
 
-class Form;
+class AForm;
 class Bureaucrat {
 	private:
 		const std::string _name;
@@ -34,7 +34,8 @@ class Bureaucrat {
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
-		void signForm(Form &form);
+		void signForm(const AForm &form);
+		void executeForm(AForm const & form);
 		class GradeTooHighException;
 		class GradeTooLowException;
 };
