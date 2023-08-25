@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:00:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/25 10:17:32 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/25 11:40:36 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 class Bureaucrat::GradeTooHighException : public std::exception
 {
 	public: virtual char *what() const throw(){
-		return ((char *)"\x1B[91m[GradeTooHighException]\x1B[0m Grade is too hight");
+		return ((char *)"Grade is too hight");
 	}
 };
 
 class Bureaucrat::GradeTooLowException : public std::exception
 {
 	public: virtual char *what() const throw(){
-		return ((char *)"\x1B[91m[GradeTooLowException]\x1B[0m Grade is too low");
+		return ((char *)"Grade is too low");
 	}
 };
 

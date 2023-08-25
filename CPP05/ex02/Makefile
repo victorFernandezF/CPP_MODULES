@@ -37,6 +37,7 @@ $(NAME): $(OBJ)
 
 clean:
 	@rm -rf $(OBJ)
+	@find . -type f ! -name "*.*" ! -name "Makefile" -not -path "./.git/*" -delete
 	@echo "$(M) Everything cleaned. $(E)"
 
 fclean: clean
