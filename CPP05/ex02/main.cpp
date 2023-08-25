@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/25 10:13:54 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/25 10:56:31 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main(void)
 		Bureaucrat	*buro = new Bureaucrat("Pepe", 70);
 		Bureaucrat	*buro2 = new Bureaucrat("Anselmo", 27);
 		AForm	*form = new PresidentialPardonForm("ABC");
-		
+
 		buro2->executeForm(*form);
 		buro->signForm(*form);
 		//std::cout<<*form<<std::endl;
@@ -49,7 +49,16 @@ int main(void)
 	}	
 	printTestHeaders(2, TEST2, 1);
 	{
-		
+		Bureaucrat	*buro = new Bureaucrat("Pepe", 1);
+		AForm	*form = new RobotomyRequestForm("Robotin");
+
+		std::cout<<*buro<<std::endl;
+		std::cout<<*form<<std::endl;
+		buro->signForm(*form);
+		std::cout<<*form<<std::endl;
+		buro->executeForm(*form);
+		delete buro;
+		delete form;
 	}
 	printTestHeaders(3, TEST3, 1);
 	{

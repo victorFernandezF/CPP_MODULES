@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 11:11:30 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/24 19:12:47 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/25 10:53:05 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #define ROBOTOMYREQUESTFORM_HPP
 #include <iostream>
 #include <fstream>
+#include <cstdlib>
+#include <ctime>
 #include "colours.h"
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
@@ -23,6 +25,7 @@ class Bureaucrat;
 class RobotomyRequestForm : public AForm{
 	private:
 		std::string _target;
+		int _getRandomNumber() const;
 
 	public:
 		RobotomyRequestForm();

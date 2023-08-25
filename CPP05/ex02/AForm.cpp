@@ -36,7 +36,7 @@ class AForm::FormIsNotSignedException : public std::exception
 
 AForm::AForm(): _name("default"), _gradeToSign(1), _gradeToExecute(1){}
 
-AForm::AForm(std::string name, int sign, int exe): _name(name), _gradeToSign(sign), _gradeToExecute(exe){
+AForm::AForm(std::string name, int sign, int exe): _name(name), _signed(0), _gradeToSign(sign), _gradeToExecute(exe){
 	if (this->_gradeToSign > 150 || this->_gradeToExecute > 150)
 		throw GradeTooHighException();
 	if (this->_gradeToSign < 1 || this->_gradeToExecute < 1)
