@@ -25,8 +25,8 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║╚════██║"
 	@echo "╚██████╗██║     ██║           ╚██████╔╝███████║"
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝ ╚══════╝"
-	@echo "$(B)            EX01: FORM UP MAGGOTS!"                   
-	@echo "$(B)      	   $(E)"                   
+	@echo "$(B) 	  	  EX01: "                   
+	@echo "$(B)	    FORM UP MAGGOTS!   $(E)"                   
 	@echo ""  
 
 $(NAME): $(OBJ)

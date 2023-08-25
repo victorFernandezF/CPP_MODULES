@@ -1,8 +1,9 @@
-NAME		= ex00
+NAME		= ex03
 CC			= g++
 FLAGS		= -Wall -Wextra -Werror -std=c++98 
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 
-SRC 		= main.cpp Bureaucrat.cpp
+SRC 		= main.cpp Bureaucrat.cpp AForm.cpp RobotomyRequestForm.cpp \
+			  ShrubberyCreationForm.cpp PresidentialPardonForm.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
 # T E X T   S T U F F
@@ -25,10 +26,8 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║╚════██║"
 	@echo "╚██████╗██║     ██║           ╚██████╔╝███████║"
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝ ╚══════╝"
-	@echo "$(B)                EX00:"                   
-	@echo "$(B)       MOMMY, WHEN I GROW UP," 
-	@echo "$(B)     I WANT TO BE A BUREAUCRAT!$(E)"          
-	         
+	@echo "$(B)                 EX03:"                   
+	@echo "$(B)   AT LEAST THIS BEATS COFFEE-MAKING $(E)"                   
 	@echo ""  
 
 $(NAME): $(OBJ)
@@ -38,6 +37,7 @@ $(NAME): $(OBJ)
 
 clean:
 	@rm -rf $(OBJ)
+	@find . -type f ! -name "*.*" ! -name "Makefile" -not -path "./.git/*" -delete
 	@echo "$(M) Everything cleaned. $(E)"
 
 fclean: clean

@@ -26,8 +26,8 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║╚════██║"
 	@echo "╚██████╗██║     ██║           ╚██████╔╝███████║"
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝ ╚══════╝"
-	@echo "$(B)            EX02: MUCHO TEXTO"                   
-	@echo "$(B)      	   $(E)"                   
+	@echo "$(B)                  EX02:"                   
+	@echo "$(B)     NO, YOU NEED FORM 28B, NOT 28C.... $(E)"                   
 	@echo ""  
 
 $(NAME): $(OBJ)
