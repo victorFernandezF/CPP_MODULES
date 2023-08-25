@@ -75,7 +75,7 @@ void AForm::setSigned(bool isSigned){
 	this->_signed = isSigned;
 }
 
-void AForm::beSigned(const Bureaucrat &buro){
+void AForm::beSigned(Bureaucrat &buro){
 	int gradeNeeded = this->getGradeToSign();
 	if (buro.getGrade() > gradeNeeded)
 		throw GradeTooLowException();

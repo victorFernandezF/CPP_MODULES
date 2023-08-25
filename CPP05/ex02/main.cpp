@@ -6,12 +6,13 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/24 19:14:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/25 10:13:54 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 void leaks(void)
 {
@@ -32,11 +33,19 @@ int main(void)
 	atexit(leaks);
 	printTestHeaders(1, TEST1, 0);
 	{
-		Bureaucrat	*buro = new Bureaucrat("Pepe", 75);
-		const AForm	*form = new RobotomyRequestForm();
+		Bureaucrat	*buro = new Bureaucrat("Pepe", 70);
+		Bureaucrat	*buro2 = new Bureaucrat("Anselmo", 27);
+		AForm	*form = new PresidentialPardonForm("ABC");
 		
+		buro2->executeForm(*form);
 		buro->signForm(*form);
+		//std::cout<<*form<<std::endl;
+		//std::cout<<*buro<<std::endl;
 		buro->executeForm(*form);
+		buro2->executeForm(*form);
+		delete buro;
+		delete buro2;
+		delete form;
 	}	
 	printTestHeaders(2, TEST2, 1);
 	{

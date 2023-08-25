@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,53 +10,53 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 //E X C E P T O N S
-class RobotomyRequestForm::GradeTooHighException : public std::exception
+class PresidentialPardonForm::GradeTooHighException : public std::exception
 {
 	public: virtual char *what() const throw(){
 		return ((char *)"Grade is too hight");
 	}
 };
 
-class RobotomyRequestForm::GradeTooLowException : public std::exception
+class PresidentialPardonForm::GradeTooLowException : public std::exception
 {
 	public: virtual char *what() const throw(){
 		return ((char *)"Grade is too low");
 	}
 };
 
-class RobotomyRequestForm::FormNotSignedException : public std::exception
+class PresidentialPardonForm::FormNotSignedException : public std::exception
 {
 	public: virtual char *what() const throw(){
 		return ((char *)"Form is not signed");
 	}
 };
 
-RobotomyRequestForm::RobotomyRequestForm(): AForm("RobotomyForm", 72, 45){}
+PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", 72, 45){}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyForm", 72, 45){
+PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 72, 45){
 	this->_target = target;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &copy) : AForm(copy){}
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &copy) : AForm(copy){}
 
-/* RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &copy){
+/* PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &copy){
 	if (this != &copy)
 		this->setSigned(copy.getSigned());
 	return (*this);
 } */
 
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
 	int grade = executor.getGrade();
 	if (this->getSigned() == 0)
 		throw FormNotSignedException();
 	if (grade > this->getGradeToExecute())
 		throw GradeTooLowException();
-	std::cout<<G<<this->_target<<" action for this form"
+	std::cout<<G<<this->_target<<" has been pardoned by Zaphod Beeblebrox"
 	<<W<<std::endl;
 }
 
-RobotomyRequestForm::~RobotomyRequestForm(){}
+PresidentialPardonForm::~PresidentialPardonForm(){}

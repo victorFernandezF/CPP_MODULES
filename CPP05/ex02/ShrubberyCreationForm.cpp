@@ -52,11 +52,10 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 	int grade = executor.getGrade();
 	if (this->getSigned() == 0)
 		throw FormNotSignedException();
-	std::cout<<grade<<"\n";
 	if (grade > this->getGradeToExecute())
 		throw GradeTooLowException();
-	std::cout<<G<<this->_target<<" action for this functio"
-	<<std::endl;
+	std::cout<<G<<this->_target<<" action for this function"
+	<<W<<std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}

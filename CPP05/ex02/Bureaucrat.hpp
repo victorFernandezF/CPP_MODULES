@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 10:51:35 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/24 19:17:13 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/25 09:57:20 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ class Bureaucrat {
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
-		void signForm(const AForm &form);
+
+		void signForm(AForm &form);
 		void executeForm(AForm const & form);
+
 		class GradeTooHighException;
 		class GradeTooLowException;
 };
