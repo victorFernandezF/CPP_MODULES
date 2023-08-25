@@ -30,7 +30,6 @@ class PresidentialPardonForm : public AForm{
 		PresidentialPardonForm(PresidentialPardonForm &name);
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &name);
 		~PresidentialPardonForm();
-		std::string getName(void) const;
 		
 		void setSigned(bool isSigned);
 		void execute(Bureaucrat const & executor) const;

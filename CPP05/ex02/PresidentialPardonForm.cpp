@@ -34,28 +34,34 @@ class PresidentialPardonForm::FormNotSignedException : public std::exception
 	}
 };
 
+// Default constructor
 PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", 72, 45){}
 
+// Constructor with parameters
 PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", 72, 45){
 	this->_target = target;
 }
 
+// Copy constructor
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &copy) : AForm(copy){}
 
+// Destructor
+PresidentialPardonForm::~PresidentialPardonForm(){}
+
+// Asignment operator
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &copy){
 	(void)copy;
 	return (*this);
 }
 
-
+// Execute function
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
 	int grade = executor.getGrade();
 	if (this->getSigned() == 0)
 		throw FormNotSignedException();
 	if (grade > this->getGradeToExecute())
 		throw GradeTooLowException();
+	std::cout<<W<<executor.getName()<<" executed "<<this->getName()<<"\n";
 	std::cout<<G<<this->_target<<" has been pardoned by Zaphod Beeblebrox"
 	<<W<<std::endl;
 }
-
-PresidentialPardonForm::~PresidentialPardonForm(){}

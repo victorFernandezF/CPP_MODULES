@@ -67,9 +67,11 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 		throw FormNotSignedException();
 	if (grade > this->getGradeToExecute())
 		throw GradeTooLowException();
-	if (this->_plantShrubbery() == 0)
+	if (this->_plantShrubbery() == 0){
+		std::cout<<W<<executor.getName()<<" executed "<<this->getName()<<"\n";
 		std::cout<<G<<"Shruberry has been created succesfully in "
 		<<this->_target<<"_shruberry\n"<<W;
+	}
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}

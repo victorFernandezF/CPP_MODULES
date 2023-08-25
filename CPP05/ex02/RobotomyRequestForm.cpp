@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 11:11:41 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/25 11:35:38 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/25 13:38:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 		throw FormNotSignedException();
 	if (grade > this->getGradeToExecute())
 		throw GradeTooLowException();
-	std::cout<<W<<"Brrrrrrr brrrr brrr ";
+	std::cout<<W<<executor.getName()<<" executed "<<this->getName()<<"\n";
+	std::cout<<Y<<"Brrrrrrr brrrr brrr ";
 	if (random == 1)
 		std::cout<<G<<this->_target<<" has been robotomized successfully\n"<<W;
 	else
