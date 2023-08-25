@@ -42,11 +42,23 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("Shrubbe
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &copy) : AForm(copy){}
 
-/* ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy){
-	if (this != &copy)
-		this = AForm(copy);
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &copy){
 	return (*this);
-} */
+}
+
+int ShrubberyCreationForm::_plantShrubbery() const{
+	std::string		filename;
+	std::ofstream	output;
+	
+	filename = this->_target + "_shrubbery";
+	output.open(filename, std::ios::out);
+	if (output.fail())
+		return (std::cout<<BR<<"Sorry "<<this->_target<<" something were wrong\n"<<W, 1);
+	output << "       _-_\n    /~~   ~~\\ \n /~~         ~~\\ \n"
+	<<"{               }\n \\  _-     -_  /\n   ~  \\ //  ~\n       | |     \n"
+	<<"       | |     \n______// \\\\______\n";
+	return (0);
+}
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 	int grade = executor.getGrade();
@@ -54,8 +66,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 		throw FormNotSignedException();
 	if (grade > this->getGradeToExecute())
 		throw GradeTooLowException();
-	std::cout<<G<<this->_target<<" action for this function"
-	<<W<<std::endl;
+	if (this->_plantShrubbery() == 0)
+		std::cout<<G<<"Shruberry has been created succesfully in "
+		<<this->_target<<"_shruberry\n"<<W;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}

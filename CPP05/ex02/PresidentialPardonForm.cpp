@@ -42,11 +42,9 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("Presi
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &copy) : AForm(copy){}
 
-/* PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &copy){
-	if (this != &copy)
-		this->setSigned(copy.getSigned());
+PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &copy){
 	return (*this);
-} */
+}
 
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const{

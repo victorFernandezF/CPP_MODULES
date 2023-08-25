@@ -6,13 +6,14 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/25 10:56:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/25 11:10:23 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 void leaks(void)
 {
@@ -50,7 +51,7 @@ int main(void)
 	printTestHeaders(2, TEST2, 1);
 	{
 		Bureaucrat	*buro = new Bureaucrat("Pepe", 1);
-		AForm	*form = new RobotomyRequestForm("Robotin");
+		AForm	*form = new ShrubberyCreationForm("Rigoberto");
 
 		std::cout<<*buro<<std::endl;
 		std::cout<<*form<<std::endl;

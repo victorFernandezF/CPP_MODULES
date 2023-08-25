@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 11:11:41 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/25 10:56:53 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/25 11:32:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,9 @@ RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyFor
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &copy) : AForm(copy){}
 
-/* RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &copy){
-	if (this != &copy)
-		this->setSigned(copy.getSigned());
+RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &copy){
 	return (*this);
-} */
+}
 
 int RobotomyRequestForm::_getRandomNumber() const{
 	int  random;

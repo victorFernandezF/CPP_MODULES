@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 11:10:19 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/24 19:13:02 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/25 11:28:19 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Bureaucrat;
 class ShrubberyCreationForm : public AForm{
 	private:
 		std::string _target;
+		int _plantShrubbery() const;
 		
 	public:
 		ShrubberyCreationForm();
