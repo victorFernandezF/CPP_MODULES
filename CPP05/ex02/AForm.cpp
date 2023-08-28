@@ -83,7 +83,7 @@ void AForm::beSigned(Bureaucrat &buro){
 }
 
 void AForm::execute(Bureaucrat const & executor) const{
-(void)executor;
+	(void)executor;
 }
 
 // O U T P U T   O P E R A T O R 

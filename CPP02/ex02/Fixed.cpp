@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 18:46:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/07/27 13:39:57 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/28 18:08:09 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ Fixed Fixed::operator--(int val){
 }
 
 // MAX MIN
-
 const Fixed &Fixed::min(const Fixed &f1, const Fixed &f2){
 	if (f1.getRawBits() < f2.getRawBits())
 		return (f1);
@@ -153,7 +152,7 @@ void Fixed::setRawBits(int const raw){
 }
 
 float Fixed::toFloat(void) const{
-	return ((float)this->_fixedValue / (float)(1 << this->_fractBits));
+	return (float)this->_fixedValue / (float)(1 << this->_fractBits );
 }
 
 int Fixed::toInt(void) const{

@@ -47,17 +47,33 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 	return (*this);
 }
 
-int ShrubberyCreationForm::_plantShrubbery() const{
+void ShrubberyCreationForm::_seeShrubbery() const{
 	std::string		filename;
-	std::ofstream	output;
+	std::ifstream	output;
+	std::string		buffer;
 	
 	filename = this->_target + "_shrubbery";
-	output.open(filename, std::ios::out);
-	if (output.fail())
+	output.open(filename, std::ios::in);
+	if (output.fail()){
+		std::cout<<BR<<"Sorry "<<this->_target<<" something were wrong\n"<<W;
+		return;
+	}
+	while (std::getline(output, buffer))
+		std::cout<<buffer<<std::endl;
+}
+
+int ShrubberyCreationForm::_plantShrubbery() const{
+	std::string		filename;
+	std::ofstream	input;
+	
+	filename = this->_target + "_shrubbery";
+	input.open(filename, std::ios::in);
+	if (input.fail())
 		return (std::cout<<BR<<"Sorry "<<this->_target<<" something were wrong\n"<<W, 1);
-	output << "       _-_\n    /~~   ~~\\ \n /~~         ~~\\ \n"
+	input << "       _-_\n    /~~   ~~\\ \n /~~         ~~\\ \n"
 	<<"{               }\n \\  _-     -_  /\n   ~  \\ //  ~\n       | |     \n"
 	<<"       | |     \n______// \\\\______\n";
+	input.close();
 	return (0);
 }
 
