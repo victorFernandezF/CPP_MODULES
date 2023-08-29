@@ -46,7 +46,7 @@ class AForm {
 		
 		class GradeTooHighException;
 		class GradeTooLowException; 
-		class FormIsNotSignedException; 
+		class FormNotSignedException; 
 };
 
 std::ostream &operator<<(std::ostream &out, const AForm &obj);

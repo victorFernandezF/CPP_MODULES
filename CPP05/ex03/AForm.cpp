@@ -27,7 +27,7 @@ class AForm::GradeTooLowException : public std::exception
 	}
 };
 
-class AForm::FormIsNotSignedException : public std::exception
+class AForm::FormNotSignedException : public std::exception
 {
 	public: virtual char *what() const throw(){
 		return ((char *)"Form is not signed.");

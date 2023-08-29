@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/25 13:39:52 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/29 13:06:48 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,9 @@
 # define BM	"\x1B[95m"	// BRIGHT MAGENTA
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
-# define TEST1 " Create 1 bureaucrat Evaristo (grade 145) and a \n \
- ShrubberyCreationForm (sign grade: 145; exe grade 138).\n  So Evaristo has enough\
- grade to sign the form but not to execute it.\n  At least at this moment.\n"
-# define TEST2 "Create 1 bureaucrat Maria (grade 1) and a \n \
- RobotomyRequestForm (sign grade: 72; exe grade 45).\n  Maria has highest\
- grade posible so is able to do everything.\n  Except execute an unsigned form.\n"
-# define TEST3 "Create 2 bureaucrats Pepe (grade 70) and Anselmo (grade 27)\n \
- and a PresidentialPardonForm (sign grade: 72; exe grade 45).\n  So Pepe has enough\
- grade to sign the form but not to execute it. \n  Anselmo has enought grade to execute it.\n"
+# define TEST1 " Intern will try to create a PRESIDENTIAL PARDON FORM.\n"
+# define TEST2 " Intern will try to create a ROBOTOMY REQUEST FORM.\n"
+# define TEST3 " Intern will try to create a SHRUBERRY CREATION FORM.\n"
+# define TEST4 " Intern will try to create a HOUSE DESTRUCTION FORM. (doesn't exist)\n"
 
 #endif
