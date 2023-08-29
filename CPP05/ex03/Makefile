@@ -2,8 +2,9 @@ NAME		= ex03
 CC			= g++
 FLAGS		= -Wall -Wextra -Werror -std=c++98 
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 
-SRC 		= main.cpp Bureaucrat.cpp AForm.cpp RobotomyRequestForm.cpp \
-			  ShrubberyCreationForm.cpp PresidentialPardonForm.cpp Intern.cpp
+SRC 		= main.cpp Bureaucrat.cpp AForm.cpp \
+			   PresidentialPardonForm.cpp ShrubberyCreationForm.cpp \
+			   RobotomyRequestForm.cpp Intern.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
 # T E X T   S T U F F

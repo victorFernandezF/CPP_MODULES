@@ -12,28 +12,6 @@
 
 #include "PresidentialPardonForm.hpp"
 
-//E X C E P T O N S
-class PresidentialPardonForm::GradeTooHighException : public std::exception
-{
-	public: virtual char *what() const throw(){
-		return ((char *)"Grade is too hight");
-	}
-};
-
-class PresidentialPardonForm::GradeTooLowException : public std::exception
-{
-	public: virtual char *what() const throw(){
-		return ((char *)"Grade is too low");
-	}
-};
-
-class PresidentialPardonForm::FormNotSignedException : public std::exception
-{
-	public: virtual char *what() const throw(){
-		return ((char *)"Form is not signed");
-	}
-};
-
 // Default constructor
 PresidentialPardonForm::PresidentialPardonForm(): AForm("PresidentialPardonForm", 72, 45){}
 
@@ -55,13 +33,7 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
 }
 
 // Execute function
-void PresidentialPardonForm::execute(Bureaucrat const & executor) const{
-	int grade = executor.getGrade();
-	if (this->getSigned() == 0)
-		throw FormNotSignedException();
-	if (grade > this->getGradeToExecute())
-		throw GradeTooLowException();
-	std::cout<<W<<executor.getName()<<" executed "<<this->getName()<<"\n";
+void PresidentialPardonForm::doAction() const{
 	std::cout<<G<<this->_target<<" has been pardoned by Zaphod Beeblebrox"
 	<<W<<std::endl;
 }

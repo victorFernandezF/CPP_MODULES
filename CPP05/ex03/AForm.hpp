@@ -19,6 +19,7 @@
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
+
 class AForm {
 	private:
 		const std::string _name;
@@ -42,7 +43,8 @@ class AForm {
 		void setGradeExe(int exe);
 		
 		void beSigned(Bureaucrat &buro);
-		virtual void execute(Bureaucrat const & executor) const;
+		void execute(Bureaucrat const & executor) const;
+		virtual void doAction(void) const = 0;
 		
 		class GradeTooHighException;
 		class GradeTooLowException; 

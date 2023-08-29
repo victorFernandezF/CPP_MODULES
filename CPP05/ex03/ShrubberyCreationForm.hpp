@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 11:10:19 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/25 13:25:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:27:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ShrubberyCreationForm : public AForm{
 	private:
 		std::string _target;
 		int _plantShrubbery() const;
+		void _seeShrubbery() const;
 		
 	public:
 		ShrubberyCreationForm();
@@ -33,12 +34,8 @@ class ShrubberyCreationForm : public AForm{
 		~ShrubberyCreationForm();
 		
 		void setSigned(bool isSigned);
-		void execute(Bureaucrat const & executor) const;
-		
+		void doAction(void) const; 
 		void beSigned(Bureaucrat &buro);
-		class GradeTooHighException;
-		class GradeTooLowException; 
-		class FormNotSignedException; 
 };
 
 std::ostream &operator<<(std::ostream &out, const ShrubberyCreationForm &obj);

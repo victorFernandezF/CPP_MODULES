@@ -32,12 +32,9 @@ class PresidentialPardonForm : public AForm{
 		~PresidentialPardonForm();
 		
 		void setSigned(bool isSigned);
-		void execute(Bureaucrat const & executor) const;
-
 		void beSigned(Bureaucrat &buro);
-		class GradeTooHighException;
-		class GradeTooLowException;
-		class FormNotSignedException;
+		void doAction(void) const;
+
 };
 
 std::ostream &operator<<(std::ostream &out, const PresidentialPardonForm &obj);

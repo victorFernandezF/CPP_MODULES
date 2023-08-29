@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:10:28 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/29 11:52:20 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/29 19:11:33 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ class Intern {
 		Intern(Intern const &copy);
 		~Intern();
 		Intern &operator=(Intern const &copy);
-		AForm *makeShruberry(std::string target);
+		AForm *makeshrubbery(std::string target);
 		AForm *makePresidential(std::string target);
 		AForm *makeRobotomy(std::string target);
 		
 		AForm *makeForm(std::string formName, std::string target);
-		class NoForm;
 };
 #endif

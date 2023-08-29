@@ -6,18 +6,11 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:15:25 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/29 13:05:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/29 19:11:27 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
-
-class Intern::NoForm : public std::exception
-{
-	public: virtual char *what() const throw(){
-		return ((char *)"No Form Found with that name");
-	}
-};
 
 Intern::Intern(){}
 
@@ -32,7 +25,7 @@ Intern & Intern::operator=(Intern const &copy){
 	return (*this);
 }
 
-AForm *Intern::makeShruberry(std::string target){
+AForm *Intern::makeshrubbery(std::string target){
 	AForm *shru = new ShrubberyCreationForm(target);
 	std::cout<<BC<<"Intern created Shrubbery Creation Form\n"<<W;
 	return (shru);
@@ -56,11 +49,13 @@ std::string Intern::_strToLower(std::string str){
 }
 
 AForm *Intern::makeForm(std::string formName, std::string target){
-	std::string functions[3] = {"shruberry creation", "presidential pardon", "robotomy request"};
-	AForm *(Intern::*funcPtr[3])(std::string) = {&Intern::makeShruberry, &Intern::makePresidential, &Intern::makeRobotomy};
+	std::string functions[3] = {"shrubbery creation", "presidential pardon", "robotomy request"};
+	AForm *(Intern::*funcPtr[3])(std::string) = {&Intern::makeshrubbery, &Intern::makePresidential, &Intern::makeRobotomy};
 	std::string lowerName = this->_strToLower(formName);
 	for (int i = 0; i < 3; i++)
 		if (functions[i] == lowerName)
 			return (this->*funcPtr[i])(target);
-	throw NoForm();
+	std::cout<<BR<<"Error: Form does not exist.\n"<<W;
+	AForm *ret = NULL;
+	return ret;
 }

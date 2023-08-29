@@ -30,7 +30,7 @@ class AForm::GradeTooLowException : public std::exception
 class AForm::FormNotSignedException : public std::exception
 {
 	public: virtual char *what() const throw(){
-		return ((char *)"Form is not signed.");
+		return ((char *)"Form is not signed");
 	}
 };
 
@@ -83,8 +83,16 @@ void AForm::beSigned(Bureaucrat &buro){
 }
 
 void AForm::execute(Bureaucrat const & executor) const{
-(void)executor;
+	int grade = executor.getGrade();
+	if (this->getSigned() == 0)
+		throw FormNotSignedException();
+	if (grade > this->getGradeToExecute())
+		throw GradeTooLowException();
+	std::cout<<W<<executor.getName()<<" executed "<<this->getName()<<"\n";
+	this->doAction();
 }
+
+
 
 // O U T P U T   O P E R A T O R 
 std::ostream &operator<<(std::ostream &out, const AForm &obj){

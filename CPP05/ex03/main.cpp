@@ -6,15 +6,15 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/29 13:18:21 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/29 19:11:54 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Intern.hpp"
-#include "RobotomyRequestForm.hpp"
+//#include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+//#include "ShrubberyCreationForm.hpp"
 
 void leaks(void)
 {
@@ -37,76 +37,65 @@ int main(void)
 	{
 		Intern someRandomIntern;
 		Bureaucrat *buro;
-		AForm* ppf;
+		AForm* form;
 		
-		try{	
-			ppf = someRandomIntern.makeForm("Presidential Pardon", "Bender");
-			buro = new Bureaucrat("Bureaucrator", 2);
-			buro->signForm(*ppf);
-			buro->executeForm(*ppf);
+		form = someRandomIntern.makeForm("Presidential Pardon", "Bender");
+		if (form){
+			buro = new Bureaucrat("Bureaucrator", 5);
+			buro->signForm(*form);
+			buro->executeForm(*form);
 			std::cout<<"\n";
-		}catch(std::exception &e){
-			std::cout<<BR<<"Error: "<<e.what()<<W<<std::endl;
-		}
-		if (ppf)
-			delete ppf;
-		if (buro)
+			delete form;
 			delete buro;
+		}
 	}
 	printTestHeaders(2, TEST2, 1);
 	{
 		Intern someRandomIntern;
 		Bureaucrat *buro;
-		AForm* rrf;
+		AForm* form;
 		
-		try{	
-			rrf = someRandomIntern.makeForm("Robotomy Request", "Bender");
+		
+		form = someRandomIntern.makeForm("Robotomy Request", "Bender");
+		if (form){
 			buro = new Bureaucrat("Bureaucrator", 2);
-			buro->signForm(*rrf);
-			buro->executeForm(*rrf);
+			buro->signForm(*form);
+			buro->executeForm(*form);
 			std::cout<<"\n";
-		}catch(std::exception &e){
-			std::cout<<BR<<"Error: "<<e.what()<<W<<std::endl;
+			delete form;
+			delete buro;
 		}
-		if (rrf)
-			delete rrf;
-		if (buro)
-			delete buro;	
 	}
 	printTestHeaders(3, TEST3, 1);
 	{
 		Intern someRandomIntern;
 		Bureaucrat *buro;
-		AForm* scf;
+		AForm* form;
 		
-		try{	
-			scf = someRandomIntern.makeForm("shruBerry CreatIon", "Bender");
+		form = someRandomIntern.makeForm("shrubbery CreatIon", "Bender");
+		if (form){
 			buro = new Bureaucrat("Bureaucrator", 2);
-			buro->signForm(*scf);
-			buro->executeForm(*scf);
+			buro->signForm(*form);
+			buro->executeForm(*form);
 			std::cout<<"\n";
-		}catch(std::exception &e){
-			std::cout<<BR<<"Error: "<<e.what()<<W<<std::endl;
-		}
-		if (scf)
-			delete scf;
-		if (buro)
+			delete form;
 			delete buro;
+		}
 	}
 	printTestHeaders(4, TEST4, 1);
 	{
 		Intern someRandomIntern;
 		Bureaucrat *buro;
-		AForm* hdf;
-		
-		try{	
-			hdf = someRandomIntern.makeForm("house destruction", "Bender");
+		AForm* form;
+
+		form = someRandomIntern.makeForm("House demolition", "Bender");
+		if (form){
 			buro = new Bureaucrat("Bureaucrator", 2);
-			buro->signForm(*hdf);
-			buro->executeForm(*hdf);
+			buro->signForm(*form);
+			buro->executeForm(*form);
 			std::cout<<"\n";
-		}catch(std::exception &e){
-			std::cout<<BR<<"Error: "<<e.what()<<W<<std::endl;
+			delete form;
+			delete buro;
 		}
 	}
 	return 0;

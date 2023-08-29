@@ -36,9 +36,16 @@ void ShrubberyCreationForm::doAction() const{
 		std::cout<<BR<<"Sorry "<<this->_target<<" something were wrong\n"<<W;
 		return;
 	}
-	output << "       _-_\n    /~~   ~~\\ \n /~~         ~~\\ \n"
-	<<"{               }\n \\  _-     -_  /\n   ~  \\ //  ~\n       | |     \n"
-	<<"       | |     \n______// \\\\______\n";
+
+	output	<<"       _-_ \n"
+			<<"    /~~   ~~\\ \n"
+			<<" /~~         ~~\\ \n"
+			<<"{               } \n"
+			<<" \\  _-     -_  /\n"
+			<<"   ~  \\ //  ~\n"
+			<<"       | | \n"
+			<<"       | | \n"
+			<<"______// \\\\______\n";
 	output.close();
 	std::cout<<G<<"Shruberry has been created succesfully in "
 	<<this->_target<<"_shruberry\n"<<W;
