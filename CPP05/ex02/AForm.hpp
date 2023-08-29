@@ -43,11 +43,12 @@ class AForm {
 		void setGradeExe(int exe);
 		
 		void beSigned(Bureaucrat &buro);
-		virtual void execute(Bureaucrat const & executor) const;
+		void execute(Bureaucrat const & executor) const;
+		virtual void doAction(void) const = 0;
 		
 		class GradeTooHighException;
 		class GradeTooLowException; 
-		class FormIsNotSignedException; 
+		class FormNotSignedException; 
 };
 
 std::ostream &operator<<(std::ostream &out, const AForm &obj);

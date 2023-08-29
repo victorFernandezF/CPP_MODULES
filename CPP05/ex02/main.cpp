@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/25 14:09:24 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/29 18:33:54 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main(void)
 		std::cout<<std::endl;
 		buro->signForm(*form);
 		buro->executeForm(*form);
-		std::cout<<BB<<" * Of course not.\n  But we are goint to increment "
+		std::cout<<BB<<" * Of course not.\n  But we are going to increment "
 		<<buro->getName()<<"'s grade 8 times. to make it posible."<<W<<std::endl;
 		for (int i = 0; i < 8; i++)
 			buro->incrementGrade();
