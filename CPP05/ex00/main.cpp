@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 13:27:45 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:57:58 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void printTestHeaders(int test, std::string testh, int line){
 	if (line == 1)
 		std::cout<<"\n___________________________________"<<std::endl;
 	std::cout<<std::endl<<BM<<"◉ -- [TEST "<<test<<" ] -- ◉"<<std::endl
-	<<BB<<testh<<W<<std::endl<<std::endl;
+	<<BB<<testh<<W<<std::endl;
 }
 
 int main(void)

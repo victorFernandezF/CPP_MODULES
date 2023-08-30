@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:55:36 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 13:56:21 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:53:58 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 DiamondTrap::DiamondTrap(): ClapTrap("Default_clap_name"){
 	
-	this->_name = "Pepe";
 	this->setHit(FragTrap::getHit());
 	this->setEnergy(ScavTrap::getEnergy());
 	this->setAttack(FragTrap::getAttack());
@@ -35,6 +34,6 @@ DiamondTrap::~DiamondTrap(){
 }
 
 void DiamondTrap::whoAmI(){
-	std::cout<<"Diamond: "<<this->_name<<std::endl;
-	std::cout<<"ClapTrap: "<<ClapTrap::getName()<<std::endl;
+	std::cout<<BY<<"\nWhoAmI?\n"<<W<<"  I am DiamondTrap "<<this->_name<<"\n"
+	<<"  My ClapTrap name is "<<ClapTrap::getName()<<W<<std::endl;
 }
