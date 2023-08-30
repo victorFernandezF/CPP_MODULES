@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 18:10:28 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/29 19:11:33 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:36:32 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,15 @@ class Intern {
 	private:
 		std::string _strToLower(std::string str);
 		int _Do(std::string lowerName);
+		AForm *_makeshrubbery(std::string target);
+		AForm *_makePresidential(std::string target);
+		AForm *_makeRobotomy(std::string target);
 	
 	public:
 		Intern();
 		Intern(Intern const &copy);
 		~Intern();
 		Intern &operator=(Intern const &copy);
-		AForm *makeshrubbery(std::string target);
-		AForm *makePresidential(std::string target);
-		AForm *makeRobotomy(std::string target);
-		
 		AForm *makeForm(std::string formName, std::string target);
 };
 #endif

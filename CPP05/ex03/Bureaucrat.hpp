@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 10:51:35 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/25 11:40:30 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:37:19 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Bureaucrat {
 		Bureaucrat(Bureaucrat &name);
 		Bureaucrat &operator=(const Bureaucrat &name);
 		~Bureaucrat();
+		
 		std::string getName(void) const;
 		int getGrade() const;
 		void incrementGrade();
