@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:57:02 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:53:35 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,17 @@ void leaks(void)
 	system("leaks -q ex00");
 }
 
+void printTestHeaders(int test, std::string testh, int line){
+	if (line == 1)
+		std::cout<<"\n___________________________________"<<std::endl;
+	std::cout<<std::endl<<BM<<"◉ -- [TEST "<<test<<" ] -- ◉"<<std::endl
+	<<BB<<testh<<W<<std::endl;
+}
+
 int main(void)
 {
 	atexit(leaks);
-	std::cout<<std::endl<<BM<<"◉ -- [TEST 1] -- ◉"<<std::endl
-	<<BB<<" This is the subject example. It will creates an Animal, "<<std::endl
-	<<" a Dog and a Cat. Prints their types and prints their sounds.	"<<W<<std::endl<<std::endl;
+	printTestHeaders(1, TEST1, 0);
 	{
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
@@ -39,12 +44,7 @@ int main(void)
 		delete(j);
 		delete(meta);
 	}
-	std::cout<<std::endl
-	<<"___________________________________"<<std::endl
-	<<std::endl;
-	std::cout<<std::endl<<BM<<"◉ -- [TEST 2] -- ◉"<<std::endl
-	<<BB<<" In this case the Animal has been replaced by WrongAnimal, "<<std::endl
-	<<" and the Cat by WrongCat. Prints their types and prints their sounds.	"<<W<<std::endl<<std::endl;
+	printTestHeaders(2, TEST2, 1);
 	{
 		const WrongAnimal* meta = new WrongAnimal();
 		const Animal* dog = new Dog();

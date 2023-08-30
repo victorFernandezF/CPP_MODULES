@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   colours.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 10:55:12 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:54:13 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,8 @@
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
 
+# define TEST1 " This is the subject example. It will creates an Animal,\n\
+ a Dog and a Cat. Prints their types and prints their sounds.\n"
+# define TEST2 " In this case the Animal has been replaced by WrongAnimal,\n\
+ and the Cat by WrongCat. Prints their types and prints their sounds.\n"
 #endif

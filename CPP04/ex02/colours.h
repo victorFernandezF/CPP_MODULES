@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   colours.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 10:55:12 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 12:24:53 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,11 @@
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
 
+# define TEST1 " This is the subject example. It will creates a Cat,\n\
+ and a Dog. Then they will be deleted (without leaks).\n"
+# define TEST2 " Now we are going to create an array of animals.\n\
+ One half will be cats and the other dogs. Then each\n\
+ one will be deleted (no leaks)\n"
+# define TEST3 " Testing deep copy.\n"
+ 
 #endif

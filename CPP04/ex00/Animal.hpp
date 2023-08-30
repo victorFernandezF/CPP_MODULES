@@ -21,13 +21,15 @@ class Animal{
 		std::string _type;
 
 	public:
-		Animal();	// Default Constructor
-		Animal(Animal &copy);	// Constructor with name 
-		Animal(std::string type); // Copy constructor
-		Animal &operator=(const Animal &copy);	// Asignment operator
-		virtual ~Animal(); // Destructor
+		Animal();
+		Animal(Animal &copy);
+		Animal(std::string type);
+		Animal &operator=(const Animal &copy);
+		virtual ~Animal();
+		
 		std::string getType(void) const;
 		void setType(std::string type);
+		
 		virtual void makeSound() const; 
 };
 #endif
