@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/30 11:37:03 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:38:56 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,6 @@ void ClapTrap::takeDamage(unsigned int amount){
 	else
 		this->setHit(this->_hitPoints - amount);
 	this->printMessage("take", "", amount);
-
 }
 
 // Repaires itself. This action costs one energy point.

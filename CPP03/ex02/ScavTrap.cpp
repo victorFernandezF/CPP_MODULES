@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:47:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:40:47 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,17 @@ ScavTrap::ScavTrap(ScavTrap &copy){
 	this->setHit(copy.getHit());
 }	
 
-/* ScavTrap &ScavTrap::operator=(const ScavTrap &copy){
-	ScavTrap aux;
-	aux = copy;
+ScavTrap &ScavTrap::operator=(const ScavTrap &copy){
 	std::cout<<C<<" cavTrap Assignment operand."<<W<<std::endl;
 	if (this != &copy)
 	{
-		this->setName(aux.getName());
-		this->setHit(aux.getHit());
-		this->setAttack(aux.getAttack());
-		this->setEnergy(aux.getEnergy());
+		this->setName(copy.getName());
+		this->setHit(copy.getHit());
+		this->setAttack(copy.getAttack());
+		this->setEnergy(copy.getEnergy());
 	}
 	return (*this);
-} */
+}
 
 ScavTrap::~ScavTrap(){
 	std::cout<<C<<" ScavTrap Destructor."<<W<<std::endl;
