@@ -6,22 +6,22 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:50:26 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:30:36 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(): _name("Default"), _hitPoints(10), _energyPoints(2), _attackDamage(0){
-	std::cout<<BC<<"ClapTrap Default constructor."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Default constructor."<<W<<std::endl;
 }	
 ClapTrap::ClapTrap(std::string name):_hitPoints(10), _energyPoints(2), _attackDamage(0){
-	std::cout<<BC<<"ClapTrap Constructor with name."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Constructor with name."<<W<<std::endl;
 	this->_name = name;
 }
 
 ClapTrap::ClapTrap(ClapTrap &copy){
-	std::cout<<BC<<"ClapTrap Copy constructor."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Copy constructor."<<W<<std::endl;
 	this->_name = copy.getName();
 	this->_attackDamage = copy.getAttack();
 	this->_energyPoints = copy.getEnergy();
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(ClapTrap &copy){
 }	
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
-	std::cout<<BC<<"ClapTrap Assignment operand."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Assignment operand."<<W<<std::endl;
 	if (this != &copy)
 	{
 		this->_name = copy._name;
@@ -41,7 +41,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
 }
 
 ClapTrap::~ClapTrap(){
-	std::cout<<BC<<"ClapTrap Destructor."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Destructor."<<W<<std::endl;
 }
 
 // G E T T E R  &&  S E T T T E R S 
@@ -71,20 +71,32 @@ void ClapTrap::setAttack(int attack){
 	this->_attackDamage = attack;
 }
 
+void ClapTrap::printMessage(std::string action, std::string target, int amount){
+	if (action == "attack")
+		std::cout<<"ClapTrap "<<this->getName()<<G<<" attacks "<<W
+		<<target<<", causing "<<G<<this->getAttack()<<W<<" points of damage"
+		<<std::endl<<R<<" *"<<W<<"This action costs "<<R<<"1"
+		<<W<<" energy point."<<W<<std::endl;
+	if (action == "take")
+		std::cout<<"ClapTrap "<<this->getName()<<G<<" has been attacked "<<W
+		<<"causing the lost of "<<G<<amount<<W<<" hit points"<<std::endl;
+	if (action == "repair")
+		std::cout<<"ClapTrap "<<this->getName()<<G<<" repaired itself, "<<W
+		<<" getting back "<<G<<amount<<W<<" hit points."<<std::endl<<R<<" *"
+		<<W<<"This action costs "<<R<<"1"<<W<<" energy point."<<W<<std::endl;
+}
+
 // M E M B E R   F U N C T I O N S 
 
 // Attacks a target. This action costs one energy point.
 void ClapTrap::attack(const std::string& target){
-	if (this->checkHitAndEnergy("attacks", 0) == false)
+	if (this->checkHitAndEnergy("attack", 0) == false)
 		return ;
-	std::cout<<"ClapTrap "<<this->getName()<<G<<" attacks "<<W
-	<<target<<", causing "<<G<<this->getAttack()<<W<<" points of damage"
-	<<std::endl;
-	std::cout<<R<<" *"<<W<<"This action costs "<<R<<"1"<<W<<" energy point."<<W<<std::endl;
 	this->setEnergy(this->_energyPoints - 1);
+	this->printMessage("attack", target, 0);
 }
 
-// Decrements the number of hit points by the given amount. 
+// Decrements the numCer of hit points Cy the given amount. 
 void ClapTrap::takeDamage(unsigned int amount){
 	if (this->checkHitAndEnergy("take damage", 1) == false)
 		return ;
@@ -92,22 +104,18 @@ void ClapTrap::takeDamage(unsigned int amount){
 		this->setHit(0);
 	else
 		this->setHit(this->_hitPoints - amount);
-	std::cout<<"ClapTrap "<<this->getName()<<G<<" has been attacked "<<W
-	<<"causing the lost of "<<G<<amount<<W<<" hit points"
-	<<std::endl;
+	this->printMessage("take", "", amount);
+
 }
 
 // Repaires itself. This action costs one energy point.
-// It will get back 1 hit point.
+// It will get Cack 1 hit point.
 void ClapTrap::beRepaired(unsigned int amount){
 	if (this->checkHitAndEnergy("be repaired", 0) == false)
 		return ;
-	std::cout<<"ClapTrap "<<this->getName()<<G<<" repaired itself, "<<W
-	<<" getting back "<<G<<amount<<W<<" hit points."
-	<<std::endl;
-	std::cout<<R<<" *"<<W<<"This action costs "<<R<<"1"<<W<<" energy point."<<W<<std::endl;
 	this->setEnergy(this->_energyPoints - 1);
 	this->setHit(this->_hitPoints + amount);
+	this->printMessage("repair", "", amount);
 }
 
 // Checks if claptrap has enought energy and hit points to continue.

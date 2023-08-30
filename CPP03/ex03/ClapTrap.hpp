@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:52:51 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:49:45 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 11:27:15 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # define CLAPTRAP_HPP
 # include <iostream>
 # include "colours.h"
+
 
 class ClapTrap{
 	private:
@@ -37,6 +38,7 @@ class ClapTrap{
 		
 		bool checkHitAndEnergy(std::string action, int flag);
 		void printStatus(void);
+		void printMessage(std::string action, std::string target, int amount);
 
 		void setName(std::string name);
 		void setHit(int hit);
