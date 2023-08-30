@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:52:51 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:37:51 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:19:23 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class ClapTrap{
 		unsigned int _hitPoints;
 		unsigned int _energyPoints;
 		unsigned int _attackDamage;
+		bool _checkHitAndEnergy(std::string action, int flag);
 	
 	public:
 		ClapTrap();	
@@ -36,7 +37,6 @@ class ClapTrap{
 		unsigned int getEnergy(void); 			
 		unsigned int getAttack(void); 			
 		
-		bool checkHitAndEnergy(std::string action, int flag);
 		void printStatus(void);
 
 		void setName(std::string name);

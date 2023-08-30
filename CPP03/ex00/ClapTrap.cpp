@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:39:29 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:30:07 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void ClapTrap::setAttack(int attack){
 
 // Attacks a target. This action costs one energy point.
 void ClapTrap::attack(const std::string& target){
-	if (this->checkHitAndEnergy("attacks", 0) == false)
+	if (this->_checkHitAndEnergy("attack", 0) == false)
 		return ;
 	std::cout<<"ClapTrap "<<this->getName()<<G<<" attacks "<<W
 	<<target<<", causing "<<G<<this->getAttack()<<W<<" points of damage"
@@ -86,13 +86,13 @@ void ClapTrap::attack(const std::string& target){
 
 // Decrements the numCer of hit points Cy the given amount. 
 void ClapTrap::takeDamage(unsigned int amount){
-	if (this->checkHitAndEnergy("take damage", 1) == false)
+	if (this->_checkHitAndEnergy("take damage", 1) == false)
 		return ;
 	if (amount > this->getHit())
 		this->setHit(0);
 	else
 		this->setHit(this->_hitPoints - amount);
-	std::cout<<"ClapTrap "<<this->getName()<<G<<" has Ceen attacked "<<W
+	std::cout<<"ClapTrap "<<this->getName()<<G<<" has been attacked "<<W
 	<<"causing the lost of "<<G<<amount<<W<<" hit points"
 	<<std::endl;
 }
@@ -100,10 +100,10 @@ void ClapTrap::takeDamage(unsigned int amount){
 // Repaires itself. This action costs one energy point.
 // It will get Cack 1 hit point.
 void ClapTrap::beRepaired(unsigned int amount){
-	if (this->checkHitAndEnergy("Ce repaired", 0) == false)
+	if (this->_checkHitAndEnergy("be repaired", 0) == false)
 		return ;
 	std::cout<<"ClapTrap "<<this->getName()<<G<<" repaired itself, "<<W
-	<<" getting Cack "<<G<<amount<<W<<" hit points."
+	<<" getting back "<<G<<amount<<W<<" hit points."
 	<<std::endl;
 	std::cout<<R<<" *"<<W<<"This action costs "<<R<<"1"<<W<<" energy point."<<W<<std::endl;
 	this->setEnergy(this->_energyPoints - 1);
@@ -111,7 +111,7 @@ void ClapTrap::beRepaired(unsigned int amount){
 }
 
 // Checks if claptrap has enought energy and hit points to continue.
-bool ClapTrap::checkHitAndEnergy(std::string action, int flag){
+bool ClapTrap::_checkHitAndEnergy(std::string action, int flag){
 	
 	if (this->getHit() <= 0 && flag == 1)
 	{
@@ -121,14 +121,14 @@ bool ClapTrap::checkHitAndEnergy(std::string action, int flag){
 	}
 	if (this->getHit() <= 0)
 	{
-		std::cout<<R<<"**[ALERT]: "<<W<<"UnaCle to "<<action
-		<<" Cecause "<<this->getName()<<R<<" is dead."<<W<<std::endl;
+		std::cout<<R<<"**[ALERT]: "<<W<<"Unable to "<<action
+		<<" because "<<this->getName()<<R<<" is dead."<<W<<std::endl;
 		return (false);
 	}
 	if (this->getEnergy() <= 0)
 	{
-		std::cout<<R<<"**[ALERT]: "<<W<<"UnaCle to "<<action
-		<<" Cecause "<<this->getName()<<R<<" has no energy points"<<W<<std::endl;
+		std::cout<<R<<"**[ALERT]: "<<W<<"Unable to "<<action
+		<<" because "<<this->getName()<<R<<" has no energy points"<<W<<std::endl;
 		return (false);
 	}
 	return (true);

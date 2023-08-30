@@ -6,55 +6,55 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 18:22:10 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:33:52 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(): _name("Default"), _hitPoints(10), _energyPoints(2), _attackDamage(0){
-	std::cout<<BC<<"ClapTrap Default constructor."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Default constructor."<<W<<std::endl;
 }	
 ClapTrap::ClapTrap(std::string name):_hitPoints(10), _energyPoints(2), _attackDamage(0){
-	std::cout<<BC<<"ClapTrap Constructor with name."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Constructor with name."<<W<<std::endl;
 	this->_name = name;
 }
 
 ClapTrap::ClapTrap(ClapTrap &copy){
-	std::cout<<BC<<"ClapTrap Copy constructor."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Copy constructor."<<W<<std::endl;
 	this->_name = copy.getName();
 	this->_attackDamage = copy.getAttack();
 	this->_energyPoints = copy.getEnergy();
 	this->_hitPoints = copy.getHit();
 }	
 
-/* ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
-	std::cout<<"Copy assignmen operatorcalled"<<std::endl;
+ClapTrap &ClapTrap::operator=(const ClapTrap &copy){
+	std::cout<<C<<"ClapTrap Assignment operand."<<W<<std::endl;
 	if (this != &copy)
 	{
-		this->setName(copy.getName());
-		this->setAttack(copy.getAttack());
-		this->setEnergy(copy.getEnergy());
-		this->setHit(copy.getHit());
+		this->_name = copy._name;
+		this->_hitPoints = copy._hitPoints;
+		this->_energyPoints = copy._energyPoints;
+		this->_attackDamage = copy._attackDamage;
 	}
 	return (*this);
-} */
+}
 
 ClapTrap::~ClapTrap(){
-	std::cout<<BC<<"ClapTrap Destructor."<<W<<std::endl;
+	std::cout<<C<<"ClapTrap Destructor."<<W<<std::endl;
 }
 
 // G E T T E R  &&  S E T T T E R S 
-std::string ClapTrap::getName(void) const{
+std::string ClapTrap::getName(void){
 	return (this->_name);
 }
-unsigned int ClapTrap::getHit(void) const{
+unsigned int ClapTrap::getHit(void){
 	return (this->_hitPoints);
 } 			
-unsigned int ClapTrap::getEnergy(void) const{
+unsigned int ClapTrap::getEnergy(void){
 	return (this->_energyPoints);
 } 			
-unsigned int ClapTrap::getAttack(void) const{
+unsigned int ClapTrap::getAttack(void){
 	return (this->_attackDamage);
 }
 
@@ -71,11 +71,11 @@ void ClapTrap::setAttack(int attack){
 	this->_attackDamage = attack;
 }
 
-// M E M B E R   F U N C T I O N S 
+// M E M C E R   F U N C T I O N S 
 
 // Attacks a target. This action costs one energy point.
 void ClapTrap::attack(const std::string& target){
-	if (this->checkHitAndEnergy("attacks", 0) == false)
+	if (this->checkHitAndEnergy("attack", 0) == false)
 		return ;
 	std::cout<<"ClapTrap "<<this->getName()<<G<<" attacks "<<W
 	<<target<<", causing "<<G<<this->getAttack()<<W<<" points of damage"
@@ -84,7 +84,7 @@ void ClapTrap::attack(const std::string& target){
 	this->setEnergy(this->_energyPoints - 1);
 }
 
-// Decrements the number of hit points by the given amount. 
+// Decrements the numCer of hit points Cy the given amount. 
 void ClapTrap::takeDamage(unsigned int amount){
 	if (this->checkHitAndEnergy("take damage", 1) == false)
 		return ;
@@ -92,13 +92,13 @@ void ClapTrap::takeDamage(unsigned int amount){
 		this->setHit(0);
 	else
 		this->setHit(this->_hitPoints - amount);
-	std::cout<<W<<"ClapTrap "<<this->getName()<<G<<" has been attacked "<<W
+	std::cout<<"ClapTrap "<<this->getName()<<G<<" has been attacked "<<W
 	<<"causing the lost of "<<G<<amount<<W<<" hit points"
 	<<std::endl;
 }
 
 // Repaires itself. This action costs one energy point.
-// It will get back 1 hit point.
+// It will get Cack 1 hit point.
 void ClapTrap::beRepaired(unsigned int amount){
 	if (this->checkHitAndEnergy("be repaired", 0) == false)
 		return ;

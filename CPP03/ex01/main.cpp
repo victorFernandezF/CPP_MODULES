@@ -6,17 +6,30 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 18:34:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:37:19 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
+void leaks(void)
+{
+	std::cout<<"\n___________________________________"<<std::endl;
+	std::cout<<M<<"\n -- [ LEAKS ] -- "<<W<<std::endl;
+	system("leaks -q ex01");
+}
+
+void printTestHeaders(int test, std::string testh, int line){
+	if (line == 1)
+		std::cout<<"\n___________________________________"<<std::endl;
+	std::cout<<std::endl<<BM<<"◉ -- [TEST "<<test<<" ] -- ◉"<<std::endl
+	<<BB<<testh<<W<<std::endl<<std::endl;
+}
+
 int main(void)
 {
-	std::cout<<std::endl<<BM<<"◉ -- [TEST 1] -- ◉"<<std::endl
-	<<BB<<" This test instances an object from the class: ClapTrap "<<std::endl
-	<<" and does some actions."<<std::endl<<std::endl;
+	atexit(leaks);
+	printTestHeaders(1, TEST1, 0);
 	{
 		ClapTrap clap("Clappy");
 		clap.printStatus();
@@ -25,15 +38,9 @@ int main(void)
 		clap.beRepaired(1);
 		clap.printStatus();
 	}
-	std::cout<<std::endl
-	<<"___________________________________"<<std::endl
-	<<std::endl;
-	std::cout<<std::endl<<BM<<"◉ -- TEST 2 -- ◉"<<std::endl
-	<<BB<<" This test instances an object from the class: ScavTrap "<<std::endl
-	<<" and does some actions."<<std::endl<<std::endl;
+	printTestHeaders(2, TEST2, 0);
 	{
 		ScavTrap scav("Scavy");
-		scav.printStatus();
 		scav.printStatus();
 		scav.guardGate();
 		scav.attack("ABC");

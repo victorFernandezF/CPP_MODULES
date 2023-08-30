@@ -6,17 +6,30 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:40:18 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:24:54 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
+void leaks(void)
+{
+	std::cout<<"\n___________________________________"<<std::endl;
+	std::cout<<M<<"\n -- [ LEAKS ] -- "<<W<<std::endl;
+	system("leaks -q ex00");
+}
+
+void printTestHeaders(int test, std::string testh, int line){
+	if (line == 1)
+		std::cout<<"\n___________________________________"<<std::endl;
+	std::cout<<std::endl<<BM<<"◉ -- [TEST "<<test<<" ] -- ◉"<<std::endl
+	<<BB<<testh<<W<<std::endl<<std::endl;
+}
+
 int main(void)
 {
-	std::cout<<std::endl<<BM<<"◉ -- [TEST 1] -- ◉"<<std::endl
-	<<BB<<" This test instances an object from the class: ClapTrap "<<std::endl
-	<<" and does some actions."<<std::endl<<std::endl;
+	atexit(leaks);
+	printTestHeaders(1, TEST1, 0);
 	{
 		ClapTrap claptrap("MAQUINITA");	
 		claptrap.printStatus();
@@ -26,12 +39,7 @@ int main(void)
 		claptrap.printStatus();
 		claptrap.attack("Pepe");
 	}
-	std::cout<<std::endl
-	<<"___________________________________"<<std::endl
-	<<std::endl;
-	std::cout<<std::endl<<BM<<"◉ -- [TEST 2] -- ◉"<<std::endl
-	<<BB<<" This test instances an object from the class: ClapTrap "<<std::endl
-	<<" and does some actions."<<std::endl<<std::endl;
+	printTestHeaders(2, TEST2, 1);
 	{
 		ClapTrap claptrap;
 		claptrap.printStatus();

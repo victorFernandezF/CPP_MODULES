@@ -6,19 +6,31 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:48:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 10:40:12 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include "ScavTrap.hpp"
 
+void leaks(void)
+{
+	std::cout<<"\n___________________________________"<<std::endl;
+	std::cout<<M<<"\n -- [ LEAKS ] -- "<<W<<std::endl;
+	system("leaks -q ex02");
+}
+
+void printTestHeaders(int test, std::string testh, int line){
+	if (line == 1)
+		std::cout<<"\n___________________________________"<<std::endl;
+	std::cout<<std::endl<<BM<<"◉ -- [TEST "<<test<<" ] -- ◉"<<std::endl
+	<<BB<<testh<<W<<std::endl<<std::endl;
+}
+
 int main(void)
 {
-	std::cout<<BM<<" ◉ -- [TEST 1] -- ◉"<<std::endl
-	<<BB<<" This test only instances an object from each class and prints "<<std::endl
-	<<" their statuses. Just to see that each one gets "
-	<<"te correct values."<<std::endl<<std::endl;
+	atexit(leaks);
+	printTestHeaders(1, TEST1, 0);
 	{
 		ClapTrap clap("CLAPPY");
 		ScavTrap scav("SCAVY");
@@ -27,12 +39,7 @@ int main(void)
 		scav.printStatus();
 		frag.printStatus();
 	}
- 	std::cout<<std::endl
-	<<"___________________________________"<<std::endl
-	<<std::endl;
-	std::cout<<std::endl<<BM<<"◉ -- [TEST 2] -- ◉"<<std::endl
-	<<BB<<" This test instances an object from the class: FragTrap "<<std::endl
-	<<" and does some actions."<<std::endl<<std::endl;
+	printTestHeaders(2, TEST2, 0);
 	{
 		FragTrap frag("FRAGGY");
 		frag.printStatus();
