@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:33:28 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/21 18:58:44 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:56:24 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,23 @@ MateriaSource::~MateriaSource(){
 	for (int i = 0; i < this->_maxSrc; i++)
 		if (this->_src[i])
 			delete this->_src[i];
+}
+
+MateriaSource::MateriaSource(const MateriaSource &copy){
+	this->_maxSrc = copy._maxSrc;
+	this->_idx = copy._idx;
+	for (int i = 0; i < this->_maxSrc; i++)
+		this->_src[i] = copy._src[i];
+}
+MateriaSource &MateriaSource::operator=(const MateriaSource &copy){
+	if (this != &copy)
+	{
+		this->_maxSrc = copy._maxSrc;
+		this->_idx = copy._idx;
+		for (int i = 0; i < this->_maxSrc; i++)
+			this->_src[i] = copy._src[i];
+	}
+	return (*this);
 }
 
 void MateriaSource::learnMateria(AMateria *mat){

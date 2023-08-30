@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 13:31:10 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/21 18:38:39 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:55:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,10 @@ class MateriaSource : public IMateriaSource
 		
 	public:
 		MateriaSource();
+		MateriaSource(const MateriaSource &copy);
+		MateriaSource &operator=(const MateriaSource &copy);	
 		~MateriaSource();
+		
 		void learnMateria(AMateria *mat);
 		AMateria* createMateria(std::string const & type);
 };

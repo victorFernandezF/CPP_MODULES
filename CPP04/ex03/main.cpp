@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 12:42:11 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/21 18:59:07 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:55:59 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ int main(void)
 	ICharacter* me = new Character("me");
 	
 	AMateria* tmp;
+	
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
