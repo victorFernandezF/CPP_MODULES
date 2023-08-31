@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/31 12:55:59 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/31 19:08:31 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,29 @@ int	isDigit(std::string str){
 
 int isFloat(std::string str)
 {
-	double res = 0;
-	if (str[str.length() - 1] == 'f')
-	{
-		res = atof(str.c_str());
-		
+	if (str == "-inff" || str == "+inff" || str == "nanf")
 		return 1;
-	}
+	if (str.find('.') != std::string::npos || str.find(',') != std::string::npos)
+		if (str[str.length() - 1] == 'f')
+			return 1;
+	return 0;
+}
+
+int isDouble(std::string str)
+{
+	if (str == "-inf" || str == "+inf" || str == "nan")
+		return 1;
+	if (str.find('.') != std::string::npos || str.find(',') != std::string::npos)
+		if (str[str.length() - 1] != 'f')
+			return 1;
 	return 0;
 }
 
 int	isInt(std::string str){
 	long int res;
-
+	
+	if (str.find('.') || str.find(','))
+		return 0;
 	if (str[str.length() - 1] == 'f')
 		return (0);
 	res = atol(str.c_str());
@@ -69,6 +79,8 @@ int detectType(std::string str){
 		return INT;
 	if (isFloat(str))
 		return FLOAT;
+	if (isDouble(str))
+		return DOUBLE;
 	return (0);
 }
 
