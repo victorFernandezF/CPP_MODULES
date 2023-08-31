@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:52:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:18:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void FragTrap::highFivesGuys(void){
 	std::cout<<BG<<"GIVE ME A HIGHT FIVE!!!"<<W<<std::endl;
 }
 
-// Attacks a target. This action costs one energy point.
 void FragTrap::attack(const std::string& target){
 	if (this->checkHitAndEnergy("attack", 0) == false)
 		return ;

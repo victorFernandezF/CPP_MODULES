@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/16 12:51:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:18:51 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ ScavTrap::ScavTrap(std::string name){
 	this->setEnergy(50);
 	this->setAttack(20);
 }
-
 
 ScavTrap::ScavTrap(ScavTrap &copy){
 	std::cout<<C<<"ScavTrap Copy constructor."<<W<<std::endl;
@@ -53,7 +52,6 @@ ScavTrap::~ScavTrap(){
 	std::cout<<C<<"ScavTrap Destructor."<<W<<std::endl;
 }
 
-// Attacks a target. This action costs one energy point.
 void ScavTrap::attack(const std::string& target){
 	if (this->checkHitAndEnergy("attack", 0) == false)
 		return ;

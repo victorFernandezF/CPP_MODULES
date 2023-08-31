@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/30 10:24:54 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:15:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ int main(void)
 	atexit(leaks);
 	printTestHeaders(1, TEST1, 0);
 	{
-		ClapTrap claptrap("MAQUINITA");	
+		ClapTrap claptrap("CLAPY");	
 		claptrap.printStatus();
-		claptrap.attack("juan");
+		claptrap.attack("clap_2");
 		claptrap.takeDamage(4);
 		claptrap.beRepaired(5);
 		claptrap.printStatus();
-		claptrap.attack("Pepe");
+		claptrap.attack("clap_3");
 	}
 	printTestHeaders(2, TEST2, 1);
 	{

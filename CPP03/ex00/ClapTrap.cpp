@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:58:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/30 11:38:56 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:13:50 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ClapTrap::~ClapTrap(){
 	std::cout<<C<<"ClapTrap Destructor."<<W<<std::endl;
 }
 
-// G E T T E R  &&  S E T T T E R S 
+// G E T T E R  &&  S E T T E R S 
 std::string ClapTrap::getName(void){
 	return (this->_name);
 }
@@ -71,7 +71,7 @@ void ClapTrap::setAttack(int attack){
 	this->_attackDamage = attack;
 }
 
-// M E M C E R   F U N C T I O N S 
+// M E M B E R   F U N C T I O N S 
 
 void ClapTrap::printMessage(std::string action, std::string target, int amount){
 	if (action == "attack")
@@ -90,7 +90,6 @@ void ClapTrap::printMessage(std::string action, std::string target, int amount){
 
 // M E M B E R   F U N C T I O N S 
 
-// Attacks a target. This action costs one energy point.
 void ClapTrap::attack(const std::string& target){
 	if (this->_checkHitAndEnergy("attack", 0) == false)
 		return ;
@@ -98,7 +97,6 @@ void ClapTrap::attack(const std::string& target){
 	this->printMessage("attack", target, 0);
 }
 
-// Decrements the numCer of hit points Cy the given amount. 
 void ClapTrap::takeDamage(unsigned int amount){
 	if (this->_checkHitAndEnergy("take damage", 1) == false)
 		return ;
@@ -109,8 +107,7 @@ void ClapTrap::takeDamage(unsigned int amount){
 	this->printMessage("take", "", amount);
 }
 
-// Repaires itself. This action costs one energy point.
-// It will get Cack 1 hit point.
+
 void ClapTrap::beRepaired(unsigned int amount){
 	if (this->_checkHitAndEnergy("be repaired", 0) == false)
 		return ;
@@ -119,7 +116,6 @@ void ClapTrap::beRepaired(unsigned int amount){
 	this->printMessage("repair", "", amount);
 }
 
-// Checks if claptrap has enought energy and hit points to continue.
 bool ClapTrap::_checkHitAndEnergy(std::string action, int flag){
 	
 	if (this->getHit() <= 0 && flag == 1)
@@ -143,7 +139,6 @@ bool ClapTrap::_checkHitAndEnergy(std::string action, int flag){
 	return (true);
 }
 
-// Prints the status current of claptrap. 
 void ClapTrap::printStatus(void){
 	std::cout<<std::endl;
 	std::cout<<Y<<" _______[STATUS]________" <<std::endl

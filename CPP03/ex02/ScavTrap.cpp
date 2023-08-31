@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:08:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/30 11:40:47 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:17:31 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ ScavTrap::~ScavTrap(){
 	std::cout<<C<<" ScavTrap Destructor."<<W<<std::endl;
 }
 
-// Attacks a target. This action costs one energy point.
 void ScavTrap::attack(const std::string& target){
 	if (this->checkHitAndEnergy("attack", 0) == false)
 		return ;
