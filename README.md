@@ -51,7 +51,6 @@
 |--------------|---------------------------|
 | project mark |    ![result](https://img.shields.io/badge/RESULT-100%25-green)            |
 
-<!-- ![result](https://img.shields.io/badge/RESULT-125%25-green) -->
 <hr>
 
 ## INFO [:es:]
@@ -64,7 +63,6 @@
 |--------------|---------------------------|
 | Nota del proyecto   |  ![result](https://img.shields.io/badge/RESULT-125%25-green)  |
 
-<!-- ![result](https://img.shields.io/badge/RESULTADO-125%25-green) -->
 
 <a href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP01/ex00"> ⚫ BRAIIIINZZZZ</a><br>
 <a href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP01/ex01"> ⚫ MOAR BRAINZ!</a><br>
@@ -93,7 +91,6 @@
 |--------------|---------------------------|
 | project mark | ![result](https://img.shields.io/badge/RESULT-100%25-green)    |
 
-<!-- ![result](https://img.shields.io/badge/RESULT-125%25-green) -->
 <hr>
 
 ## INFO [:es:]
@@ -106,7 +103,6 @@
 |--------------|---------------------------|
 | Nota del proyecto   |  ![result](https://img.shields.io/badge/RESULT-100%25-green)  |
 
-<!-- ![result](https://img.shields.io/badge/RESULTADO-125%25-green) -->
 
 <a href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP02/ex00"> ⚫ MY FIRST CLASS IN ORTODOX CANONICAL FORM</a><br>
 <a href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP02/ex01"> ⚫ TOWARDS A MORE USEFUL FIXED-POINT NUMBER CLASS</a><br>
@@ -129,9 +125,8 @@
 ### STATUS
 | Project status | FINISHED          |
 |--------------|---------------------------|
-| project mark |    ...             |
+| project mark | ![result](https://img.shields.io/badge/RESULT-95%25-green) |
 
-<!-- ![result](https://img.shields.io/badge/RESULT-125%25-green) -->
 <hr>
 
 ## INFO [:es:]
@@ -142,9 +137,8 @@
 ### ESTADO
 | Estado del proyecto | TERMINADO          |
 |--------------|---------------------------|
-| Nota del proyecto   |  ...  |
+| Nota del proyecto   | ![result](https://img.shields.io/badge/RESULT-95%25-green)  |
 
-<!-- ![result](https://img.shields.io/badge/RESULTADO-125%25-green) -->
 
 <a href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP03/ex00"> ⚫ Aaaaand... OPEN!</a><br>
 <a href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP03/ex01"> ⚫ SERENA, MY LOVE!</a><br>
