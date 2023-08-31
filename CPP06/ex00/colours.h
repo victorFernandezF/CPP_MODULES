@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/30 11:10:34 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/31 10:40:45 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
 
+# define CHAR	1 	// GRAY
+# define INT	2 	// GRAY
+# define FLOAT	3 	// GRAY
+# define DOUBLE 4 	// GRAY
+
 # define TEST1 " Create a Bureaucrat with a grade \n\
  between 1 abd 150. It shouldn't be any problem\n"
 # define TEST2 " Create a bureaucrat with a grade of 180\n\
@@ -36,5 +41,6 @@
  Incrementing once should be ok (149). Decrementeing once\n\
  should be ok (150). Decrementing again should throw an exception \n\
  (151 is out of range).\n"
+ 
 
 #endif
