@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 17:52:51 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/30 11:27:15 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/31 17:49:27 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 
 class ClapTrap{
-	private:
+	protected:
 		std::string _name;
 		unsigned int _hitPoints;
 		unsigned int _energyPoints;
