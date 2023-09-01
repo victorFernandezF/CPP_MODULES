@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/31 18:34:37 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/01 10:34:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,19 +71,18 @@ int main(void)
 	printTestHeaders(3, TEST3, 1);
 	{
 		const Cat *cats[2];
-		std::cout<<BB<<" *We are going to create one cat 'cat 1'"<<W<<std::endl;
+		std::cout<<BC<<" * Creating 'cat 1'"<<W<<std::endl;
 		cats[0] = new Cat();
-		std::cout<<BB<<"\n *What does cat 1 say? "<<W<<std::endl;
+		std::cout<<BC<<"\n * Calling cat 1 make sound function "<<W<<std::endl;
 		cats[0]->makeSound();
-		std::cout<<BB<<"\n *Now we create a new cat 'cat 2' that is a copy "
-		<<"of cat 1."<<W<<std::endl;
+		std::cout<<BC<<"\n *Creating cat 2 (copy of cat 1)"<<W<<std::endl;;
 		cats[1] = new Cat(*cats[0]);
-		std::cout<<BB<<"\n *We are goint to delete cat 1"<<W<<std::endl;
+		std::cout<<BC<<"\n * Deleting cat 1"<<W<<std::endl;
 		delete(cats[0]);
-		std::cout<<BB<<"\n *What does cat 2 say? "<<W<<std::endl;
+		std::cout<<BC<<"\n * Cat 2, are you here? "<<W<<std::endl;
 		cats[1]->makeSound();
-		std::cout<<BB<<"\n *It is alive!! That means the copy works fine \n"
-		<<" Now is time to delete cat 2.\n"<<W<<std::endl;
+		std::cout<<BC<<"\n * It is alive!! That means the copy works fine \n"
+		<<"  Now is time to delete cat 2.\n"<<W<<std::endl;
 		delete(cats[1]);
 		std::cout<<std::endl;
 	}

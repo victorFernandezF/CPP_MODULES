@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/30 12:24:53 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/01 10:26:56 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@
 # define TEST2 " Now we are going to create an array of animals.\n\
  One half will be cats and the other dogs. Then each\n\
  one will be deleted (no leaks)\n"
-# define TEST3 " Testing deep copy.\n"
+# define TEST3 " TESTING DEEP COPY. We will create 1 cat.\n\
+ Next we will create a second cat which will be a copy of cat 1\n\
+ Then we will delete cat 1. If the deep copy works fine cat 2 should\n\
+ be ok and no memory errors should appear.\n"
  
 #endif
