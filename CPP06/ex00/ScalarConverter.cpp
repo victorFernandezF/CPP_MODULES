@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:41:48 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/04 12:29:38 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:38:41 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@ char		ScalarConverter::_char = 0;
 long int	ScalarConverter::_int = 0;
 float		 ScalarConverter::_float = 0.0f;
 double		ScalarConverter::_double = 0.0;
-int			ScalarConverter::_charError = 0;
-bool		ScalarConverter::_intError = 0;
-bool		ScalarConverter::_floatError = 0;
-bool		ScalarConverter::_doubleError = 0;
+
+std::string	ScalarConverter::_charError = "";
+std::string	ScalarConverter::_intError = "";
+std::string	ScalarConverter::_floatError = "";
+std::string	ScalarConverter::_doubleError = "";
 
 void ScalarConverter::_checkEachType(char type, std::string input){
 	long int nb = 0;
@@ -29,38 +30,37 @@ void ScalarConverter::_checkEachType(char type, std::string input){
 	if (type == 'i'){
 		nb = strtol(input.c_str(), NULL, 10);
 		if (nb < INT_MIN || nb > INT_MAX){
-			ScalarConverter::_intError = 1;
-			ScalarConverter::_charError = 2;
+			ScalarConverter::_intError = "impossible";
+			ScalarConverter::_charError = "impossible";
 		}
 		else if (!(nb >= 32 && nb <= 126))
-			ScalarConverter::_charError = 1;
+			ScalarConverter::_charError = "no displayable";
 	}
 	if (type == 'f'){
 		nbf = strtof(input.c_str(), NULL);
 		if (nbf < FLT_MIN || nbf > FLT_MAX){
-			ScalarConverter::_intError = 1;
-			ScalarConverter::_charError = 2;
+			ScalarConverter::_intError = "impossible";
+			ScalarConverter::_charError = "impossible";
 		}
 		else if (input == "nanf" || input == "+inff" || input == "-inff"){
-			ScalarConverter::_charError = 2;
-			ScalarConverter::_intError = 1;
+			ScalarConverter::_charError = "impossible";
+			ScalarConverter::_intError = "impossible";
 		}
 		else if (!(nbf >= 32 && nbf <= 126))
-			ScalarConverter::_charError = 1;
+			ScalarConverter::_charError = "no displayable";
 	}
 	if (type == 'd'){
 		nbd = strtod(input.c_str(), NULL);
 		if (input == "nan" || input == "+inf" || input == "-inf"){
-			ScalarConverter::_charError = 2;
-			ScalarConverter::_intError = 1;
+			ScalarConverter::_charError = "impossible";
+			ScalarConverter::_intError = "impossible";
 		}		else if (!(nbd >= 32 && nbd <= 126))
-			ScalarConverter::_charError = 1;
+			ScalarConverter::_charError = "no displayable";
 	}
 }
 
 void ScalarConverter::convert(std::string input){
 	char type = ScalarConverter::_detectType(input);
-	std::string end = "nan";
 
 	switch (type)
 	{
@@ -92,25 +92,23 @@ void ScalarConverter::convert(std::string input){
 		ScalarConverter::_float = static_cast<float>(ScalarConverter::_double);
 		break;	
 	default:
-		ScalarConverter::_charError = 2;
-		ScalarConverter::_intError = 1;
-		ScalarConverter::_floatError = 1;
-		ScalarConverter::_doubleError = 1;
+		ScalarConverter::_charError = "imposible";
+		ScalarConverter::_intError = "imposible";
+		ScalarConverter::_floatError = "imposible";
+		ScalarConverter::_doubleError = "imposible";
 	}
 	ScalarConverter::_printResult(input, type);
 }
 
 int	ScalarConverter::_isAllDigit(std::string str){
-	size_t flag = 0;
+	//size_t flag = 0;
 
 	if (!(str[0] >= '0' && str[0] <= '9') && str[0] != '-' && str[0] != '+')
 		return (0);
 	for (size_t i = 1; i < str.length(); i++)
-		if (str[i] >= '0' && str[i] <= '9')
-			flag++;
-	if (flag == str.length() -1)
-		return 1;
-	return (0);		
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			return 0;
+	return 1;		
 }
 
 int ScalarConverter::_isFloat(std::string str)
@@ -152,8 +150,6 @@ int	ScalarConverter::_isChar(std::string str){
 }
 
 char ScalarConverter::_detectType(std::string str){
-	if (str.find(',') != std::string::npos)
-			str[str.find(',')] = '.';
 	if (ScalarConverter::_isChar(str))
 		return CHAR;
 	if (ScalarConverter::_isInt(str))
@@ -168,23 +164,39 @@ char ScalarConverter::_detectType(std::string str){
 void ScalarConverter::_printResult(std::string str, char type){
 	if (type == 'e')
 		return;
-	std::cout<<BC<<" CONVERTING "<<str<<W<<std::endl;
-	if (ScalarConverter::_charError == 1)
-		std::cout<<G<<"Char:   "<<W<<"non displayable"<<std::endl;
-	else if (ScalarConverter::_charError == 2)
-		std::cout<<G<<"Char:   "<<W<<"impossible"<<std::endl;
+	std::cout<<BC<<" CONVERTING \""<<str<<"\"\n"<<W<<std::endl;
+	
+	// PRINT CHAR
+	std::cout<<G<<" ◉ CHAR:    "<<W;
+	if (ScalarConverter::_charError.empty())
+		std::cout<<ScalarConverter::_char<<std::endl;
 	else
-		std::cout<<G<<"Char:   "<<W<<ScalarConverter::_char<<std::endl;
-	if (ScalarConverter::_intError)
-		std::cout<<G<<"Int:    "<<W<<"impossible"<<std::endl;
+		std::cout<<ScalarConverter::_charError<<std::endl;
+
+	// PRINT INT
+	std::cout<<G<<" ◉ INT:     "<<W;
+	if (ScalarConverter::_intError.empty())
+		std::cout<<W<<ScalarConverter::_int<<std::endl;
 	else
-		std::cout<<G<<"Int:    "<<W<<ScalarConverter::_int<<std::endl;
-	if (ScalarConverter::_floatError)
-		std::cout<<G<<"Int:    "<<W<<"impossible"<<std::endl;
-	else
-		std::cout<<G<<"Float:  "<<W<<ScalarConverter::_float<<"f"<<std::endl;
-	if (ScalarConverter::_doubleError)
-		std::cout<<G<<"Int:    "<<W<<"impossible"<<std::endl;
-	else
-		std::cout<<G<<"Double: "<<W<<ScalarConverter::_double<<std::endl;
+		std::cout<<ScalarConverter::_intError<<std::endl;
+		
+	// PRINT FLOAT
+	std::cout<<G<<" ◉ FLOAT:   "<<W;
+	if (ScalarConverter::_floatError.empty()){
+		if (ScalarConverter::_float - ScalarConverter::_int == 0)
+			std::cout<<ScalarConverter::_double<<".0f"<<std::endl;
+		else
+			std::cout<<W<<ScalarConverter::_float<<"f"<<std::endl;
+	}else	
+		std::cout<<ScalarConverter::_floatError<<std::endl;
+
+	// PRINT DOUBLE
+	std::cout<<G<<" ◉ DOUBLE:  "<<W;
+	if (ScalarConverter::_doubleError.empty()){
+		if (ScalarConverter::_double - ScalarConverter::_int == 0)
+			std::cout<<ScalarConverter::_double<<".0"<<std::endl;
+		else
+			std::cout<<ScalarConverter::_double<<std::endl;
+	}else
+		std::cout<<ScalarConverter::_doubleError<<std::endl;
 }

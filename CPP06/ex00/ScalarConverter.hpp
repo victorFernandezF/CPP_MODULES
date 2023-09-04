@@ -25,10 +25,11 @@ class ScalarConverter{
 		static long int	_int;
 		static float _float;
 		static double _double;
-		static int _charError;
-		static bool	_intError;
-		static bool _floatError;
-		static bool _doubleError;
+		
+		static std::string _charError;
+		static std::string	_intError;
+		static std::string _floatError;
+		static std::string _doubleError;
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);
 		ScalarConverter &operator=(const ScalarConverter &copy);
