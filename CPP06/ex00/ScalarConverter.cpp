@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:41:48 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/04 18:38:41 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:59:32 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,12 @@ void ScalarConverter::convert(std::string input){
 	ScalarConverter::_printResult(input, type);
 }
 
-int	ScalarConverter::_isAllDigit(std::string str){
-	//size_t flag = 0;
-
-	if (!(str[0] >= '0' && str[0] <= '9') && str[0] != '-' && str[0] != '+')
+int	ScalarConverter::_isAllDigit(std::string str, size_t end){
+	if (!end)
+		end = str.length();
+	if (!(str[0] >= '0' && str[0] <= '9') && str[0] != '-' && str[0] != '.' )
 		return (0);
-	for (size_t i = 1; i < str.length(); i++)
+	for (size_t i = 1; i < end; i++)
 		if (!(str[i] >= '0' && str[i] <= '9'))
 			return 0;
 	return 1;		
@@ -115,8 +115,9 @@ int ScalarConverter::_isFloat(std::string str)
 {
 	if (str == "-inff" || str == "+inff" || str == "nanf")
 		return 1;
-	if (str[str.length() - 1] == 'f')
-			return 1;
+	if ((ScalarConverter::_isAllDigit(str, str.length() -1))
+		&& (str[str.length() - 1] == 'f'))
+		return 1;
 	return 0;
 }
 
@@ -137,14 +138,14 @@ int	ScalarConverter::_isInt(std::string str){
 		return 0;
 	if (str == "-inf" || str == "+inf" || str == "nan"
 		|| str == "-inff" || str == "+inff" || str == "nanf"
-		|| str[str.length() - 1] == 'f' || !ScalarConverter::_isAllDigit(str))
+		|| str[str.length() - 1] == 'f' || !ScalarConverter::_isAllDigit(str, 0))
 		return 0;
 	return 1;
 }
 
 int	ScalarConverter::_isChar(std::string str){
 	if (str.length() == 1)
-		if ((str[0] >= 26 && str[0] <= 126) && (!ScalarConverter::_isAllDigit(str)))
+		if ((str[0] >= 26 && str[0] <= 126) && (!ScalarConverter::_isAllDigit(str, 0)))
 			return 1;
 	return (0);		
 }

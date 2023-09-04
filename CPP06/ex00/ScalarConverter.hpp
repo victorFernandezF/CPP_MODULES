@@ -41,7 +41,7 @@ class ScalarConverter{
 		static int	_isInt(std::string str);
 		static int _isDouble(std::string str);
 		static int _isFloat(std::string str);
-		static int	_isAllDigit(std::string str);
+		static int	_isAllDigit(std::string str, size_t end);
 	public:	
 		static void convert(std::string input);
 
