@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:25:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/21 18:56:26 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/04 10:38:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Character::Character(const Character &copy){
 
 Character::~Character(){
 	for (int i = 0; i < this->_maxItems; i++)
-		if (this->_slots[i])
+		if (this->_slots[i] != NULL)
 			delete this->_slots[i];
 }
 

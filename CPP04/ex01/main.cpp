@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/01 10:34:08 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/04 10:15:40 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int main(void)
 	{
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
+		std::cout<<BY<<" ... Deleting ..."<<W<<std::endl;
 		delete j;//should not create a leak
 		delete i;
 	}

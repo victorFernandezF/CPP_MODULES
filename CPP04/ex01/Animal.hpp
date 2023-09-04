@@ -19,16 +19,17 @@
 class Animal{
 	protected:
 		std::string _type;
-	
+
 	public:
-		Animal();	
+		Animal();
+		Animal(Animal &copy);
 		Animal(std::string type);
-		Animal(Animal &copy);	
-		Animal &operator=(const Animal &copy);	
+		Animal &operator=(const Animal &copy);
 		virtual ~Animal();
 		
 		std::string getType(void) const;
 		void setType(std::string type);
-		virtual void makeSound() const;
+		
+		virtual void makeSound() const; 
 };
 #endif

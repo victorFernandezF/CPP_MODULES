@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/30 11:53:35 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/04 10:11:20 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ int main(void)
 		const Animal* i = new Cat();
 		std::cout << j->getType() << " " << std::endl;
 		std::cout << i->getType() << " " << std::endl;
-		i->makeSound(); //will output the cat sound!
-		j->makeSound();
+		j->makeSound(); //will output the cat sound!
+		i->makeSound();
 		meta->makeSound();
-		delete(i);
-		delete(j);
-		delete(meta);
+		delete j;
+		delete i;
+		delete meta;
 	}
 	printTestHeaders(2, TEST2, 1);
 	{

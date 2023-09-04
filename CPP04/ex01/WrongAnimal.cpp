@@ -13,11 +13,11 @@
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal(){
-	std::cout<<B<<"WrongAnimal constructor called"<<W<<std::endl;
+	std::cout<<C<<"WrongAnimal constructor called"<<W<<std::endl;
 }
 
 WrongAnimal::WrongAnimal(std::string type): _type(type){
-	std::cout<<B<<"WrongAnimal constructor called"<<W<<std::endl;
+	std::cout<<C<<"WrongAnimal constructor called"<<W<<std::endl;
 }
 
 WrongAnimal::WrongAnimal(WrongAnimal &copy){
@@ -25,14 +25,14 @@ WrongAnimal::WrongAnimal(WrongAnimal &copy){
 }	
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &copy){
-	std::cout<<B<<"WrongAnimal Assignment operand."<<W<<std::endl;
+	std::cout<<C<<"WrongAnimal Assignment operand."<<W<<std::endl;
 	if (this != &copy)
 		this->_type = copy._type;
 	return (*this);
 }
 
 WrongAnimal::~WrongAnimal(){
-	std::cout<<B<<"WrongAnimal Destructor."<<W<<std::endl;
+	std::cout<<C<<"WrongAnimal Destructor."<<W<<std::endl;
 }
 
 void WrongAnimal::setType(std::string type){
@@ -42,6 +42,4 @@ std::string WrongAnimal::getType(void) const{
 	return (this->_type);
 }
 
-void WrongAnimal::makeSound() const{
-	std::cout<<"*Generic animal sound* "<<std::endl;
-}
+void WrongAnimal::makeSound() const{}

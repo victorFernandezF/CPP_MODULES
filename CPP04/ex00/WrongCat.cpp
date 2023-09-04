@@ -38,5 +38,5 @@ WrongCat::~WrongCat(){
 }
 
 void WrongCat::makeSound() const{	
-	std::cout<<"Aaaaaa"<<std::endl;
+	std::cout<<"BIP BIP BIP: Cat stopped working"<<std::endl;
 }
