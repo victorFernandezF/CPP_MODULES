@@ -14,6 +14,7 @@
 #ifndef SCALARSCONVERTER_HPP
 # define SCALARSCONVERTER_HPP
 # include <iostream>
+# include <iomanip>
 #include <limits>
 #include <cfloat>
 # include "colours.h"
@@ -21,7 +22,7 @@
 class ScalarConverter{
 	private:
 		static char _char;
-		static int	_int;
+		static long int	_int;
 		static float _float;
 		static double _double;
 		static int _charError;
@@ -31,17 +32,19 @@ class ScalarConverter{
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);
 		ScalarConverter &operator=(const ScalarConverter &copy);
-		~ScalarConverter();		
-	
+		~ScalarConverter();
+		static void _checkEachType(char type, std::string input);
+		static void	_printResult(std::string str, char type);
+		static char _detectType(std::string str);
+		static int	_isChar(std::string str);
+		static int	_isInt(std::string str);
+		static int _isDouble(std::string str);
+		static int _isFloat(std::string str);
+		static int	_isAllDigit(std::string str);
 	public:	
 		static void convert(std::string input);
-		static char detectType(std::string str);
-		static int	isChar(std::string str);
-		static int	isInt(std::string str);
-		static int isDouble(std::string str);
-		static int isFloat(std::string str);
-		static int	isAllDigit(std::string str);
-		static void	printResult(std::string str, char type);
+
+		
 };
 
 #endif
