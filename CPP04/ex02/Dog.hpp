@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:37:03 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/30 13:41:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:34:09 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include "Brain.hpp"
 
 
-class Dog : public Animal{
+class Dog : public AAnimal{
 	private:
 		Brain *_brain;
 		

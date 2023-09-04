@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/04 10:19:47 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:38:47 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int main(void)
 	atexit(leaks);
 	printTestHeaders(1, TEST1, 0);
 	{
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
+		const AAnimal* j = new Dog();
+		const AAnimal* i = new Cat();
 		std::cout<<BY<<" ... Deleting ..."<<W<<std::endl;		
 		delete j;//should not create a leak
 		delete i;
@@ -41,7 +41,7 @@ int main(void)
 	printTestHeaders(2, TEST2, 1);
 	{
 		int maximun = 4;
-		const Animal *animal[maximun];
+		const AAnimal *animal[maximun];
 		for (int i = 0; i < maximun; i++)
 		{
 			if (i % 2 == 0)

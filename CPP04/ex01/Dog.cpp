@@ -33,8 +33,11 @@ Dog::Dog(const Dog &copy): Animal(){
 
 Dog &Dog::operator=(const Dog &copy){
 	std::cout<<G<<"Dog Assignment operand."<<W<<std::endl;
-	if (this != &copy)
-		this->setType(copy._type);
+	if (this != &copy){
+		Brain *createdBrain = new Brain();
+		this->_type = copy._type;
+		this->_brain = createdBrain;
+	}
 	return (*this);
 }
 

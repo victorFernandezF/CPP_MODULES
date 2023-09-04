@@ -14,17 +14,17 @@
 
 Cat::Cat(){
 	Brain *createdBrain = new Brain();
-	this->_type = "Cat";
+	this->setType("Cat");
 	this->_brain = createdBrain;
 	std::cout<<"Cat constructor called"<<std::endl;
 }
 
 Cat::Cat(std::string type){
 	std::cout<<"Cat constructor called"<<std::endl;
-	this->_type = type;
+	this->setType(type);
 }
 
-Cat::Cat(const Cat &copy): Animal(){
+Cat::Cat(const Cat &copy): AAnimal(){
 	Brain *createdBrain = new Brain();
 	this->_type = copy._type;
 	this->_brain = createdBrain;
@@ -33,8 +33,11 @@ Cat::Cat(const Cat &copy): Animal(){
 
 Cat &Cat::operator=(const Cat &copy){
 	std::cout<<"Cat Assignment operand."<<std::endl;
-	if (this != &copy)
+	if (this != &copy){
+		Brain *createdBrain = new Brain();
 		this->_type = copy._type;
+		this->_brain = createdBrain;
+	}
 	return (*this);
 }
 

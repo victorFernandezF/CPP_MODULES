@@ -33,8 +33,11 @@ Cat::Cat(const Cat &copy): Animal(){
 
 Cat &Cat::operator=(const Cat &copy){
 	std::cout<<"Cat Assignment operand."<<std::endl;
-	if (this != &copy)
-		this->setType(copy._type);
+	if (this != &copy){
+		Brain *createdBrain = new Brain();
+		this->_type = copy._type;
+		this->_brain = createdBrain;
+	}
 	return (*this);
 }
 

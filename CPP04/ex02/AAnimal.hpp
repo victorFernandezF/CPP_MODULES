@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                       :+:      :+:    :+:   */
+/*   AAnimal.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,15 +16,20 @@
 # include <iostream>
 # include "colours.h"
 
-class Animal{
+class AAnimal{
 	protected:
 		std::string _type;
 	
 	public:
-		Animal();	
-		Animal(std::string type);
-		Animal(Animal &copy);	
-		Animal &operator=(const Animal &copy);	
-		virtual ~Animal() = 0;
+		AAnimal();	
+		AAnimal(std::string type);
+		AAnimal(AAnimal &copy);	
+		AAnimal &operator=(const AAnimal &copy);
+		virtual ~AAnimal();
+				
+		std::string getType(void) const;
+		void setType(std::string type);
+		
+		virtual void makeSound() const = 0;
 };
 #endif

@@ -30,7 +30,7 @@ class Ice : public AMateria
 		
 		std::string const & getType() const;
 		
-		virtual Ice* clone() const;
+		AMateria* clone() const;
 		void use(ICharacter& target);
 };
 # endif

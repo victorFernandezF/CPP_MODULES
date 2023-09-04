@@ -33,7 +33,7 @@ std::string const & Ice::getType() const{
 	return (this->_type);
 }
 
-Ice* Ice::clone() const {
+AMateria* Ice::clone() const {
 	Ice *newIce = new Ice();
 	return (newIce);
 }

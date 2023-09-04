@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/10 18:37:03 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/14 10:45:28 by victofer         ###   ########.fr       */
+/*   Updated: 2023/08/30 13:40:42 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 #ifndef WRONGCAT_HPP
 # define WRONGCAT_HPP
 # include <iostream>
-# include "WrongAnimal.hpp"
+# include "Animal.hpp"
+# include "Brain.hpp"
 
 
-class WrongCat : public WrongAnimal{
+class WrongCat : public Animal{
+	private:
+		Brain *_brain;
+
 	public:
 		WrongCat();	
+		WrongCat(const WrongCat &copy);
 		WrongCat(std::string type);
-		WrongCat(WrongCat &copy);	
 		WrongCat &operator=(const WrongCat &copy);	
 		~WrongCat();
 		

@@ -13,30 +13,39 @@
 #include "WrongCat.hpp"
 
 WrongCat::WrongCat(){
-	std::cout<<Y<<"WrongCat constructor called"<<W<<std::endl;
+	Brain *createdBrain = new Brain();
 	this->setType("WrongCat");
+	this->_brain = createdBrain;
+	std::cout<<"WrongCat constructor called"<<std::endl;
 }
 
 WrongCat::WrongCat(std::string type){
-	std::cout<<Y<<"WrongCat constructor called"<<W<<std::endl;
+	std::cout<<"WrongCat constructor called"<<std::endl;
 	this->setType(type);
 }
 
-WrongCat::WrongCat(WrongCat &copy){
+WrongCat::WrongCat(const WrongCat &copy): Animal(){
+	Brain *createdBrain = new Brain();
 	this->_type = copy._type;
+	this->_brain = createdBrain;
+	std::cout<<"WrongCat Copy constructor called"<<std::endl;	
 }	
 
 WrongCat &WrongCat::operator=(const WrongCat &copy){
-	std::cout<<Y<<"WrongCat Assignment operand."<<W<<std::endl;
-	if (this != &copy)
-		this->setType(copy._type);
+	std::cout<<"WrongCat Assignment operand."<<std::endl;
+	if (this != &copy){
+		Brain *createdBrain = new Brain();
+		this->_type = copy._type;
+		this->_brain = createdBrain;
+	}
 	return (*this);
 }
 
 WrongCat::~WrongCat(){
-	std::cout<<Y<<"WrongCat Destructor."<<W<<std::endl;
+	delete(this->_brain);
+	std::cout<<"WrongCat Destructor."<<std::endl;
 }
 
-void WrongCat::makeSound() const{	
-	std::cout<<"BIP BIP BIP: Cat stopped working"<<std::endl;
+void WrongCat::makeSound()const{	
+	std::cout<<"Meaw Meaw"<<std::endl;
 }

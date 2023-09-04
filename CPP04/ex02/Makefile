@@ -2,7 +2,7 @@ NAME = ex02
 CC = g++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = main.cpp AAnimal.cpp Cat.cpp Dog.cpp Brain.cpp 
 OBJ = $(SRC:.cpp=.o)
 
 # T E X T   S T U F F

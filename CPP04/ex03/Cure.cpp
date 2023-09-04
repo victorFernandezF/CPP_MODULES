@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 13:16:15 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/21 18:47:52 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:55:32 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ std::string const & Cure::getType( void ) const
 	return (this->_type);
 }
 
-Cure* Cure::clone() const {
+AMateria* Cure::clone() const {
 	Cure *newCure = new Cure();
 	return (newCure);
 }
