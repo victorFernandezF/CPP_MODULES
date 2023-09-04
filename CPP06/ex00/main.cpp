@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/01 13:36:15 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/04 18:39:51 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,16 @@ void leaks(void)
 
 int main(int argc, char **argv)
 {
+	std::string arg;
+	
 	atexit(leaks);
 	if (argc != 2){
 		std::cout<<BR<<"Error: Incorrect number of arguments"<<W<<std::endl;
 		return 0;
 	}
-	
-	ScalarConverter::convert(argv[1]);
+	arg = argv[1];
+	if (arg.find(',') != std::string::npos)
+			arg[arg.find(',')] = '.';
+	ScalarConverter::convert(arg);
 	return 0;
 }
