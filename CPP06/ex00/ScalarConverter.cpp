@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:41:48 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/04 18:59:32 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/05 18:32:44 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,46 +22,33 @@ std::string	ScalarConverter::_intError = "";
 std::string	ScalarConverter::_floatError = "";
 std::string	ScalarConverter::_doubleError = "";
 
-void ScalarConverter::_checkEachType(char type, std::string input){
-	long int nb = 0;
-	float nbf = 0;
-	double nbd = 0;
+void ScalarConverter::_checkEachType(std::string input){
+	double nb = 0;
 	
-	if (type == 'i'){
-		nb = strtol(input.c_str(), NULL, 10);
-		if (nb < INT_MIN || nb > INT_MAX){
-			ScalarConverter::_intError = "impossible";
-			ScalarConverter::_charError = "impossible";
-		}
-		else if (!(nb >= 32 && nb <= 126))
-			ScalarConverter::_charError = "no displayable";
+	nb = strtod(input.c_str(), NULL);
+	if (nb < std::numeric_limits<int>::min() || nb > std::numeric_limits<int>::max()){
+		ScalarConverter::_intError = "impossible";
+		ScalarConverter::_charError = "impossible";
 	}
-	if (type == 'f'){
-		nbf = strtof(input.c_str(), NULL);
-		if (nbf < FLT_MIN || nbf > FLT_MAX){
-			ScalarConverter::_intError = "impossible";
-			ScalarConverter::_charError = "impossible";
-		}
-		else if (input == "nanf" || input == "+inff" || input == "-inff"){
-			ScalarConverter::_charError = "impossible";
-			ScalarConverter::_intError = "impossible";
-		}
-		else if (!(nbf >= 32 && nbf <= 126))
-			ScalarConverter::_charError = "no displayable";
+	else if (!(nb >= 32 && nb <= 126))
+		ScalarConverter::_charError = "no displayable";
+	if (nb < std::numeric_limits<float>::min() || nb > std::numeric_limits<float>::max())
+		ScalarConverter::_floatError = "impossible";
+	if (nb < std::numeric_limits<double>::min() || nb > std::numeric_limits<double>::max())
+		ScalarConverter::_intError = "impossible";
+	if (input == "nanf" || input == "+inff" || input == "-inff"){
+		ScalarConverter::_charError = "impossible";
+		ScalarConverter::_intError = "impossible";
 	}
-	if (type == 'd'){
-		nbd = strtod(input.c_str(), NULL);
-		if (input == "nan" || input == "+inf" || input == "-inf"){
-			ScalarConverter::_charError = "impossible";
-			ScalarConverter::_intError = "impossible";
-		}		else if (!(nbd >= 32 && nbd <= 126))
-			ScalarConverter::_charError = "no displayable";
+	if (input == "nan" || input == "+inf" || input == "-inf"){
+		ScalarConverter::_charError = "impossible";
+		ScalarConverter::_intError = "impossible";
 	}
 }
 
 void ScalarConverter::convert(std::string input){
 	char type = ScalarConverter::_detectType(input);
-
+	//std::cout<<"type "<<type<<"\n";
 	switch (type)
 	{
 	case 'c':
@@ -71,21 +58,21 @@ void ScalarConverter::convert(std::string input){
 		ScalarConverter::_double = static_cast<double>(ScalarConverter::_char);
 		break;
 	case 'i':
-		ScalarConverter::_checkEachType('i', input);
+		ScalarConverter::_checkEachType(input);
 		ScalarConverter::_int = strtol(input.c_str(), NULL, 10);
 		ScalarConverter::_char = static_cast<char>(ScalarConverter::_int);
 		ScalarConverter::_float = static_cast<float>(ScalarConverter::_int);
 		ScalarConverter::_double = static_cast<double>(ScalarConverter::_int);
 		break;
 	case 'f':
-		ScalarConverter::_checkEachType('f', input);
+		ScalarConverter::_checkEachType(input);
 		ScalarConverter::_float = strtof(input.c_str(), NULL);
 		ScalarConverter::_char = static_cast<char>(ScalarConverter::_float);
 		ScalarConverter::_int = static_cast<int>(ScalarConverter::_float);
 		ScalarConverter::_double = static_cast<double>(ScalarConverter::_float);
 		break;
 	case 'd':
-		ScalarConverter::_checkEachType('d', input);
+		ScalarConverter::_checkEachType(input);
 		ScalarConverter::_double = strtod(input.c_str(), NULL);
 		ScalarConverter::_char = static_cast<char>(ScalarConverter::_double);
 		ScalarConverter::_int = static_cast<int>(ScalarConverter::_double);
@@ -111,11 +98,22 @@ int	ScalarConverter::_isAllDigit(std::string str, size_t end){
 	return 1;		
 }
 
+int	ScalarConverter::_isAllDigitNotation(std::string str, size_t end){
+	if (!end)
+		end = str.length();
+	if (!(str[0] >= '0' && str[0] <= '9') && str[0] != '-' && str[0] != '.' )
+		return (0);
+	for (size_t i = 1; i < end; i++)
+		if (!(str[i] >= '0' && str[i] <= '9')  && str[i] == '+' && str[i] == 'e' )
+			return 0;
+	return 1;		
+}
+
 int ScalarConverter::_isFloat(std::string str)
 {
 	if (str == "-inff" || str == "+inff" || str == "nanf")
 		return 1;
-	if ((ScalarConverter::_isAllDigit(str, str.length() -1))
+	if ((ScalarConverter::_isAllDigitNotation(str, str.length() - 1))
 		&& (str[str.length() - 1] == 'f'))
 		return 1;
 	return 0;

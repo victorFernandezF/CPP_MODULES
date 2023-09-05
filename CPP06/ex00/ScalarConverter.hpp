@@ -34,7 +34,7 @@ class ScalarConverter{
 		ScalarConverter(const ScalarConverter &copy);
 		ScalarConverter &operator=(const ScalarConverter &copy);
 		~ScalarConverter();
-		static void _checkEachType(char type, std::string input);
+		static void _checkEachType(std::string input);
 		static void	_printResult(std::string str, char type);
 		static char _detectType(std::string str);
 		static int	_isChar(std::string str);
@@ -42,6 +42,7 @@ class ScalarConverter{
 		static int _isDouble(std::string str);
 		static int _isFloat(std::string str);
 		static int	_isAllDigit(std::string str, size_t end);
+		static int	_isAllDigitNotation(std::string str, size_t end);
 	public:	
 		static void convert(std::string input);
 
