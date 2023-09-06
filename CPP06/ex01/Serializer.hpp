@@ -15,14 +15,13 @@
 # define SERIALIZER_HPP
 # include <iostream>
 # include <iomanip>
-#include <limits>
-#include <cfloat>
+# include <limits>
+# include <cfloat>
 # include "colours.h"
 # include "struct.hpp"
 
 class Serializer{
 	private:
-		
 		Serializer();
 		Serializer(const Serializer &copy);
 		Serializer &operator=(const Serializer &copy);
