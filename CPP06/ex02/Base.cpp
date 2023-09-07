@@ -27,7 +27,7 @@ int getRandomNumber(){
 }
 
 // Pointers can be null, Dynamic_cast will return null if fails.
-// So no problems, if the cast is success we know the type.
+// So no problem, if the cast is success we know the type.
 void identify(Base* p){
 	std::cout<<Y<<"Identify by pointer"<<W<<std::endl;
 	if (dynamic_cast<A*>(p))
@@ -36,6 +36,8 @@ void identify(Base* p){
 		std::cout<<"The type is B"<<std::endl;
 	else if (dynamic_cast<C*>(p))
 		std::cout<<"The type is C"<<std::endl;
+	else
+		std::cout<<"I don't know the type, sorry"<<std::endl;
 }
 
 // References can not be null. Dynamic_cast will return null if fails.
