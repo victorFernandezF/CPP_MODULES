@@ -37,7 +37,7 @@ void identify(Base* p){
 	else if (dynamic_cast<C*>(p))
 		std::cout<<"The type is C"<<std::endl;
 	else
-		std::cout<<"I don't know the type, sorry"<<std::endl;
+		std::cout<<"The type is Base"<<std::endl;
 }
 
 // References can not be null. Dynamic_cast will return null if fails.
@@ -47,18 +47,27 @@ void identify(Base& p){
 	std::cout<<Y<<"Identify by reference"<<W<<std::endl;
 	try{
 		A& a = dynamic_cast<A&>(p);
-		std::cout<<"is type A"<<std::endl;
+		std::cout<<"Type: A"<<std::endl;
 		(void)a;
+		return;
 	}catch(std::exception &e){}
 	try{
 		B& b = dynamic_cast<B&>(p);
-		std::cout<<"is type B"<<std::endl;
+		std::cout<<"Type: B"<<std::endl;
 		(void)b;
+		return;
 	}catch(std::exception &e){}
 	try{
 		C& c = dynamic_cast<C&>(p);
-		std::cout<<"is type C"<<std::endl;
+		std::cout<<"Type: C"<<std::endl;
 		(void)c;
+		return;
+	}catch(std::exception &e){}
+		try{
+		Base& base = dynamic_cast<Base&>(p);
+		std::cout<<"Type: Base"<<std::endl;
+		(void)base;
+		return;
 	}catch(std::exception &e){}
 }
 
@@ -77,7 +86,7 @@ Base * generate(void){
 			randomClass = new C();
 			break;
 		default:
-			randomClass = NULL;
+			randomClass = new Base();
 	}
 	return randomClass;
 }
