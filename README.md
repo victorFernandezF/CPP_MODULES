@@ -160,9 +160,9 @@
 ### STATUS
 | Project status | FINISHED          |
 |--------------|---------------------------|
-| project mark |    ...             |
+| project mark |   ![result](https://img.shields.io/badge/RESULT-96%25-green)  |
 
-<!-- ![result](https://img.shields.io/badge/RESULT-125%25-green) -->
+<!-- -->
 <hr>
 
 ## INFO [:es:]
@@ -173,9 +173,9 @@
 ### ESTADO
 | Estado del proyecto | TERMINADO          |
 |--------------|---------------------------|
-| Nota del proyecto   |  ...  |
+| Nota del proyecto   | ![result](https://img.shields.io/badge/RESULTADO-96%25-green)  |
 
-<!-- ![result](https://img.shields.io/badge/RESULTADO-125%25-green) -->
+<!--  -->
 
 <a href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP04/ex00"> ⚫ POLYMORPHISM</a><br>
 <a href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP04/ex01"> ⚫ I DON'T WANT TO SET THE WORLD ON FIRE!</a><br>
