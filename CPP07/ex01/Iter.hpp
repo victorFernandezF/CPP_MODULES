@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:18 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/11 11:09:52 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/11 18:20:06 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,19 @@
 # include <iostream>
 
 template <class T>
-void swap(T &a, T &b){
-	T aux = a;
-	a = b;
-	b = aux; 
+void addition(T &a){
+	a += 5; 
+}
+
+template <class T>
+void substraction(T &a){
+	a -= 10; 
 }
 
 template<class T>
-void iter(T array[], int size, void (*swap)(T &a, T &b)){
-	for(int i = 0; i < size - 1; i++)
-		swap(array[i], array[i + 1]);
+void iter(T array[], int size, void (*func)(T &a)){
+	for(int i = 0; i < size; i++)
+		func(array[i]);
 }
 
 template<class T>
