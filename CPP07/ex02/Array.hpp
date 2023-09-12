@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:18 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/11 18:57:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:00:53 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,26 @@
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 # include <iostream>
+# include <stdexcept>
 
 template<class T>
 class Array{
 	private:
-		T _array[];
+		T *_array;
+		int _size;
+		
 	public:
-		Array();
-		Array(unsigned int n){
-			for(unsigned int i = 0; i < n; i++){
-				this->_array[i] = 0;
-			}
-		};
+		Array(void);
+		Array(unsigned int n);
 		Array (const Array<T> &copy);
-		T &operator=(const Array<T> &copy);
-		~Array(){};	
-		T size(){};
+		Array &operator=(const Array &copy);
+		T &operator[](unsigned int index);
+		~Array();	
+		T size() const;
+		void print();
+		void edit();
 };
+
+# include "Array.tpp"
 
 #endif

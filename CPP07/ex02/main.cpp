@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/11 18:50:28 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/12 13:03:23 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,18 @@ int main(void)
 	atexit(leaks);
 	printTestHeaders(1, TEST1, 0);
 	{
-		 Array<int> *arr = new Array<int>(4);
-		 delete arr;
+		Array<int> *arr = new Array<int>(2);
+		Array<int> *arr2;// = new Array<int>(*arr);
+		
+		std::cout<<"PRINTATION\n";
+		arr->edit();
+		arr->print();
+		arr2 = arr;
+		//delete arr;
+		std::cout<<"\n";
+		arr2->print();
+		//delete arr2;
+
 	}
 	return (0);
 }
