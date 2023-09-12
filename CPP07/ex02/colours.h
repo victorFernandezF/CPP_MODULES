@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/11 11:13:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:56:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,11 @@
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
 
-# define TEST1	" Testing array of ints\n"
-# define TEST2	" Testing array of chars\n"
-# define TEST3	" Testing array of strings\n"	
-# define TEST4	" Testing array of floats\n"	
+# define TEST1	" Subject main\n"
+# define TEST2	" Testing array of ints\n"
+# define TEST3	" Testing array of chars\n"
+# define TEST4	" Testing array of strings\n"	
+# define TEST5	" Testing array of floats\n"	
 
 
 

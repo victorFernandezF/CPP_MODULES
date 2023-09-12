@@ -8,14 +8,12 @@ int main(int, char**)
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
-  try {
     for (int i = 0; i < MAX_VAL; i++)
     {
         const int value = rand();
         numbers[i] = value;
         mirror[i] = value;
     }
-  }catch(std::exception &e){}
     //SCOPE
     {
         Array<int> tmp = numbers;

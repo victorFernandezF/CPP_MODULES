@@ -6,39 +6,39 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:33:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/12 13:02:00 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:58:44 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ARRAY_TPP
 # define ARRAY_TPP
 
-template <class T>
-Array<T>::Array(): _array(nullptr), _size(0){
-	std::cout<<"Contructor called\n";
+template <typename T>
+Array<T>::Array(): _array(NULL), _size(0){
+	//std::cout<<"Contructor called\n";
 }
 
-template <class T>
+template <typename T>
 Array<T>::Array(unsigned int n): _array(new T[n]), _size(n){
 	for (size_t i = 0; i < n; i++){
 		this->_array[i] = T();
 	}
 }
 
-template <class T>
+template <typename T>
 T Array<T>::size () const{
 	return this->_size;
 }
 
-template <class T>
+template <typename T>
 Array<T>::Array (const Array<T> &copy){
 	this->_size = copy.size();
 	this->_array = new T[this->_size];
-	for (int i = 0; i < this->_size; i++)
+	for (unsigned int i = 0; i < this->_size; i++)
 		this->_array[i] = copy._array[i];
 }
 
-template <class T>
+template <typename T>
 Array<T> &Array<T>::operator=(const Array &copy){
 	if (this->_array != NULL)
 		delete [] this->_array;
@@ -51,32 +51,37 @@ Array<T> &Array<T>::operator=(const Array &copy){
 	return (*this);
 }
 
-
-
-template <class T>
+template <typename T>
 T &Array<T>::operator[](unsigned int index){
-	if (!this->_array[index])
-		throw std::exception();
+	if (_array == NULL || index >= this->_size)
+		throw outOfBounds();
 	return this->_array[index];
 }
 
-
-template <class T>
+template <typename T>
 Array<T>::~Array(){
-	std::cout<<"Destructor called\n";	
+	//std::cout<<"Destructor called\n";	
 	delete [] this->_array;
 }
 
-template <class T>
+template <typename T>
 void Array<T>::print(){
-	for (int i = 0; i < this->_size; i++)
+	for (unsigned int i = 0; i < this->_size; i++)
 		std::cout<<"array["<<i<<"] "<<this->_array[i]<<"\n";
 }
 
-template <class T>
+template <typename T>
 void Array<T>::edit(){
 	for (int i = 0; i < this->_size; i++)
-		this->_array[i] = this->_array[i] + i;
+		this->_array[i] = this->_array[i] + 1;
 }
+
+template <typename T>
+class Array<T>::outOfBounds : public std::exception
+{
+	public: virtual char *what() const throw(){
+		return ((char *)"Index is out of bounds");
+	}
+};
 
 #endif

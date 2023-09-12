@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:18 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/12 13:00:53 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/12 18:24:31 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ template<class T>
 class Array{
 	private:
 		T *_array;
-		int _size;
+		unsigned int _size;
 		
 	public:
 		Array(void);
@@ -33,6 +33,7 @@ class Array{
 		T size() const;
 		void print();
 		void edit();
+		class outOfBounds;
 };
 
 # include "Array.tpp"
