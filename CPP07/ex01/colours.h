@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/11 11:13:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/13 11:18:14 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
 
-# define TEST1	" Testing array of ints\n"
-# define TEST2	" Testing array of chars\n"
-# define TEST3	" Testing array of strings\n"	
-# define TEST4	" Testing array of floats\n"	
-
-
+# define TEST1	" Testing array of ints. The function passed will \n\
+ substract 10 to each element of the array\n"
+# define TEST2	" Testing array of chars. The function passed will \n\
+ transform to upper each element of the array\n"
+# define TEST3	" Testing array of strings. The function passed will \n\
+ transform to lower each element of the array\n"	
+# define TEST4	" Testing array of floats. The function passed will \n\
+ increment by 5 each element of the array\n"	
 
 #endif
