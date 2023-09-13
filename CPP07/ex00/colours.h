@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/01 13:42:28 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/13 12:36:30 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,5 @@
 # define BM	"\x1B[95m"	// BRIGHT MAGENTA
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
-
-# define CHAR	'c'
-# define INT	'i'	
-# define FLOAT	'f'	
-# define DOUBLE	'd'
-# define ERROR	'n'	
-
-
 
 #endif
