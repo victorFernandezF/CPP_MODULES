@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 10:33:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/12 18:58:44 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/13 10:15:10 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,9 @@ Array<T>::~Array(){
 }
 
 template <typename T>
-void Array<T>::print(){
+void Array<T>::print(std::string name){
 	for (unsigned int i = 0; i < this->_size; i++)
-		std::cout<<"array["<<i<<"] "<<this->_array[i]<<"\n";
-}
-
-template <typename T>
-void Array<T>::edit(){
-	for (int i = 0; i < this->_size; i++)
-		this->_array[i] = this->_array[i] + 1;
+		std::cout<<name<<"["<<i<<"] "<<this->_array[i]<<"\n";
 }
 
 template <typename T>

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/12 18:56:08 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/13 11:01:54 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,15 @@
 # define GR	"\x1B[90m" 	// GRAY
 
 # define TEST1	" Subject main\n"
-# define TEST2	" Testing array of ints\n"
-# define TEST3	" Testing array of chars\n"
-# define TEST4	" Testing array of strings\n"	
-# define TEST5	" Testing array of floats\n"	
+# define TEST2	" Testing assignment operator. Create an array of n ints\n\
+ fill it with some values. Create a second array which will be \n\
+ equal to the first (nb2 = nb). Modifying the values of the second \n\
+ array shouldn't affect the first one\n"
+# define TEST3	" Testing subscript operator '[]' We will try to access\n\
+ to the value of the array with different indexes (nb[0], nb[10] ...) \n\
+ if index is higher or lower than array size, should throw an exception\n"
+# define TEST4	" Testing Size function, that returns the size of the array\n"	
+
 
 
 
