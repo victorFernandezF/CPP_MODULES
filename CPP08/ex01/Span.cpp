@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:30 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/13 19:14:30 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/14 10:55:42 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 class Span::OutOfRange : public std::exception{
 	public: virtual char *what() const throw(){
 		return ((char *)"Out of Range");
+	}
+};
+class Span::NotEnoughElements : public std::exception{
+	public: virtual char *what() const throw(){
+		return ((char *)"There are not enough element to do this action");
 	}
 };
 
@@ -33,7 +38,7 @@ Span::~Span(){
 }
 		
 void Span::addNumber(unsigned int nb){
-	if (this->_index >= this->_size - 1)
+	if (this->_index > this->_size - 1)
 		throw OutOfRange();
 	for (size_t i = 0; i < this->_size; i++)
 	{
@@ -43,13 +48,35 @@ void Span::addNumber(unsigned int nb){
 			return;
 		}
 	}
-	
+}
+
+int Span::incrementer(){
+	return (this->_index++);
+}
+
+void Span::addManyNumbers(unsigned int nb){
+	if (this->_index > this->_size - 1)
+		throw OutOfRange();
+	std::vector<int> newVector(nb);
+	std::generate(newVector.begin(), newVector.begin() + nb, incrementer());
+	this->_array = newVector;	
 }
 
 int Span::shortestSpan(){
+	if (this->_size < 2)
+		throw NotEnoughElements();
 	std::vector<int> copy = this->_array;
 	std::sort(copy.begin(), copy.begin() + this->_size);
 	return (copy[1] - copy[0]);
+}
+
+int Span::longestSpan(){
+	if (this->_size < 2)
+		throw NotEnoughElements();
+	std::vector<int> copy = this->_array;
+	std::sort(copy.begin(), copy.begin() + this->_size);
+	//std::cout<<copy[this->_size - 1]<<" - "<< copy[0]<<"\n";
+	return (copy[this->_size - 1] - copy[0]);
 }
 
 void Span::print(){

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:18 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/13 18:50:54 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/14 10:55:09 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,12 @@ class Span{
 		int shortestSpan();
 		int longestSpan();
 		void print();
+		void addManyNumbers(unsigned int nb);
+		int incrementer();
+
 		
 		class OutOfRange;
+		class NotEnoughElements;
 };
 
 

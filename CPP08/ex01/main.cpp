@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/13 19:14:56 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/14 10:43:59 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,30 @@ int main(void)
 	}
 	printTestHeaders(2, TEST2, 1);
 	{
-		Span span(3);
-		span.addNumber(85);
-		span.addNumber(35);
-		span.addNumber(14);
-		std::cout<< "shortestSpan: "<<span.shortestSpan()<<std::endl;
+		Span span(5);
+		span.addNumber(1);
+ 		span.addNumber(50);
+		span.addNumber(28); 
+		span.addNumber(15); 
+		span.addNumber(81); 
 		span.print();
+		std::cout<<"\n";
+		try{
+			std::cout<< "shortestSpan: "<<span.shortestSpan()<<std::endl;
+		}catch (std::exception &e){
+			std::cout<<e.what()<<std::endl;
+		}
+		try{
+			std::cout<< "longestSpan: "<<span.longestSpan()<<std::endl;
+		}catch (std::exception &e){
+			std::cout<<e.what()<<std::endl;
+		}
 	}
-	//printTestHeaders(3, TEST3, 1);
+	printTestHeaders(3, TEST3, 1);
 	{
-		
+		Span span(100);
+		span.addManyNumbers(100);
+		span.print();
 	}
 	return 0;
 }
