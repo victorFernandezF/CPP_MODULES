@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/14 19:00:29 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/14 19:04:52 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,36 +44,35 @@ int main(void)
 	}
 	printTestHeaders(2, TEST2, 1);
 	{
-		Span span(3);
-		
-		span.addNumber(5);
-		span.addNumber(25);
-		span.addNumber(54);
-		span.print();
+		Span sp = Span(3);
+		sp.addNumber(5);
+		sp.addNumber(25);
+		sp.addNumber(54);
+		sp.print();
 		try{
-			span.addNumber(546);
-			span.addNumber(5436);
+			sp.addNumber(546);
+			sp.addNumber(5436);
 		}catch(std::exception &e){
 			std::cout<<BR<<e.what()<<W<<std::endl;
 		}
 	}
 	printTestHeaders(3, TEST3, 1);
 	{
-		Span span(5);
-		span.addNumber(1);
- 		span.addNumber(50);
-		span.addNumber(28); 
-		span.addNumber(15); 
-		span.addNumber(29); 
-		span.print();
+		Span sp = Span(5);
+		sp.addNumber(1);
+ 		sp.addNumber(50);
+		sp.addNumber(28); 
+		sp.addNumber(15); 
+		sp.addNumber(29); 
+		sp.print();
 		std::cout<<"\n";
 		try{
-			std::cout<< "shortestSpan: "<<span.shortestSpan()<<std::endl;
+			std::cout<< "shortestSpan: "<<sp.shortestSpan()<<std::endl;
 		}catch (std::exception &e){
 			std::cout<<BR<<e.what()<<W<<std::endl;
 		}
 		try{
-			std::cout<< "longestSpan: "<<span.longestSpan()<<std::endl;
+			std::cout<< "longestSpan: "<<sp.longestSpan()<<std::endl;
 		}catch (std::exception &e){
 			std::cout<<BR<<e.what()<<W<<std::endl;
 		}
@@ -82,29 +81,28 @@ int main(void)
 		<<"  shortest and longest span function. That should throw an exception *"
 		<<W<<std::endl;
 		
-		Span span2(1);
-		span2.addNumber(27);
+		Span sp2 = Span(1);
+		sp2.addNumber(27);
 		std::cout<<"\n";
 		try{
-			std::cout<< "shortestSpan: "<<span2.shortestSpan()<<std::endl;
+			std::cout<< "shortestSpan: "<<sp2.shortestSpan()<<std::endl;
 		}catch (std::exception &e){
 			std::cout<<BR<<e.what()<<W<<std::endl;
 		}
 		try{
-			std::cout<< "longestSpan: "<<span2.longestSpan()<<std::endl;
+			std::cout<< "longestSpan: "<<sp2.longestSpan()<<std::endl;
 		}catch (std::exception &e){
 			std::cout<<BR<<e.what()<<W<<std::endl;
 		}
-		
 	}
 	printTestHeaders(4, TEST4, 1);
 	{
 		unsigned int N = 20000;
-		Span span(N);
-		span.addManyNumbers(N);
+		Span sp =Span(N);
+		sp.addManyNumbers(N);
 		//span.print();  //That's going to print a lot of numbers... 
-		std::cout<<"\nshortestSpan: "<<C<<span.shortestSpan()<<W<<"\n";
-		std::cout<<"longestSpan: "<<C<<span.longestSpan()<<W<<"\n";
+		std::cout<<"\nshortestSpan: "<<C<<sp.shortestSpan()<<W<<"\n";
+		std::cout<<"longestSpan: "<<C<<sp.longestSpan()<<W<<"\n";
 		
 	}
 	return 0;
