@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/13 18:16:01 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:59:30 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,20 @@
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
 
-# define TEST1 " Create a vector with some ints and try to\n\
- find a number. This test is set to find it correctly.\n"
-# define TEST2 " Same as TEST 1 but this time we used an array \n\
- instead. The idea is testing the template.\n\
- This test will find the number correctly.\n"
-# define TEST3 " Try to find a number which does not exist in our\n\
- container (array in this case).\n\
- This test should throw an exception.\n"
+# define TEST1 " This is the subject test.\n\
+ Creates a Span of five ints.\n Inserts some numbers and displays\n\
+ the Shosrtest and longest spans\n"
+ 
+# define TEST2 " Creates a Span of three ints. Inserts three values.\n\
+ Then tries to insert some more values. Of course this\n\
+ should throw an exception.\n"
+
+# define TEST3 " Lets test the shortestSpan and longestSpan functions.\n\
+ Creates a Span and fill it with some values.\n"
+
+# define TEST4 " This will test the addManyNumbers functio. That will\n\
+ add N numbers in one call (not by calling addNumbers N times).\n\
+ Span values are random and the print is commented in main.cpp in\n\
+ order to keep the previous tests visible."
+
 #endif

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:18 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/14 10:55:09 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/14 18:02:43 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # define SPAN_HPP
 # include <iostream>
 # include <algorithm>
+# include <ctime>
 # include <vector>
 # include "colours.h"
 
@@ -42,6 +43,8 @@ class Span{
 		class OutOfRange;
 		class NotEnoughElements;
 };
+
+int generateNb();
 
 
 #endif
