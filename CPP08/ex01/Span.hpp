@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:18 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/14 18:02:43 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/14 19:06:24 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,16 +35,12 @@ class Span{
 		void addNumber(unsigned int nb);
 		int shortestSpan();
 		int longestSpan();
-		void print();
 		void addManyNumbers(unsigned int nb);
-		int incrementer();
-
-		
+		void print();
+	
 		class OutOfRange;
 		class NotEnoughElements;
 };
 
 int generateNb();
-
-
 #endif

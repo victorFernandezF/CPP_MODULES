@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:30 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/14 18:34:49 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/14 19:18:55 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,23 @@ class Span::NotEnoughElements : public std::exception{
 
 Span::Span(){}
 
-Span::Span(unsigned int N): _index(0), _size(N), _array(N) {
-	//std::cout<<Y<<"Constructor"<<W<<std::endl;
+Span::Span(unsigned int N): _index(0), _size(N), _array(N) {}
+
+Span::Span(const Span &copy): _index(copy._index), _size(copy._size), _array(_size){
+	for (size_t i = 0; i < _size; i++){
+		this->_array[i] = copy._array[i];
+	}
 }	
 
-//Span::Span(const Span &copy){}	
-
-//Span &Span::operator=(const Span &copy){}	
+Span &Span::operator=(const Span &copy){
+	this->_size = copy._size;
+	this->_index = copy._index;
+	this->_array = copy._array;
+	for (size_t i = 0; i < _size; i++){
+		this->_array[i] = copy._array[i];
+	}
+	return (*this);
+}
 
 Span::~Span(){
 	//std::cout<<Y<<"Destructor"<<W<<std::endl;
