@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/13 18:15:53 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/15 10:34:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(void)
 		try{
 			::easyFind(vect, 5);
 		}catch (std::exception &e){
-			std::cout<<e.what()<<std::endl;
+			std::cout<<BR<<e.what()<<W<<std::endl;
 		}
 	}
 	printTestHeaders(2, TEST2, 1);
@@ -53,7 +53,7 @@ int main(void)
 		try{
 			::easyFind(arr, 4);
 		}catch (std::exception &e){
-			std::cout<<e.what()<<std::endl;
+			std::cout<<BR<<e.what()<<W<<std::endl;
 		}
 	}
 	printTestHeaders(3, TEST3, 1);
@@ -64,7 +64,7 @@ int main(void)
 		try{
 			::easyFind(arr, 25);
 		}catch (std::exception &e){
-			std::cout<<e.what()<<std::endl;
+			std::cout<<BR<<e.what()<<W<<std::endl;
 		}
 	}
 	return 0;
