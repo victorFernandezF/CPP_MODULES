@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:30 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/15 12:50:32 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/15 10:31:01 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void Span::addManyNumbers(unsigned int nb){
 	if (this->_index > this->_size - 1)
 		throw OutOfRange();
 	std::vector<int> newVector(nb);
-	std::generate(newVector.begin(), newVector.end(), rand);
+	std::generate(newVector.begin(), newVector.begin() + nb, rand);
 	this->_store = newVector;
 	this->_index = nb;	
 }
@@ -85,7 +85,7 @@ int Span::shortestSpan(){
 	if (this->_size < 2)
 		throw NotEnoughElements();
 	std::vector<int> copy = this->_store;
-	std::sort(copy.begin(), copy.end());
+	std::sort(copy.begin(), copy.begin() + this->_size);
 	min = copy[1] - copy[0];
 	for(size_t i= 0; i< this->_size - 1; i++)
 	{
@@ -100,7 +100,7 @@ int Span::longestSpan(){
 	if (this->_size < 2)
 		throw NotEnoughElements();
 	std::vector<int> copy = this->_store;
-	std::sort(copy.begin(), copy.end());
+	std::sort(copy.begin(), copy.begin() + this->_size);
 	return (copy[this->_size - 1] - copy[0]);
 }
 
