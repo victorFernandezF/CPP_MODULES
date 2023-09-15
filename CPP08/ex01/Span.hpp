@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:18 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/14 19:06:24 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/15 10:25:56 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ class Span{
 	private:
 		unsigned int _index;
 		unsigned int _size;
-		std::vector<int> _array;
+		std::vector<int> _store;
+		
 	public:
 		Span();
 		Span(unsigned int N);	
@@ -41,6 +42,4 @@ class Span{
 		class OutOfRange;
 		class NotEnoughElements;
 };
-
-int generateNb();
 #endif

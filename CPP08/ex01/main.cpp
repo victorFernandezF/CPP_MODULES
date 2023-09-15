@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/14 19:19:47 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/15 10:25:50 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,10 @@ int main(void)
 		unsigned int N = 20000;
 		Span sp =Span(N);
 		sp.addManyNumbers(N);
-		//span.print();  //That's going to print a lot of numbers... 
-		std::cout<<"\nshortestSpan: "<<C<<sp.shortestSpan()<<W<<"\n";
-		std::cout<<"longestSpan: "<<C<<sp.longestSpan()<<W<<"\n";
 		
+		//sp.print();  //That's going to print a lot of numbers... 
+		std::cout<<"\nshortestSpan: "<<C<<sp.shortestSpan()<<W<<"\n";
+		std::cout<<"longestSpan: "<<C<<sp.longestSpan()<<W<<"\n";		
 	}
 	return 0;
 }
