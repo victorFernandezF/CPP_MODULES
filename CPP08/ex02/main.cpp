@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/18 18:25:11 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/18 19:16:33 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ int main(void)
 	printTestHeaders(1, TEST1, 0);
 	{
 		MutantStack<int> stack;
-		
-		
-		
+		std::deque<int>::iterator it;
+		stack.push(10);
+		stack.push(11);
+		stack.push(12);
+		it = stack.begin();
+		std::cout<<it<<"\n";
 	}
 	return 0;
 }
