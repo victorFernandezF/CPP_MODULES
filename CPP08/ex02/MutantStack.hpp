@@ -1,45 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Span.hpp                                           :+:      :+:    :+:   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:18 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/15 10:25:56 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/18 18:28:20 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #pragma once
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#ifndef MUTANTSTACK_HPP
+# define MUTANTSTACK_HPP
 # include <iostream>
 # include <algorithm>
-# include <ctime>
-# include <vector>
+# include <stack>
 # include "colours.h"
 
-class Span{
+template<class T>
+class MutantStack : public std::stack<T>
+{
 	private:
-		unsigned int _index;
-		unsigned int _size;
-		std::vector<int> _store;
-		
+		std::stack<T> stack;
 	public:
-		Span();
-		Span(unsigned int N);	
-		Span(const Span &copy);	
-		Span &operator=(const Span &copy);	
-		~Span();
-		
-		void addNumber(unsigned int nb);
-		int shortestSpan();
-		int longestSpan();
-		void addManyNumbers(unsigned int nb);
-		void print();
-	
-		class OutOfRange;
-		class NotEnoughElements;
+		MutantStack(void);
+		MutantStack(const MutantStack &copy);	
+		~MutantStack(void);	
+		MutantStack &operator=(const MutantStack &copy);	
+		//Iterators();
 };
+
+#include "MutantStack.tpp"
+
 #endif
