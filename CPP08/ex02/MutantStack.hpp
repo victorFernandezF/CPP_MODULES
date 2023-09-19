@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:18 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/18 19:11:36 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/19 18:24:24 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stack>
 # include "colours.h"
 
-template<class T, class container=std::deque<T> >
+template<class T>
 class MutantStack : public std::stack<T>
 {
 	public:
@@ -27,9 +27,9 @@ class MutantStack : public std::stack<T>
 		//MutantStack(const MutantStack &copy){};	
 		~MutantStack(void){};	
 		//MutantStack &operator=(const MutantStack &copy){};	
-		typedef typename container::iterator it;
-		it begin(){ return this->c.begin(); };
-		it end(){ return this->c.end(); };
+		typedef typename std::deque<T>::iterator iterator;
+		iterator begin(){ return std::stack<T>::c.begin(); };
+		iterator end(){ return std::stack<T>::c.end(); };
 };
 
 #endif
