@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/14 18:59:30 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/19 18:50:46 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,16 @@
 # define GR	"\x1B[90m" 	// GRAY
 
 # define TEST1 " This is the subject test.\n\
- Creates a Span of five ints.\n Inserts some numbers and displays\n\
- the Shosrtest and longest spans\n"
+ Creates a MutantStack and do some operations.\n"
  
-# define TEST2 " Creates a Span of three ints. Inserts three values.\n\
- Then tries to insert some more values. Of course this\n\
- should throw an exception.\n"
+# define TEST2 " This is the subject test but replacing \n\
+ MutantStack by a normal list. (changing the methods obviously)\n\
+ It should be the same result.\n"
 
-# define TEST3 " Lets test the shortestSpan and longestSpan functions.\n\
- Creates a Span and fill it with some values.\n"
+# define TEST3 " Creates a MutantStack, add some elements and\n\
+ iterate it for print its elements\n"
 
-# define TEST4 " This will test the addManyNumbers functio. That will\n\
- add N numbers in one call (not by calling addNumbers N times).\n\
- Span values are random and the print is commented in main.cpp in\n\
- order to keep the previous tests visible."
+# define TEST4 " Creates a MutantStack, add some elements and\n\
+ iterate it but adding (+42) to each elements \n"
 
 #endif
