@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/29 18:33:54 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/19 19:02:10 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int main(void)
  	printTestHeaders(2, TEST2, 1);
 	{
 		Bureaucrat	*buro = new Bureaucrat("Maria", 1);
-		AForm	*form = new RobotomyRequestForm("Robotin");
+		AForm	*form = new RobotomyRequestForm("Marvin");
 
 		std::cout<<"GENERAL INFO"<<std::endl;
 		std::cout<<*buro<<std::endl;
