@@ -1,6 +1,5 @@
 NAME		= ex02
 CC			= g++
-FLAGS		= -Wall -Wextra -Werror -std=c++98 
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 
 SRC 		= main.cpp Bureaucrat.cpp AForm.cpp RobotomyRequestForm.cpp \
 			  ShrubberyCreationForm.cpp PresidentialPardonForm.cpp
@@ -31,7 +30,7 @@ nice_text:
 	@echo ""  
 
 $(NAME): $(OBJ)
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+	@$(CC) $(OBJ) -o $(NAME)
 	@echo "$(G) Program name : $(NAME)$(E)"
 	@echo ""
 

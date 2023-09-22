@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 11:11:41 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/29 18:23:53 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:01:12 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &c
 
 int RobotomyRequestForm::_getRandomNumber() const{
 	int  random;
-    srand(time(0));
+	srand(time(0));
     random = rand() % 2 + 1;
 	return random;
 }

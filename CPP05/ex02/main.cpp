@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/19 19:02:10 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:00:45 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int main(void)
 		delete buro;
 		delete form;
 	}
-	printTestHeaders(3, TEST3, 1);
+ 	printTestHeaders(3, TEST3, 1);
 	{
 		Bureaucrat	*buro = new Bureaucrat("Pepe", 70);
 		Bureaucrat	*buro2 = new Bureaucrat("Anselmo", 27);
