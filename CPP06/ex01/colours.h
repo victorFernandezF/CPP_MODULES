@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/01 13:42:28 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:49:47 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,9 @@
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
 
-# define CHAR	'c'
-# define INT	'i'	
-# define FLOAT	'f'	
-# define DOUBLE	'd'
-# define ERROR	'n'	
+# define TEST1 " This tests will initialize a struct with some datas\n\
+ Then will convert the struct to uintprt_t and will convert it back\n\
+ to its original form. Struct datas should not be modified\n"
 
 
 

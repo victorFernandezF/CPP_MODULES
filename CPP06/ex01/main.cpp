@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/06 18:52:06 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:49:31 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,17 @@ void leaks(void)
 	system("leaks -q ex01");
 }
 
+void printTestHeaders(int test, std::string testh, int line){
+	if (line == 1)
+		std::cout<<"\n___________________________________"<<std::endl;
+	std::cout<<std::endl<<BM<<"◉ -- [TEST "<<test<<"] -- ◉"<<std::endl
+	<<BB<<testh<<W<<std::endl;
+}
+
 int main(void)
 {
 	atexit(leaks);
+	printTestHeaders(1, TEST1, 0);
 	Data *ptr = new Data;
 	uintptr_t result;
 	Data *res;
