@@ -27,9 +27,8 @@ nice_text:
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝ ╚══════╝"
 	@echo "$(B)                EX00:"                   
 	@echo "$(B)       MOMMY, WHEN I GROW UP," 
-	@echo "$(B)     I WANT TO BE A BUREAUCRAT!$(E)"          
-	         
-	@echo ""  
+	@echo "$(B)     I WANT TO BE A BUREAUCRAT!$(E)"                
+	@echo ""
 
 $(NAME): $(OBJ)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
