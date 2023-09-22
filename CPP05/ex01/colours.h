@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/30 11:09:26 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:19:52 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,19 @@
 # define BM	"\x1B[95m"	// BRIGHT MAGENTA
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
-# define TEST1 " Create an bureaucrat with grade 5 and a form with \n\
+
+# define TEST1 "This test creates a [bureaucrat] with grade 5 and a [form] with \n\
  required grade to sign of 6. Since grade 5 is higher than grade 6, \n\
  bureaucrat will sign the form without problems."
-# define TEST2 " Create an bureaucrat with grade 5 and a form with \n\
+
+# define TEST2 " This test creates a [bureaucrat] with grade 5 and a [form] with \n\
  required grade to sign of 3. Since grade 5 is lower than grade 6, \n\
  bureaucrat woun't be able to sign the form."
-# define TEST3 " Create an bureaucrat with grade 5 and a form with \n\
- required grade to sign of 3. Since grade 5 is lower than grade 6, \n\
- bureaucrat woun't be able to sign the form.\n But if we increment the \
- bureaucrat grade twice, bureaucrat will \n have at least the required grade so \
-form will be signed in the second try."
+
+# define TEST3 " This test creates a [bureaucrat] with grade 5 and a [form] with \n\
+ required grade to sign of 3. Since grade 5 is lower than grade 3, \n\
+ bureaucrat won't be able to sign the form. Then Bureaucrat grade\n\
+ will be incremented twice. So, grade now is 3. Bureaucrat now has\n at least\
+ the required grade so form will be signed in the second try."
 
 #endif

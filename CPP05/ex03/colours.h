@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/29 19:06:32 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:40:31 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # define BM	"\x1B[95m"	// BRIGHT MAGENTA
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
+
 # define TEST1 " Intern will try to create a PRESIDENTIAL PARDON FORM.\n"
 # define TEST2 " Intern will try to create a ROBOTOMY REQUEST FORM.\n"
 # define TEST3 " Intern will try to create a shrubbery CREATION FORM.\n"

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 11:00:20 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 18:57:39 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:12:56 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ class Form::GradeTooLowException : public std::exception
 	}
 };
 
-Form::Form(): _name("default"), _gradeToSign(1), _gradeToExecute(1){}
+Form::Form(): _name("default"), _signed(0), _gradeToSign(1), _gradeToExecute(1){}
 
-Form::Form(std::string name, int sign, int exe): _name(name), _gradeToSign(sign), _gradeToExecute(exe){
+Form::Form(std::string name, int sign, int exe): _name(name), _signed(0), _gradeToSign(sign), _gradeToExecute(exe){
 	if (this->_gradeToSign > 150 || this->_gradeToExecute > 150)
 		throw GradeTooHighException();
 	if (this->_gradeToSign < 1 || this->_gradeToExecute < 1)

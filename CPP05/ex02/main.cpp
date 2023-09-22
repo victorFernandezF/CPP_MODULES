@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/22 12:00:45 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:39:51 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ int main(void)
 	}
  	printTestHeaders(3, TEST3, 1);
 	{
-		Bureaucrat	*buro = new Bureaucrat("Pepe", 70);
-		Bureaucrat	*buro2 = new Bureaucrat("Anselmo", 27);
-		AForm	*form = new PresidentialPardonForm("1234");
+		Bureaucrat	*buro = new Bureaucrat("Ricardo", 70);
+		Bureaucrat	*buro2 = new Bureaucrat("Mortadelo", 27);
+		AForm	*form = new PresidentialPardonForm("Jerry");
 
 		std::cout<<"GENERAL INFO"<<std::endl;
 		std::cout<<*buro<<std::endl;

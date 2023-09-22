@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/08/23 19:06:58 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/22 12:11:44 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(void)
 	atexit(leaks);
 	printTestHeaders(1, TEST1, 0);
 	{
-		Bureaucrat *buro = new Bureaucrat("Pepe", 5);
+		Bureaucrat *buro = new Bureaucrat("Burocrator", 5);
 		Form *form = new Form("Form_1", 6, 2);
 		
 		std::cout<<*buro<<std::endl;
@@ -49,8 +49,6 @@ int main(void)
 		std::cout<<*buro<<std::endl;
 		std::cout<<*form<<std::endl;
 		buro->signForm(*form);
-		buro->incrementGrade();
-		buro->incrementGrade();
 		delete buro;
 		delete form;
 	}
