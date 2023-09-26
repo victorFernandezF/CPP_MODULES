@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/25 19:34:27 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/26 18:35:37 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,12 @@ int main(int argc, char **argv)
 	atexit(leaks);
 	if (argc != 2)
 		return 0;
-	BitcoinExchange exchange;
+	try{
+		BitcoinExchange exchange;
+		exchange.exchange("test.txt");
+	}catch (std::exception &e){
+		std::cout<<BR<<e.what()<<W<<"\n";
+	}
 
-	exchange.exchange(filename);
 	return 0;
 }
