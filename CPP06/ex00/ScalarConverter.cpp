@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 10:41:48 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/05 18:32:44 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/27 10:32:09 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ void ScalarConverter::_checkEachType(std::string input){
 	}
 	else if (!(nb >= 32 && nb <= 126))
 		ScalarConverter::_charError = "no displayable";
-	if (nb < std::numeric_limits<float>::min() || nb > std::numeric_limits<float>::max())
+	if ((input != "nanf" && input != "+inff" && input != "-inff")
+			&& (nb < std::numeric_limits<double>::min()
+			|| nb > std::numeric_limits<float>::max()))
 		ScalarConverter::_floatError = "impossible";
 	if (nb < std::numeric_limits<double>::min() || nb > std::numeric_limits<double>::max())
 		ScalarConverter::_intError = "impossible";

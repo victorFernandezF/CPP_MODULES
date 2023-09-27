@@ -25,7 +25,7 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║██╔═══██╗"
 	@echo "╚██████╗██║     ██║           ╚██████╔╝╚██████╔╝"
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝  ╚═════╝ " 
-	@echo "$(B)                EX00:"                    
+	@echo "$(B)      EX00: CONVERSION OF ESCALAR TYPES"                    
 	@echo "$(B)     $(E)"          
 	         
 	@echo ""  

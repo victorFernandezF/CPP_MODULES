@@ -32,8 +32,6 @@ int main(int argc, char **argv)
 		return 0;
 	}
 	arg = argv[1];
-	if (arg.find(',') != std::string::npos)
-			arg[arg.find(',')] = '.';
 	ScalarConverter::convert(arg);
 	return 0;
 }
