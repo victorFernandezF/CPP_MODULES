@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:03:53 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/26 19:27:32 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:32:21 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void BitcoinExchange::exchange(std::string filename){
 		}
 		this->_checkValues(key, value);
 	}
+	//std::cout<<C<<this->_database.at("2029-01-02")<<W<<"\n";
 }
 
 
@@ -94,6 +95,18 @@ int BitcoinExchange::_checkDate(std::string key){
 	return 0;
 }
 
+std::string BitcoinExchange::_checkIfKeyExists(std::string key){
+	(void) key;
+	std::map<std::string, double> mymap = this->_database;
+	std::map<std::string,double>::iterator itlow,it;
+	if (mymap.find(key) != mymap.end())
+		return key;
+	itlow=mymap.lower_bound(key);
+	if(!mymap.count(key))
+		itlow--;
+	return itlow->first;
+}
+
 void BitcoinExchange::_checkValues(std::string key, std::string value){
 	double result;
 	if (value[0] == '-')
@@ -104,7 +117,8 @@ void BitcoinExchange::_checkValues(std::string key, std::string value){
 		std::cout<<"Error: bad input => "<<key<<std::endl;
 	else if (value.empty())
 		std::cout<<"Error: no value"<<std::endl;
-	else{	
+	else {
+		key = this->_checkIfKeyExists(key);
 		result = this->_database[key] * strtod(value.c_str(), NULL);
 		std::cout<<key<<" => "<<value<<" = ";
 		std::cout<<result<<std::endl;

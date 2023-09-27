@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/26 18:35:37 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/27 19:33:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void leaks(void)
 
 int main(int argc, char **argv)
 {
-	std::string filename;
+ 	std::string filename;
 	filename = argv[1];
 	
 	atexit(leaks);
@@ -36,6 +36,4 @@ int main(int argc, char **argv)
 	}catch (std::exception &e){
 		std::cout<<BR<<e.what()<<W<<"\n";
 	}
-
-	return 0;
 }
