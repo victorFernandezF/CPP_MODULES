@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:57:46 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/28 13:54:25 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/28 18:23:24 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@
 class BitcoinExchange{
 	private:
 		std::map<std::string, double>_database;
-		void 	_openFile(std::ifstream file, std::string filename);
-		int		_checkValues(std::string key, std::string value);
-		int		_checkDate(std::string key);
-		void	_printResult(std::string key,std::string value);
+		std::string _dbName;
+	
+		void 		_openFile(std::ifstream *file, std::string filename);
+		int			_checkValues(std::string key, std::string value);
+		int			_checkDate(std::string key);
+		void		_printResult(std::string key,std::string value);
+		int			_isAlpha(std::string str);
 		std::string _checkIfKeyExists(std::string key);
 	public:
 		BitcoinExchange();
