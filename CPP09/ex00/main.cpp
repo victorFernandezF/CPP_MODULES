@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/27 19:33:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/28 13:52:36 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int main(int argc, char **argv)
 		return 0;
 	try{
 		BitcoinExchange exchange;
-		exchange.exchange("test.txt");
+		exchange.exchange(filename);
 	}catch (std::exception &e){
 		std::cout<<BR<<e.what()<<W<<"\n";
 	}

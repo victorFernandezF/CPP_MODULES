@@ -6,16 +6,22 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:03:53 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/27 19:32:21 by victofer         ###   ########.fr       */
+/*   Updated: 2023/09/28 13:54:11 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
 //EXCEPTIONS
-class BitcoinExchange::FileNotFoundException : public std::exception{
+class BitcoinExchange::UserFileNotFound : public std::exception{
 	public: virtual char *what() const throw(){
 		return (char *)("Error: file not found.");
+	}
+};
+
+class BitcoinExchange::DataBaseNotFound : public std::exception{
+	public: virtual char *what() const throw(){
+		return (char *)("Error: Database file not found.");
 	}
 };
 
@@ -30,7 +36,7 @@ BitcoinExchange::BitcoinExchange(){
 
 	dataBase.open(data, std::ios::in);
 	if (dataBase.fail())
-		throw FileNotFoundException();
+		throw DataBaseNotFound();
 	while (std::getline(dataBase, buffer)){
 		pos = buffer.find(",");
 		if (pos != std::string::npos){
@@ -49,30 +55,6 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &copy){
 	return (*this);
 }
 BitcoinExchange::~BitcoinExchange(){}
-
-void BitcoinExchange::exchange(std::string filename){
-	std::ifstream input;
-	std::string buffer;
-	std::string key;
-	std::string value;
-	size_t pos = 0;
-	
-	input.open(filename, std::ios::in);
-	while (std::getline(input, buffer)){
-		pos = buffer.find("|");
-		if (pos != std::string::npos){
-			key = buffer.substr(0, pos - 1);
-			value = buffer.substr(pos + 2, std::string::npos);	
-		}
-		else{
-			key = buffer.substr(0, std::string::npos);
-			value = "";
-		}
-		this->_checkValues(key, value);
-	}
-	//std::cout<<C<<this->_database.at("2029-01-02")<<W<<"\n";
-}
-
 
 int BitcoinExchange::_checkDate(std::string key){
 	std::string year;
@@ -107,8 +89,7 @@ std::string BitcoinExchange::_checkIfKeyExists(std::string key){
 	return itlow->first;
 }
 
-void BitcoinExchange::_checkValues(std::string key, std::string value){
-	double result;
+int BitcoinExchange::_checkValues(std::string key, std::string value){
 	if (value[0] == '-')
 		std::cout<<"Error: not a positive number."<<std::endl;
 	else if (value.size() > 3)
@@ -118,9 +99,41 @@ void BitcoinExchange::_checkValues(std::string key, std::string value){
 	else if (value.empty())
 		std::cout<<"Error: no value"<<std::endl;
 	else {
-		key = this->_checkIfKeyExists(key);
-		result = this->_database[key] * strtod(value.c_str(), NULL);
-		std::cout<<key<<" => "<<value<<" = ";
-		std::cout<<result<<std::endl;
+		return 0;
+	}
+	return 1;
+}
+
+void BitcoinExchange::_printResult(std::string key, std::string value){
+	double result;
+	key = this->_checkIfKeyExists(key);
+	result = this->_database[key] * strtod(value.c_str(), NULL);
+	std::cout<<key<<" => "<<value<<" = ";
+	std::cout<<result<<std::endl;
+}
+
+void BitcoinExchange::exchange(std::string filename){
+	std::ifstream input;
+	std::string buffer;
+	std::string key;
+	std::string value;
+
+	size_t pos = 0;
+	
+	input.open(filename, std::ios::in);
+	if (input.fail())
+		throw UserFileNotFound();
+	while (std::getline(input, buffer)){
+		pos = buffer.find("|");
+		if (pos != std::string::npos){
+			key = buffer.substr(0, pos - 1);
+			value = buffer.substr(pos + 2, std::string::npos);	
+		}
+		else{
+			key = buffer.substr(0, std::string::npos);
+			value = "";
+		}
+		if (this->_checkValues(key, value) == 0)
+			this->_printResult(key, value);
 	}
 }
