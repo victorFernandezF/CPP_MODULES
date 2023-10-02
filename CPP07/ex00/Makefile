@@ -25,7 +25,8 @@ nice_text:
 	@echo "██║     ██╔═══╝ ██╔═══╝ ╚════╝████╔╝██║   ██╔╝ "
 	@echo "╚██████╗██║     ██║           ╚██████╔╝   ██║  "
 	@echo " ╚═════╝╚═╝     ╚═╝            ╚═════╝    ╚═╝  " 
-	@echo "$(B)                EX00:"                    
+	@echo "$(B)     	           EX00:"                    
+	@echo "$(B)   	 START WITH A FEW FUNCTIONS"                    
 	@echo "$(B)     $(E)"          
 	         
 	@echo ""  

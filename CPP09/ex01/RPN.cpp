@@ -6,20 +6,26 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:23:03 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/29 13:51:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/02 18:44:16 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-
+// C O N S T R U C T O R S
 Rpn::Rpn(){}
 
-/* Rpn::Rpn(const Rpn &copy){}
+Rpn::Rpn(const Rpn &copy){
+	this->_stack = copy._stack;
+}
 
-Rpn &Rpn::operator=(const Rpn &copy){} */
+Rpn &Rpn::operator=(const Rpn &copy){
+	this->_stack = copy._stack;
+	return (*this);
+}
 
 Rpn::~Rpn(){}
 
+// R P N   F U N C T I O N S
 int	Rpn::_isElementInt(char ele){
 	return ele >= '0' && ele <= '9';
 }
@@ -55,7 +61,7 @@ int Rpn::_checkStringErrors(std::string str){
 	int op = 0;
 	for (size_t i = 0; i < str.size(); i++)
 		if (!((str[i] >= '0' && str[i] <= '9') || (this->_isSign(str[i]))))
-			error = "Error, Bad input characters";
+			error = "Error: Bad input characters";
 	for (size_t i = 0; i < str.size(); i++){
 		if (this->_isElementInt(str[i]))
 			nb++;
@@ -63,7 +69,7 @@ int Rpn::_checkStringErrors(std::string str){
 			op++;
 	}
 	if (nb - op == 2 || nb - op <= 0)
-		error = "Error Bad nimber of signs or elements.";
+		error = "Error: Bad number of signs or elements.";
 	if (!error.empty()){
 		std::cout<<BR<<error<<W<<std::endl;
 		return 1;
@@ -91,4 +97,8 @@ void Rpn::rpn(std::string elements){
 		}
 	}
 	std::cout<<"\nResult: "<<this->_stack.top()<<std::endl;
+}
+
+std::stack<int> Rpn::getStack(){
+	return this->_stack;
 }

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:23:06 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/29 13:25:42 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/02 18:32:44 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Rpn{
 		Rpn &operator=(const Rpn &copy);
 		~Rpn();
 		void rpn(std::string elements);
+		std::stack<int> getStack();
 };
 
 #endif
