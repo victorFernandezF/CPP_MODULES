@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/03 19:08:22 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:22:07 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,13 @@ PmergeMe::PmergeMe(){}
 /* PmergeMe::PmergeMe(const PmergeMe &copy){}
 PmergeMe &PmergeMe::operator=(const PmergeMe &copy){} */
 PmergeMe::~PmergeMe(){}
+
+
+std::vector<int> PmergeMe::getVector( void ) const {
+	return this->_vector;
+}
+
+
 
 void PmergeMe::_checkCorrectArgs(int nb, char **args){
 	int i = 0;
@@ -56,13 +63,25 @@ void PmergeMe::_checkDuplicated(int nb, char **args){
 		 this->_isNumberInside(args, args[i], i);
 }
 
+void PmergeMe::_fillVector(int nb, char **args){
+	int i = 0;
+	int tmp;
+	std::string stmp;
+	while (++i < nb){
+		stmp = args[i];
+		std::istringstream(stmp) >> tmp;
+		this->_vector.push_back(tmp);
+	}
+}
+
 void PmergeMe::sortVector(int nb, char **args){
 	this->_checkCorrectArgs(nb, args);
 	this->_checkDuplicated(nb, args);
 	this->_checkInts(nb, args);
-		
+	this->_fillVector(nb, args);
 	if (!this->_error.empty()){
 		std::cout<<BR<<"ERROR: "<<this->_error<<W<<"\n";
 		return;
 	}
+	
 }
