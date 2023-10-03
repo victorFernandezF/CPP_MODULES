@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/02 19:29:15 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/03 18:16:02 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void leaks(void)
 {
 	std::cout<<"\n___________________________________"<<std::endl;
 	std::cout<<M<<"\n -- [ LEAKS ] -- "<<W<<std::endl;
-	system("leaks -q RPN");
+	system("leaks -q PmergeMe");
 }
 
 std::string delSpaces(std::string str){

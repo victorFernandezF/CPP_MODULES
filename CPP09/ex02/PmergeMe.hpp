@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:14:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/02 19:30:57 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/03 19:06:12 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,12 @@
 class PmergeMe{
 	private:
 		std::vector<int>_vector;
-		int	_checkCorrectArgs(int nb, char **args);
+		std::string _error;
+		void	_checkCorrectArgs(int nb, char **args);
+		void	_checkDuplicated(int nb, char **args);
+		void	_isNumberInside(char **args, char *arg, int end);
+		void 	_checkInts(int nb, char **args);
+
 
 		
 	public:
