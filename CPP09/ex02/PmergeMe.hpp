@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:14:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/03 19:21:25 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/04 19:19:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,17 @@
 class PmergeMe{
 	private:
 		std::vector<int>_vector;
+		std::vector<std::pair<int, int> >_pair;
+		int	_size;
 		std::string _error;
+		
 		void	_checkCorrectArgs(int nb, char **args);
 		void	_checkDuplicated(int nb, char **args);
 		void	_isNumberInside(char **args, char *arg, int end);
 		void 	_checkInts(int nb, char **args);
 		void	_fillVector(int nb, char **args);
+		void	_createPairs(void);
+		
 
 
 
@@ -40,6 +45,7 @@ class PmergeMe{
 		~PmergeMe();
 		void sortVector(int arg, char **args);
 		std::vector<int> getVector( void ) const;
+		void	printVector();
 		
 };
 

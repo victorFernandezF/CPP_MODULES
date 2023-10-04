@@ -6,13 +6,13 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/03 19:22:07 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/04 19:20:09 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe(){}
+PmergeMe::PmergeMe(): _size(0){}
 /* PmergeMe::PmergeMe(const PmergeMe &copy){}
 PmergeMe &PmergeMe::operator=(const PmergeMe &copy){} */
 PmergeMe::~PmergeMe(){}
@@ -64,14 +64,36 @@ void PmergeMe::_checkDuplicated(int nb, char **args){
 }
 
 void PmergeMe::_fillVector(int nb, char **args){
-	int i = 0;
+	int i = 1;
 	int tmp;
 	std::string stmp;
-	while (++i < nb){
+	while (i < nb){
 		stmp = args[i];
 		std::istringstream(stmp) >> tmp;
 		this->_vector.push_back(tmp);
+		this->_size++;
+		i++;
 	}
+}
+
+void PmergeMe::_createPairs(void){
+	int i = 1;
+	int size = this->_vector.size() / 2;
+	
+	while (size != 0){
+		this->_pair.push_back(std::make_pair(this->_vector[i],
+			this->_vector[i + 1]));
+		i += 2;
+		size--;
+	}
+}
+
+void PmergeMe::printVector(){
+	int i = -1;
+	while (++i < this->_size)
+		std::cout<<this->_vector[i]<<" ";
+	std::cout<<"\n";
+	
 }
 
 void PmergeMe::sortVector(int nb, char **args){
@@ -79,6 +101,9 @@ void PmergeMe::sortVector(int nb, char **args){
 	this->_checkDuplicated(nb, args);
 	this->_checkInts(nb, args);
 	this->_fillVector(nb, args);
+	this->_createPairs();
+	
+	std::cout<<BG<<"SIZE "<<this->_size<<W<<"\n";
 	if (!this->_error.empty()){
 		std::cout<<BR<<"ERROR: "<<this->_error<<W<<"\n";
 		return;
