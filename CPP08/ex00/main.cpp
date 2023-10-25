@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/15 10:45:41 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:27:34 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <iostream>
 #include <vector>
 #include <array>
-#include <list>
 
 void leaks(void)
 {
@@ -36,11 +35,14 @@ int main(void)
 	atexit(leaks);
 	printTestHeaders(1, TEST1, 0);
 	{
-		std::vector<int> vect(5);
-		for (size_t i= 0; i < vect.size(); i++)
-			vect[i] = i + 1;
+		std::vector<int> vec(5);
+		vec[0] = 25;
+		vec[1] = 42;
+		vec[2] = 0;
+		vec[3] = 27;
+		vec[4] = 156;
 		try{
-			::easyFind(vect, 5);
+			::easyFind(vec, 42);
 		}catch (std::exception &e){
 			std::cout<<BR<<e.what()<<W<<std::endl;
 		}
@@ -48,10 +50,13 @@ int main(void)
 	printTestHeaders(2, TEST2, 1);
 	{
 		std::array<int, 5> arr;
-		for (size_t i= 0; i < arr.size(); i++)
-			arr[i] = i + 1;
+		arr[0] = 200;
+		arr[1] = 800;
+		arr[2] = 14;
+		arr[3] = 98;
+		arr[4] = 1259;
 		try{
-			::easyFind(arr, 4);
+			::easyFind(arr, 98);
 		}catch (std::exception &e){
 			std::cout<<BR<<e.what()<<W<<std::endl;
 		}
@@ -59,8 +64,11 @@ int main(void)
 	printTestHeaders(3, TEST3, 1);
 	{
 		std::array<int, 5> arr;
-		for (size_t i= 0; i < arr.size(); i++)
-			arr[i] = i + 1;
+		arr[0] = 200;
+		arr[1] = 800;
+		arr[2] = 14;
+		arr[3] = 98;
+		arr[4] = 1259;
 		try{
 			::easyFind(arr, 25);
 		}catch (std::exception &e){

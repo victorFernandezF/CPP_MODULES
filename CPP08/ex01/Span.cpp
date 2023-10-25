@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 18:28:30 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/15 12:50:32 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/25 10:34:37 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void Span::addNumber(unsigned int nb){
 	if (this->_index > this->_size - 1)
 		throw OutOfRange();
 	for (size_t i = 0; i < this->_size; i++){
-		if (this->_store[i] == 0){
+		if (!this->_store[i]){
 			this->_store[i] = nb;
 			this->_index++;
 			return;
