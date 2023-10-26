@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/04 19:20:09 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/26 19:19:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ std::vector<int> PmergeMe::getVector( void ) const {
 	return this->_vector;
 }
 
-
-
 void PmergeMe::_checkCorrectArgs(int nb, char **args){
 	int i = 0;
 	int j;
@@ -34,7 +32,6 @@ void PmergeMe::_checkCorrectArgs(int nb, char **args){
 				this->_error = "Invalid input.";
 	}
 }
-
 
 void PmergeMe::_isNumberInside(char **args, char *arg, int end){
 	int i = 0;
@@ -77,7 +74,7 @@ void PmergeMe::_fillVector(int nb, char **args){
 }
 
 void PmergeMe::_createPairs(void){
-	int i = 1;
+	int i = 0;
 	int size = this->_vector.size() / 2;
 	
 	while (size != 0){
@@ -88,12 +85,61 @@ void PmergeMe::_createPairs(void){
 	}
 }
 
-void PmergeMe::printVector(){
-	int i = -1;
-	while (++i < this->_size)
-		std::cout<<this->_vector[i]<<" ";
-	std::cout<<"\n";
+void PmergeMe::_sortPairs(void){
+	int tmp = this->_pair.at(0).first;
 	
+	for (size_t i = 0; i < this->_pair.size(); i++)
+	{
+		if (this->_pair.at(i).first < this->_pair.at(i).second){
+			tmp = this->_pair.at(i).first;
+			this->_pair.at(i).first = this->_pair.at(i).second;
+			this->_pair.at(i).second = tmp;
+		}
+	}
+}
+
+int PmergeMe::_getJacobsthal(int n){
+	if (n == 0)
+		return 0;
+	if (n == 1)
+		return 1;
+	return (this->_getJacobsthal(n - 1) + 2 * this->_getJacobsthal(n - 2));
+}
+
+void PmergeMe::printVector(std::vector<int> vec){
+	for (size_t i = 0; i < vec.size(); i++)
+		std::cout<<vec[i]<<" ";
+	std::cout<<"\n\n";
+}
+
+
+void	PmergeMe::_printPairs(){
+		for (size_t i = 0; i < this->_pair.size(); i++){
+		std::cout<<"("<<this->_pair.at(i).first<<", "
+		<<this->_pair.at(i).second<<") \n";
+	}
+}
+
+void	PmergeMe::_recursiveSort(size_t it){
+	std::pair<int, int> tmp = this->_pair.at(it);
+	this->_pair.at(it) = this->_pair.at(it + 1);
+	this->_pair.at(it + 1) = tmp;
+	if (it == this->_pair.size())
+		return;
+	for (size_t i = 0; i < this->_pair.size() - 1; i++){
+		if (this->_pair.at(i).first > this->_pair.at(i + 1).first)
+			this->_recursiveSort(i);
+	}
+
+}
+void	PmergeMe::_createChains(void){
+	int i = 0;
+	for (size_t i = 0; i < this->_pair.size(); i++)
+		if (this->_pair.at(i).first)
+			this->_main.push_back(this->_pair.at(i).first);
+	for (size_t i = 0; i < this->_pair.size(); i++)
+		if (this->_pair.at(i).second)
+			this->_pend.push_back(this->_pair.at(i).second);
 }
 
 void PmergeMe::sortVector(int nb, char **args){
@@ -102,8 +148,14 @@ void PmergeMe::sortVector(int nb, char **args){
 	this->_checkInts(nb, args);
 	this->_fillVector(nb, args);
 	this->_createPairs();
+	this->_sortPairs();
+	this->_recursiveSort(0);
+	this->_createChains();
+	this->printVector(this->_main);
+	this->printVector(this->_pend);
 	
-	std::cout<<BG<<"SIZE "<<this->_size<<W<<"\n";
+		
+	//std::cout<<BG<<"SIZE "<<this->_size<<W<<"\n";
 	if (!this->_error.empty()){
 		std::cout<<BR<<"ERROR: "<<this->_error<<W<<"\n";
 		return;

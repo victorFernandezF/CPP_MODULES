@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/04 19:13:05 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:28:29 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int main(int argc, char **argv)
 		return (0);
 	PmergeMe pm;
 	pm.sortVector(argc, argv);
-	vec = pm.getVector();
-	pm.printVector();
+	//vec = pm.getVector();
+	///pm.printVector();
 	
 }
 
