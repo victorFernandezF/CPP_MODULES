@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/26 19:19:08 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/27 14:14:20 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,16 +133,72 @@ void	PmergeMe::_recursiveSort(size_t it){
 
 }
 void	PmergeMe::_createChains(void){
-	int i = 0;
+	std::vector<int> tmp;
+	std::vector<int> tmp_2;
 	for (size_t i = 0; i < this->_pair.size(); i++)
 		if (this->_pair.at(i).first)
 			this->_main.push_back(this->_pair.at(i).first);
 	for (size_t i = 0; i < this->_pair.size(); i++)
 		if (this->_pair.at(i).second)
 			this->_pend.push_back(this->_pair.at(i).second);
+ 	if (this->_pend.at(0) < this->_main.at(0)){
+		tmp.push_back(this->_pend.at(0));
+		for (size_t i = 0; i < this->_main.size(); i++){
+			tmp.push_back(this->_main.at(i));
+		}
+		this->_main = tmp;
+		for (size_t i = 0; i < this->_pend.size() - 1; i++){
+			tmp_2.push_back(this->_pend.at(i + 1));
+		}
+		_pend = tmp_2;
+	}
+}
+
+int	PmergeMe::_notRepeat(std::vector<int> vec, int nb){
+	for (size_t i = 0; i < vec.size(); i++)
+		if (vec.at(i) == nb)
+			return 1;
+	return 0;
+}
+
+void	PmergeMe::_sortingVector(void){
+	std::vector<int> order;
+	std::vector<int> jacobo;
+/* 	size_t	size;
+	size_t	jindex;
+	size_t	index;
+	
+	size = this->_pend.size();
+	index = 3;
+	jindex = this->_getJacobsthal(0);
+	while (index <= size){
+		order.push_back(jindex);
+		jindex = this->_getJacobsthal(index);
+		std::cout<<jindex<<"\n";
+		index++;
+	} */
+	//std::vector<int> order;
+	
+	for (size_t i = 0; i < this->_pend.size(); i++)
+		jacobo.push_back(this->_getJacobsthal(i));
+
+	for (size_t i = 0; i < this->_pend.size(); i++){
+		int j = _pend.size();
+		order.push_back(jacobo.at(i));
+		while (j != 0){
+			if (j < jacobo.at(i) && !this->_notRepeat(order, j))
+				order.push_back(j);
+			j--;
+		}
+}
+	std::cout<<"Jacobsthal sequence: \n";
+	this->printVector(jacobo);
+	std::cout<<"Order sequence: \n";
+	this->printVector(order);
 }
 
 void PmergeMe::sortVector(int nb, char **args){
+	//<std::vector<int>order;
 	this->_checkCorrectArgs(nb, args);
 	this->_checkDuplicated(nb, args);
 	this->_checkInts(nb, args);
@@ -151,7 +207,10 @@ void PmergeMe::sortVector(int nb, char **args){
 	this->_sortPairs();
 	this->_recursiveSort(0);
 	this->_createChains();
+	this->_sortingVector();
+		std::cout<<"main chain:\n";
 	this->printVector(this->_main);
+		std::cout<<"pend chain:\n";
 	this->printVector(this->_pend);
 	
 		

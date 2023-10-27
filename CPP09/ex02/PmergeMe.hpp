@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:14:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/26 19:07:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:59:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ class PmergeMe{
 		void	_recursiveSort(size_t i);
 		void	_merge(std::vector <std::pair<int, int> > &arr, int begin, int mid, int end);
 		void	_createChains(void);
+		void	_sortingVector(void);
+		int		_notRepeat(std::vector<int> vec, int nb);
 		
 		
 	public:
