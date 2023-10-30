@@ -1,5 +1,4 @@
-<summary> <strong>CPP-MODULE-03</strong></summary>
-<br>
+# CPP MODULE 03
 
 ## INFO [:gb:]
 
