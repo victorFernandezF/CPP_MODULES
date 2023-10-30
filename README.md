@@ -6,8 +6,8 @@
 <a style="text_decoration: none" href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP03/README.md"> ⚫️ CPP03 <br>
 <a style="text_decoration: none" href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP04/README.md"> ⚫️ CPP04 <br>
 
-<!-- <a style="text_decoration: none" href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP05/README.md"> ⚫️ CPP05 <br>
+<a style="text_decoration: none" href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP05/README.md"> ⚫️ CPP05 <br>
 <a style="text_decoration: none" href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP06/README.md"> ⚫️ CPP06 <br>
 <a style="text_decoration: none" href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP07/README.md"> ⚫️ CPP07 <br>
-<a style="text_decoration: none" href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP08/README.md"> ⚫️ CPP08 <br>
+<!-- <a style="text_decoration: none" href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP08/README.md"> ⚫️ CPP08 <br>
 <a style="text_decoration: none"href="https://github.com/victorFernandezF/CPP_MODULES/tree/main/CPP09/README.md"> ⚫️ CPP09 <br> -->
