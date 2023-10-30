@@ -6,17 +6,16 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/30 10:56:25 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/30 18:30:40 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe(): _size(0){}
-/* PmergeMe::PmergeMe(const PmergeMe &copy){}
-PmergeMe &PmergeMe::operator=(const PmergeMe &copy){} */
+//PmergeMe::PmergeMe(const PmergeMe &copy){}
+//PmergeMe &PmergeMe::operator=(const PmergeMe &copy){}
 PmergeMe::~PmergeMe(){}
-
 
 std::vector<int> PmergeMe::getVector( void ) const {
 	return this->_vector;
@@ -25,6 +24,8 @@ std::vector<int> PmergeMe::getVector( void ) const {
 void PmergeMe::_checkCorrectArgs(int nb, char **args){
 	int i = 0;
 	int j;
+	if (nb < 2)
+		this->_error = "Too few arguments.";
 	while (++i < nb){
 		j = -1;
 		while (args[i][++j])
@@ -58,6 +59,27 @@ void PmergeMe::_checkDuplicated(int nb, char **args){
 	int i = 0;
 	while (++i < nb)
 		 this->_isNumberInside(args, args[i], i);
+}
+
+void PmergeMe::_checkAlreadySorted(int nb, char **args){
+	int i = 1;
+	int tmp;
+	int size;
+	size = 0;
+	std::vector<int> vec;
+	std::vector<int> copy;
+	std::string stmp;
+	while (i < nb){
+		stmp = args[i];
+		std::istringstream(stmp) >> tmp;
+		vec.push_back(tmp);
+		size++;
+		i++;
+	}
+	copy = vec;
+	std::sort(copy.begin(), copy.end());
+	if (copy == vec)
+		this->_error = "Already sorted.";
 }
 
 void PmergeMe::_fillVector(int nb, char **args){
@@ -112,7 +134,6 @@ void PmergeMe::printVector(std::vector<int> vec){
 	std::cout<<"\n\n";
 }
 
-
 void	PmergeMe::_printPairs(){
 		for (size_t i = 0; i < this->_pair.size(); i++){
 		std::cout<<"("<<this->_pair.at(i).first<<", "
@@ -148,9 +169,8 @@ int	PmergeMe::_notRepeat(std::vector<int> vec, int nb){
 	return 0;
 }
 
-void	PmergeMe::_sortingVector(void){
-	std::vector<int> order;
-	//std::vector<int> jacobo;
+std::vector<int> PmergeMe::_getJacobsthalInsert(void){
+	std::vector<int> pos;
  	size_t	size;
 	size_t	jindex;
 	size_t	index;
@@ -159,51 +179,67 @@ void	PmergeMe::_sortingVector(void){
 	index = 3;
 	jindex = this->_getJacobsthal(index);
 	while (jindex < size - 1){
-		order.push_back(jindex);
+		pos.push_back(jindex);
 		jindex = this->_getJacobsthal(index++);
 	}
-	std::cout<<"Order sequence: \n";
-	this->printVector(order);
-	//std::cout<<"\n\n";
-	//std::vector<int> order;
-	
-	/* for (size_t i = 0; i < this->_pend.size(); i++)
-		jacobo.push_back(this->_getJacobsthal(i));
-
-	for (size_t i = 3; i < this->_pend.size(); i++){
-		int j = _pend.size();
-		order.push_back(jacobo.at(i));
-		while (j != 0){
-			if (j < jacobo.at(i) && !this->_notRepeat(order, j))
-				order.push_back(j);
-			j--;
-		} */
+	return (pos);
 }
-/* 	std::cout<<"Jacobsthal sequence: \n";
-	this->printVector(jacobo);
 
-} */
+void	PmergeMe::_getPositions(void){
+	std::vector<int> jacobo;
+	size_t val = 1;
+	size_t last = 1;
+	size_t pos;
+	size_t i = 0;
+	
+	if (_pend.size() == 0)
+		return ;
+	jacobo = this->_getJacobsthalInsert();
+	while (i < jacobo.size())
+	{
+		val = jacobo.at(i);
+		_positions.push_back(val);
+		pos = val -1;
+		while (pos > last){
+			_positions.push_back(pos);
+			pos--;
+		}
+		last = val; 
+		i++;
+	}
+	while (val++ < _pend.size()){
+		_positions.push_back(val);
+	}
+}
 
-void PmergeMe::sortVector(int nb, char **args){
+
+int PmergeMe::_check_errors(int nb, char **args){
 	this->_checkCorrectArgs(nb, args);
 	this->_checkDuplicated(nb, args);
 	this->_checkInts(nb, args);
+	this->_checkAlreadySorted(nb, args);
+	if (this->_error.empty())
+		return 0;
+	std::cout<<BR<<"ERROR: "<<this->_error<<W<<"\n";
+	return 1;
+}
+
+void PmergeMe::sortVector(int nb, char **args){
+
+	if (this->_check_errors(nb, args) != 0)
+		return;
 	this->_fillVector(nb, args);
 	this->_createPairs();
 	this->_sortPairs();
 	this->_recursiveSort(0);
 	this->_createChains();
-	this->_sortingVector();
+	//this->_sortingVector();
+	this->_getPositions();
 		std::cout<<"main chain:\n";
 	this->printVector(this->_main);
 		std::cout<<"pend chain:\n";
 	this->printVector(this->_pend);
-	
-		
-	//std::cout<<BG<<"SIZE "<<this->_size<<W<<"\n";
-	if (!this->_error.empty()){
-		std::cout<<BR<<"ERROR: "<<this->_error<<W<<"\n";
-		return;
-	}
+		std::cout<<"pos:\n";
+	this->printVector(this->_positions);
 	
 }

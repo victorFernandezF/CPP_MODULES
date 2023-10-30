@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:14:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/27 11:59:04 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/30 18:22:31 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,17 @@ class PmergeMe{
 		std::vector<int>_vector;
 		std::vector<int>_main;
 		std::vector<int>_pend;
+		std::vector<int>_positions;
 		std::vector<std::pair<int, int> >_pair;
-		int	_size;
 		std::string _error;
+		int	_size;
 		
+		int		_check_errors(int nb, char **args);
 		void	_checkCorrectArgs(int nb, char **args);
 		void	_checkDuplicated(int nb, char **args);
 		void	_isNumberInside(char **args, char *arg, int end);
 		void 	_checkInts(int nb, char **args);
+		void	_checkAlreadySorted(int nb, char **args);
 		void	_fillVector(int nb, char **args);
 		void	_createPairs(void);
 		void	_sortPairs(void);
@@ -41,9 +44,9 @@ class PmergeMe{
 		void	_recursiveSort(size_t i);
 		void	_merge(std::vector <std::pair<int, int> > &arr, int begin, int mid, int end);
 		void	_createChains(void);
-		void	_sortingVector(void);
-		int		_notRepeat(std::vector<int> vec, int nb);
-		
+		void	_getPositions(void);
+		std::vector<int> _getJacobsthalInsert(void);
+		int		_notRepeat(std::vector<int> vec, int nb);	
 		
 	public:
 		PmergeMe();
