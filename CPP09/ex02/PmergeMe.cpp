@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/27 14:14:20 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/27 14:20:31 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,7 +182,7 @@ void	PmergeMe::_sortingVector(void){
 	for (size_t i = 0; i < this->_pend.size(); i++)
 		jacobo.push_back(this->_getJacobsthal(i));
 
-	for (size_t i = 0; i < this->_pend.size(); i++){
+	for (size_t i = 3; i < this->_pend.size(); i++){
 		int j = _pend.size();
 		order.push_back(jacobo.at(i));
 		while (j != 0){
@@ -198,7 +198,6 @@ void	PmergeMe::_sortingVector(void){
 }
 
 void PmergeMe::sortVector(int nb, char **args){
-	//<std::vector<int>order;
 	this->_checkCorrectArgs(nb, args);
 	this->_checkDuplicated(nb, args);
 	this->_checkInts(nb, args);
