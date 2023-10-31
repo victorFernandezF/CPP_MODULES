@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/30 18:30:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/31 18:10:58 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -233,7 +233,7 @@ int	PmergeMe::_binarySearch(std::vector<int>vec, int tg, int begin, int end){
 		if (tg > vec.at(mid))
 			begin = mid + 1;
 		else
-			begin = mid - 1;
+			end = mid - 1;
 	}
 	if (tg > vec.at(mid))
 		return mid + 1;
@@ -262,7 +262,6 @@ void	PmergeMe::_insertion(void){
 }
 
 void PmergeMe::sortVector(int nb, char **args){
-
 	if (this->_check_errors(nb, args) != 0)
 		return;
 	this->_fillVector(nb, args);
@@ -271,7 +270,7 @@ void PmergeMe::sortVector(int nb, char **args){
 	this->_recursiveSort(0);
 	this->_createChains();
 	this->_insertion();
-	this->_getPositions();
+	
 		std::cout<<"main chain:\n";
 	this->printVector(this->_main);
 		std::cout<<"pend chain:\n";
