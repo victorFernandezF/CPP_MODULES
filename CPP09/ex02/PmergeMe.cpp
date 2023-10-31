@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/31 18:10:58 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/31 19:01:33 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,10 +128,17 @@ int PmergeMe::_getJacobsthal(int n){
 	return (this->_getJacobsthal(n - 1) + 2 * this->_getJacobsthal(n - 2));
 }
 
-void PmergeMe::printVector(std::vector<int> vec){
+void PmergeMe::printVector(void){
+	for (size_t i = 0; i < this->_vector.size(); i++)
+		std::cout<<this->_vector.at(i)<<" ";
+	std::cout<<"\n\n";
+}
+
+void PmergeMe::printVector(std::vector<int> vec, std::string msg){
+	std::cout<<msg;
 	for (size_t i = 0; i < vec.size(); i++)
 		std::cout<<vec[i]<<" ";
-	std::cout<<"\n\n";
+	std::cout<<"\n";
 }
 
 void	PmergeMe::_printPairs(){
@@ -262,20 +269,23 @@ void	PmergeMe::_insertion(void){
 }
 
 void PmergeMe::sortVector(int nb, char **args){
+	std::clock_t first;
+	std::clock_t last;
+	double milliseconds;
 	if (this->_check_errors(nb, args) != 0)
 		return;
 	this->_fillVector(nb, args);
 	this->_createPairs();
+	this->printVector(this->_vector, "Before: ");
+	first = std::clock();
 	this->_sortPairs();
 	this->_recursiveSort(0);
 	this->_createChains();
 	this->_insertion();
-	
-		std::cout<<"main chain:\n";
-	this->printVector(this->_main);
-		std::cout<<"pend chain:\n";
-	this->printVector(this->_pend);
-		std::cout<<"pos:\n";
-	this->printVector(this->_positions);
-	
+	last = std::clock();
+	milliseconds = 1000.0 * (last - first) / CLOCKS_PER_SEC;
+	this->printVector(this->_main, "After: ");
+	std::cout
+		<<"Time to process a range of "<<this->_vector.size()
+		<<" elements with std::vector: "<<milliseconds<<" ms.\n";
 }

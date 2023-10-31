@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:14:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/30 18:22:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/10/31 18:42:51 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 #ifndef PMERGEME_HPP
 # define PMERGEME_HPP
 # include <iostream>
+# include <ctime>
+# include <chrono>
 # include <fstream>
 # include <string>
 # include <sstream>
 # include <vector>
+# include <unistd.h>
 # include "colours.h"
 
 class PmergeMe{
@@ -49,6 +52,7 @@ class PmergeMe{
 		int		_notRepeat(std::vector<int> vec, int nb);
 		int		_binarySearch(std::vector<int>vec, int tg, int begin, int end);	
 		void	_insertion(void);
+		void	_printCurrentTime();
 	public:
 		PmergeMe();
 		PmergeMe(const PmergeMe &copy);
@@ -56,7 +60,8 @@ class PmergeMe{
 		~PmergeMe();
 		void sortVector(int arg, char **args);
 		std::vector<int> getVector( void ) const;
-		void printVector(std::vector<int> vec);
+		void printVector(std::vector<int> vec, std::string msg);
+		void printVector(void);
 		
 };
 
