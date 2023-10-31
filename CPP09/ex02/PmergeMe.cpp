@@ -224,6 +224,43 @@ int PmergeMe::_check_errors(int nb, char **args){
 	return 1;
 }
 
+int	PmergeMe::_binarySearch(std::vector<int>vec, int tg, int begin, int end){
+	int mid;
+	while (begin <= end){
+		mid = begin + (end - begin) / 2;
+		if (tg == vec.at(mid))
+			return mid;
+		if (tg > vec.at(mid))
+			begin = mid + 1;
+		else
+			begin = mid - 1;
+	}
+	if (tg > vec.at(mid))
+		return mid + 1;
+	return mid;
+}
+
+void	PmergeMe::_insertion(void){
+	std::vector<int>::iterator it;
+	int tg;
+	size_t endpos, added, pos;
+	this->_getPositions();
+	added = 0;
+	for (it = _positions.begin(); it < _positions.end(); it++)
+	{
+		tg = _pend.at(*it - 1);
+		endpos = *it + added;
+		pos = _binarySearch(_main, tg, 0, endpos);
+		_main.insert(_main.begin() + pos, tg);
+		added++;
+	}
+	if (_vector.size() % 2 != 0){
+		tg = _vector.at(_vector.size() - 1);
+		pos = _binarySearch(_main, tg, 0, _main.size() - 1);
+		_main.insert(_main.begin() + pos, tg);
+	}
+}
+
 void PmergeMe::sortVector(int nb, char **args){
 
 	if (this->_check_errors(nb, args) != 0)
@@ -233,7 +270,7 @@ void PmergeMe::sortVector(int nb, char **args){
 	this->_sortPairs();
 	this->_recursiveSort(0);
 	this->_createChains();
-	//this->_sortingVector();
+	this->_insertion();
 	this->_getPositions();
 		std::cout<<"main chain:\n";
 	this->printVector(this->_main);

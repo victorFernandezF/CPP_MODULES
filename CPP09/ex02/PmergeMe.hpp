@@ -46,8 +46,9 @@ class PmergeMe{
 		void	_createChains(void);
 		void	_getPositions(void);
 		std::vector<int> _getJacobsthalInsert(void);
-		int		_notRepeat(std::vector<int> vec, int nb);	
-		
+		int		_notRepeat(std::vector<int> vec, int nb);
+		int		_binarySearch(std::vector<int>vec, int tg, int begin, int end);	
+		void	_insertion(void);
 	public:
 		PmergeMe();
 		PmergeMe(const PmergeMe &copy);

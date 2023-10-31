@@ -32,7 +32,7 @@ int main(int argc, char **argv)
  	std::string argument;
 	std::vector<int>vec;
 	
-	atexit(leaks);
+	//atexit(leaks);
 	PmergeMe pm;
 	pm.sortVector(argc, argv);
 	return 0;
