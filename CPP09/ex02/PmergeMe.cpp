@@ -6,19 +6,38 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/03 13:11:30 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:43:47 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
 PmergeMe::PmergeMe(): _size(0){}
-//PmergeMe::PmergeMe(const PmergeMe &copy){}
-//PmergeMe &PmergeMe::operator=(const PmergeMe &copy){}
+PmergeMe::PmergeMe(const PmergeMe &copy){
+	this->_vector = copy._vector;
+	this->_main = copy._main;
+	this->_pend = copy._pend;
+	this->_pair = copy._pair;
+	this->_size = copy._size;
+	this->_error = copy._error;
+}
+
+PmergeMe &PmergeMe::operator=(const PmergeMe &copy){
+	this->_vector = copy._vector;
+	this->_main = copy._main;
+	this->_pend = copy._pend;
+	this->_pair = copy._pair;
+	this->_size = copy._size;
+	this->_error = copy._error;
+	return (*this);
+}
+
 PmergeMe::~PmergeMe(){}
 
 std::vector<int> PmergeMe::getVector( void ) const {
 	return this->_vector;
+
+// P R E V I O U S   C H E C K S 
 }
 
 void PmergeMe::_checkCorrectArgs(int nb, char **args){
@@ -81,6 +100,7 @@ void PmergeMe::_checkAlreadySorted(int nb, char **args){
 		this->_error = "Already sorted.";
 }
 
+// V E C T O R   S T U F F 
 void PmergeMe::_fillVector(int nb, char **args){
 	int i = 1;
 	int tmp;
@@ -224,7 +244,6 @@ void	PmergeMe::_getPositions(void){
 	}
 }
 
-
 int PmergeMe::_check_errors(int nb, char **args){
 	this->_checkCorrectArgs(nb, args);
 	this->_checkInts(nb, args);
@@ -278,7 +297,6 @@ void PmergeMe::_printTime(std::clock_t s, std::clock_t e){
 	std::cout
 		<<BY<<"\nTime to process a range of "<<BG<<this->_vector.size()
 		<<BY<<" elements with "<<BM<<"std::vector: "<<W<<milliseconds<<" ms.\n";
-	
 }
 
 void PmergeMe::sortVector(int nb, char **args){
