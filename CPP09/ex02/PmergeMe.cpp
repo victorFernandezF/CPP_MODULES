@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/31 19:01:33 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/03 12:27:08 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,20 @@ void PmergeMe::_checkCorrectArgs(int nb, char **args){
 			if (!(args[i][j] >= '0' && args[i][j] <= '9'))
 				this->_error = "Invalid input.";
 	}
+}
+
+int PmergeMe::_isSorted(std::vector<int> vec){
+	std::vector<int> copy;
+	for(size_t i = 0; i < vec.size(); i++){	
+		copy.push_back(vec.at(i));
+	}
+	std::sort(copy.begin(), copy.end());
+	if (copy == vec){
+		std::cout<<G<<"SORTED\n";
+		return 1;
+	}
+	std::cout<<BR<<"NOT SORTED.\n";
+	return 0;
 }
 
 void PmergeMe::_isNumberInside(char **args, char *arg, int end){
@@ -142,24 +156,30 @@ void PmergeMe::printVector(std::vector<int> vec, std::string msg){
 }
 
 void	PmergeMe::_printPairs(){
-		for (size_t i = 0; i < this->_pair.size(); i++){
+	for (size_t i = 0; i < this->_pair.size(); i++){
 		std::cout<<"("<<this->_pair.at(i).first<<", "
-		<<this->_pair.at(i).second<<") \n";
+		<<this->_pair.at(i).second<<") ";
 	}
+	std::cout<<std::endl;
 }
 
-void	PmergeMe::_recursiveSort(size_t it){
-	std::pair<int, int> tmp = this->_pair.at(it);
-	this->_pair.at(it) = this->_pair.at(it + 1);
-	this->_pair.at(it + 1) = tmp;
-	if (it == this->_pair.size())
-		return;
-	for (size_t i = 0; i < this->_pair.size() - 1; i++){
-		if (this->_pair.at(i).first > this->_pair.at(i + 1).first)
-			this->_recursiveSort(i);
+void	PmergeMe::_recursiveSort(std::vector<std::pair<int, int> > arr, int n){
+    std::vector<std::pair<int, int> >tmp;
+	if (n == 0)
+        return;
+    for (int i = 0; i < n - 1; i++){
+        tmp.push_back(arr[i]);
+        tmp.push_back(arr[i + 1]);
+		std::sort(tmp.begin(), tmp.end());
+		_pair.at(i) = tmp.at(0);
+		_pair.at(i + 1) = tmp.at(1);
 	}
-
+ 
+    // Largest element is fixed,
+    // recur for remaining array
+    _recursiveSort(_pair, n - 1);
 }
+
 void	PmergeMe::_createChains(void){
 	
 	this->_main.push_back(this->_pair.at(0).second);
@@ -222,7 +242,7 @@ void	PmergeMe::_getPositions(void){
 
 int PmergeMe::_check_errors(int nb, char **args){
 	this->_checkCorrectArgs(nb, args);
-	this->_checkDuplicated(nb, args);
+	//this->_checkDuplicated(nb, args);
 	this->_checkInts(nb, args);
 	this->_checkAlreadySorted(nb, args);
 	if (this->_error.empty())
@@ -279,7 +299,7 @@ void PmergeMe::sortVector(int nb, char **args){
 	this->printVector(this->_vector, "Before: ");
 	first = std::clock();
 	this->_sortPairs();
-	this->_recursiveSort(0);
+	this->_recursiveSort(_pair, _pair.size());
 	this->_createChains();
 	this->_insertion();
 	last = std::clock();
@@ -288,4 +308,6 @@ void PmergeMe::sortVector(int nb, char **args){
 	std::cout
 		<<"Time to process a range of "<<this->_vector.size()
 		<<" elements with std::vector: "<<milliseconds<<" ms.\n";
+	std::cout<<"\n";
+	this->_isSorted(_main);
 }

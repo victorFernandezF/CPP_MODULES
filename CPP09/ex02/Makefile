@@ -2,7 +2,7 @@ NAME		= PmergeMe
 CC			= g++
 FLAGS		= -Wall -Wextra -Werror -std=c++98 
 CPPFLAGS	= -Wall -Wextra -Werror -std=c++98 
-SRC 		= main.cpp PmergeMe.cpp
+SRC 		=  main.cpp PmergeMe.cpp
 OBJ 		= $(SRC:.cpp=.o)
 
 # T E X T   S T U F F

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:14:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/31 18:42:51 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/03 11:37:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ class PmergeMe{
 		std::string _error;
 		int	_size;
 		
+		int		_isSorted(std::vector<int> vec);
 		int		_check_errors(int nb, char **args);
 		void	_checkCorrectArgs(int nb, char **args);
 		void	_checkDuplicated(int nb, char **args);
@@ -44,7 +45,7 @@ class PmergeMe{
 		void	_sortPairs(void);
 		int		_getJacobsthal(int n);
 		void	_printPairs(void);
-		void	_recursiveSort(size_t i);
+		void	_recursiveSort(std::vector<std::pair<int, int> > arr, int n);
 		void	_merge(std::vector <std::pair<int, int> > &arr, int begin, int mid, int end);
 		void	_createChains(void);
 		void	_getPositions(void);
