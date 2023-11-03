@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/03 12:27:08 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/03 12:48:12 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,6 @@ void PmergeMe::_checkInts(int nb, char **args){
 			this->_error = "Out of the limits of integer.";
 		i++;
 	}
-}
-
-void PmergeMe::_checkDuplicated(int nb, char **args){
-	int i = 0;
-	while (++i < nb)
-		 this->_isNumberInside(args, args[i], i);
 }
 
 void PmergeMe::_checkAlreadySorted(int nb, char **args){
@@ -149,7 +143,7 @@ void PmergeMe::printVector(void){
 }
 
 void PmergeMe::printVector(std::vector<int> vec, std::string msg){
-	std::cout<<msg;
+	std::cout<<BY<<"\n"<<msg<<W;
 	for (size_t i = 0; i < vec.size(); i++)
 		std::cout<<vec[i]<<" ";
 	std::cout<<"\n";
@@ -165,18 +159,18 @@ void	PmergeMe::_printPairs(){
 
 void	PmergeMe::_recursiveSort(std::vector<std::pair<int, int> > arr, int n){
     std::vector<std::pair<int, int> >tmp;
-	if (n == 0)
+	(void)arr;
+	if (n == 1)
         return;
     for (int i = 0; i < n - 1; i++){
-        tmp.push_back(arr[i]);
-        tmp.push_back(arr[i + 1]);
+        tmp.push_back(_pair.at(i));
+        tmp.push_back(_pair.at(i + 1));
 		std::sort(tmp.begin(), tmp.end());
 		_pair.at(i) = tmp.at(0);
 		_pair.at(i + 1) = tmp.at(1);
+		tmp.pop_back();
+		tmp.pop_back();
 	}
- 
-    // Largest element is fixed,
-    // recur for remaining array
     _recursiveSort(_pair, n - 1);
 }
 
@@ -217,7 +211,7 @@ void	PmergeMe::_getPositions(void){
 	size_t val = 1;
 	size_t last = 1;
 	size_t pos;
-	size_t i = 0;
+	size_t i = 3;
 	
 	if (_pend.size() == 0)
 		return ;
@@ -242,7 +236,6 @@ void	PmergeMe::_getPositions(void){
 
 int PmergeMe::_check_errors(int nb, char **args){
 	this->_checkCorrectArgs(nb, args);
-	//this->_checkDuplicated(nb, args);
 	this->_checkInts(nb, args);
 	this->_checkAlreadySorted(nb, args);
 	if (this->_error.empty())
@@ -294,6 +287,7 @@ void PmergeMe::sortVector(int nb, char **args){
 	double milliseconds;
 	if (this->_check_errors(nb, args) != 0)
 		return;
+	std::cout<<BC<<"-------------- VECTOR -----------------"<<W;
 	this->_fillVector(nb, args);
 	this->_createPairs();
 	this->printVector(this->_vector, "Before: ");
@@ -304,10 +298,12 @@ void PmergeMe::sortVector(int nb, char **args){
 	this->_insertion();
 	last = std::clock();
 	milliseconds = 1000.0 * (last - first) / CLOCKS_PER_SEC;
-	this->printVector(this->_main, "After: ");
+	this->printVector(this->_main, "After:  ");
 	std::cout
-		<<"Time to process a range of "<<this->_vector.size()
-		<<" elements with std::vector: "<<milliseconds<<" ms.\n";
-	std::cout<<"\n";
+		<<BY<<"\nTime to process a range of "<<BG<<this->_vector.size()
+		<<BY<<" elements with "<<BM<<"std::vector: "<<W<<milliseconds<<" ms.\n";
+	std::cout<<BY<<"Status: "<<W;
 	this->_isSorted(_main);
+	//std::cout;
+	std::cout<<BC<<"--------------------------------------"<<W<<"\n\n";
 }
