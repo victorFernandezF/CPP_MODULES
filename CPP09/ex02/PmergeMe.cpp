@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/03 12:48:12 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:11:30 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,6 @@ int PmergeMe::_isSorted(std::vector<int> vec){
 	}
 	std::cout<<BR<<"NOT SORTED.\n";
 	return 0;
-}
-
-void PmergeMe::_isNumberInside(char **args, char *arg, int end){
-	int i = 0;
-	while (i < end){
-		if (strtod(args[i], NULL) == strtod(arg, NULL))
-			this->_error = "Duplicated numbers.";
-		i++;
-	}
 }
 
 void PmergeMe::_checkInts(int nb, char **args){
@@ -281,29 +272,34 @@ void	PmergeMe::_insertion(void){
 	}
 }
 
-void PmergeMe::sortVector(int nb, char **args){
-	std::clock_t first;
-	std::clock_t last;
+void PmergeMe::_printTime(std::clock_t s, std::clock_t e){
 	double milliseconds;
+	milliseconds = 1000.0 * (e - s) / CLOCKS_PER_SEC;
+	std::cout
+		<<BY<<"\nTime to process a range of "<<BG<<this->_vector.size()
+		<<BY<<" elements with "<<BM<<"std::vector: "<<W<<milliseconds<<" ms.\n";
+	
+}
+
+void PmergeMe::sortVector(int nb, char **args){
+	std::clock_t start;
+	std::clock_t end;
+
 	if (this->_check_errors(nb, args) != 0)
 		return;
 	std::cout<<BC<<"-------------- VECTOR -----------------"<<W;
 	this->_fillVector(nb, args);
 	this->_createPairs();
 	this->printVector(this->_vector, "Before: ");
-	first = std::clock();
+	start = std::clock();
 	this->_sortPairs();
 	this->_recursiveSort(_pair, _pair.size());
 	this->_createChains();
 	this->_insertion();
-	last = std::clock();
-	milliseconds = 1000.0 * (last - first) / CLOCKS_PER_SEC;
+	end = std::clock();
 	this->printVector(this->_main, "After:  ");
-	std::cout
-		<<BY<<"\nTime to process a range of "<<BG<<this->_vector.size()
-		<<BY<<" elements with "<<BM<<"std::vector: "<<W<<milliseconds<<" ms.\n";
+	this->_printTime(start, end);
 	std::cout<<BY<<"Status: "<<W;
 	this->_isSorted(_main);
-	//std::cout;
 	std::cout<<BC<<"--------------------------------------"<<W<<"\n\n";
 }
