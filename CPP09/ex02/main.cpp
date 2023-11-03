@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/03 12:55:48 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:47:05 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
 		std::cout<<BR<<"What am I supose to sort?\n"<<W<<std::endl;
 		return (1);
 	}
-	//atexit(leaks);
+	atexit(leaks);
 	PmergeMe pm;
 	pm.sortVector(argc, argv);
 	return 0;
