@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:14:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/06 12:43:44 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:28:02 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,20 @@
 class PmergeMe{
 	private:
 		std::vector<int>_vector;
-		std::vector<std::pair<int, int> >_pair;
-		std::vector<int>_main;
-		std::vector<int>_pend;
+		std::vector<std::pair<int, int> >_vecPair;
+		std::vector<int>_vectorMain;
+		std::vector<int>_vectorPend;
 		
 		std::deque<int>_deque;
-		std::deque<std::pair<int, int> >_depair;
-		std::deque<int>_demain;
-		std::deque<int>_depend;
+		std::deque<std::pair<int, int> >_deqPair;
+		std::deque<int>_dequeMain;
+		std::deque<int>_dequePend;
 
 		std::vector<int>_positions;
 		std::vector<int>_jacobsthal;
 		std::string _error;
-		int	_size;
+		int	_vecSize;
+		int	_deqSize;
 		
 		// G E N E R A L
 		int		_check_errors(int nb, char **args);
