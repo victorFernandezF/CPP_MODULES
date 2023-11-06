@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/06 12:34:20 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:14:18 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,13 @@ int main(int argc, char **argv)
 	}
 	atexit(leaks);
 	PmergeMe pm;
-	pm.sortVector(argc, argv);
-	pm.sortDeque(argc, argv);
+	try{
+		pm.sortVector(argc, argv);
+		pm.sortDeque(argc, argv);	
+	}catch(std::exception &e)
+	{
+		std::cout<<BR<<" "<<e.what()<<W<<std::endl;
+	}
 	return 0;
 }
 

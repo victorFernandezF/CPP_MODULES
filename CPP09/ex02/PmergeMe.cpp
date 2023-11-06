@@ -6,11 +6,29 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/06 14:06:14 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:16:51 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+class PmergeMe::InvalidException: public std::exception{
+	public: virtual char *what() const throw(){
+		return ((char *)"Error: Invalid input. (Only positive integers allowed).");
+	}
+};
+
+class PmergeMe::OutOfIntLimits: public std::exception{
+	public: virtual char *what() const throw(){
+		return ((char *)"Error: Some input is out of the limits of integer.");
+	}
+};
+
+class PmergeMe::AlreadySorted: public std::exception{
+	public: virtual char *what() const throw(){
+		return ((char *)"Error: input is already sorted.");
+	}
+};
 
 // C O N S T R U C T O R S
 PmergeMe::PmergeMe(): _vecSize(0), _deqSize(0){}
@@ -26,7 +44,6 @@ PmergeMe::PmergeMe(const PmergeMe &copy){
 	this->_dequePend = copy._dequePend;
 	this->_vecSize = copy._vecSize;
 	this->_deqSize = copy._deqSize;
-	this->_error = copy._error;
 }
 
 PmergeMe &PmergeMe::operator=(const PmergeMe &copy){
@@ -41,7 +58,6 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &copy){
 	this->_dequePend = copy._dequePend;
 	this->_vecSize = copy._vecSize;
 	this->_deqSize = copy._deqSize;
-	this->_error = copy._error;
 	return (*this);
 }
 
@@ -51,13 +67,11 @@ PmergeMe::~PmergeMe(){}
 void PmergeMe::_checkCorrectArgs(int nb, char **args){
 	int i = 0;
 	int j;
-	if (nb < 2)
-		this->_error = "Too few arguments.";
 	while (++i < nb){
 		j = -1;
 		while (args[i][++j])
 			if (!(args[i][j] >= '0' && args[i][j] <= '9'))
-				this->_error = "Invalid input.";
+				throw InvalidException();
 	}
 }
 
@@ -80,9 +94,9 @@ void PmergeMe::_checkInts(int nb, char **args){
 	double tmp;
 
 	while (i < nb){
-		tmp = atoi(args[i]);
+		tmp = strtod(args[i], NULL);
 		if (tmp >= 2147483647 || tmp <= -2147483648)
-			this->_error = "Out of the limits of integer.";
+			throw OutOfIntLimits();
 		i++;
 	}
 }
@@ -105,7 +119,7 @@ void PmergeMe::_checkAlreadySorted(int nb, char **args){
 	copy = vec;
 	std::sort(copy.begin(), copy.end());
 	if (copy == vec)
-		this->_error = "Already sorted.";
+		throw AlreadySorted();
 }
 
 
@@ -223,7 +237,6 @@ void PmergeMe::_getJacobsthalInsert(std::string cont){
 }
 
 void	PmergeMe::_vectorGetPositions(void){
-	//std::vector<int> jacobo;
 	size_t val = 1;
 	size_t last = 1;
 	size_t pos;
@@ -250,14 +263,10 @@ void	PmergeMe::_vectorGetPositions(void){
 	}
 }
 
-int PmergeMe::_check_errors(int nb, char **args){
+void PmergeMe::_check_errors(int nb, char **args){
 	this->_checkCorrectArgs(nb, args);
 	this->_checkInts(nb, args);
 	this->_checkAlreadySorted(nb, args);
-	if (this->_error.empty())
-		return 0;
-	std::cout<<BR<<"ERROR: "<<this->_error<<W<<"\n";
-	return 1;
 }
 
 int	PmergeMe::_vectorBinarySearch(int tg, int begin, int end){
@@ -298,13 +307,19 @@ void	PmergeMe::_vectorInsertion(void){
 }
 
 void PmergeMe::_printTime(std::clock_t s, std::clock_t e, char cont){
-	double milliseconds;
-	std::string container = "std::vector ";
-	if (cont == 'D')
+	double		milliseconds;
+	int			size;
+	std::string	container;
+	
+	size = this->_vecSize;
+	container = "std::vector ";
+	if (cont == 'D'){
 		container = "std::deque ";
+		size = this->_deqSize;
+	}
 	milliseconds = 1000.0 * (e - s) / CLOCKS_PER_SEC;
 	std::cout
-		<<BY<<"\nTime to process a range of "<<BG<<this->_vector.size()
+		<<BY<<"\nTime to process a range of "<<BG<<size
 		<<BY<<" elements with "<<BM<<container<<W<<milliseconds<<" ms.\n";
 }
 
@@ -312,9 +327,8 @@ void PmergeMe::sortVector(int nb, char **args){
 	std::clock_t start;
 	std::clock_t end;
 
-	if (this->_check_errors(nb, args) != 0)
-		return;
-	this->_vecSize = 0;
+	this->_check_errors(nb, args);
+	this->_clearDatas();
 	std::cout<<BC<<"-------------- VECTOR -----------------"<<W;
 	this->_vectorFill(nb, args);
 	this->_vectorCreatePairs();
@@ -482,14 +496,28 @@ int PmergeMe::_isDequeSorted(std::deque<int> deq){
 	return 0;
 }
 
+void PmergeMe::_clearDatas(){
+	this->_positions.clear();
+	this->_jacobsthal.clear();
+	this->_vector.clear();
+	this->_vecPair.clear();
+	this->_vectorMain.clear();
+	this->_vectorPend.clear();
+	this->_deque.clear();
+	this->_deqPair.clear();
+	this->_dequeMain.clear();
+	this->_dequePend.clear();
+	this->_vecSize = 0;
+	this->_deqSize = 0;
+}
+
 void PmergeMe::sortDeque(int nb, char **args){
 	std::clock_t start;
 	std::clock_t end;
 
-	if (this->_check_errors(nb, args) != 0)
-		return;
+	this->_check_errors(nb, args);
 	std::cout<<BC<<"-------------- DEQUE -----------------"<<W;
-	this->_deqSize = 0;
+	this->_clearDatas();
 	this->_dequeFill(nb, args);
 	this->_dequeCreatePairs();
 	this->printDeque(this->_deque, "Before: ");

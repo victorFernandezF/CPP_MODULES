@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:14:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/06 13:28:02 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:24:07 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ class PmergeMe{
 
 		std::vector<int>_positions;
 		std::vector<int>_jacobsthal;
-		std::string _error;
 		int	_vecSize;
 		int	_deqSize;
 		
 		// G E N E R A L
-		int		_check_errors(int nb, char **args);
+		void	_clearDatas(void);
+		void	_check_errors(int nb, char **args);
 		void	_checkCorrectArgs(int nb, char **args);
 		void 	_checkInts(int nb, char **args);
 		void	_checkAlreadySorted(int nb, char **args);
@@ -84,6 +84,9 @@ class PmergeMe{
 		void	sortDeque(int arg, char **args);
 		void	printVector(std::vector<int> vec, std::string msg);
 		void	printDeque(std::deque<int> deq, std::string msg);
+		class 	InvalidException;
+		class 	OutOfIntLimits;
+		class 	AlreadySorted;
 };
 
 #endif
