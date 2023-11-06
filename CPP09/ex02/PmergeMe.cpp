@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/06 12:42:06 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/06 13:10:57 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void PmergeMe::_checkInts(int nb, char **args){
 	double tmp;
 
 	while (i < nb){
-		tmp = strtod(args[i], NULL);
+		tmp = atoi(args[i]);
 		if (tmp >= 2147483647 || tmp <= -2147483648)
 			this->_error = "Out of the limits of integer.";
 		i++;
@@ -117,7 +117,7 @@ void PmergeMe::_vectorCreatePairs(void){
 	int size = this->_vector.size() / 2;
 	
 	while (size != 0){
-		this->_pair.push_back(std::make_pair(this->_vector[i],
+		this->_pair.push_back(std::make_pair(this->_vector.at(i),
 			this->_vector[i + 1]));
 		i += 2;
 		size--;
@@ -148,7 +148,7 @@ int PmergeMe::_getJacobsthal(int n){
 void PmergeMe::printVector(std::vector<int> vec, std::string msg){
 	std::cout<<BY<<"\n"<<msg<<W;
 	for (size_t i = 0; i < vec.size(); i++)
-		std::cout<<vec[i]<<" ";
+		std::cout<<vec.at(i)<<" ";
 	std::cout<<"\n";
 }
 
@@ -182,13 +182,13 @@ void	PmergeMe::_vectorRecursiveSort(int n){
 		tmp.pop_back();
 		tmp.pop_back();
 	}
-    _vectorRecursiveSort(n - 1);
+    this->_vectorRecursiveSort(n - 1);
 }
 
 void	PmergeMe::_vectorCreateChains(void){
 	
 	this->_main.push_back(this->_pair.at(0).second);
-	for (size_t i = 0; i < _pair.size(); i++){
+	for (size_t i = 0; i < this->_pair.size(); i++){
 		this->_main.push_back(_pair.at(i).first);
 		this->_pend.push_back(_pair.at(i).second);
 	}
@@ -234,7 +234,7 @@ void	PmergeMe::_vectorGetPositions(void){
 		last = val; 
 		i++;
 	}
-	while (val++ < _pend.size()){
+	while (val++ < this->_pend.size()){
 		_positions.push_back(val);
 	}
 }
@@ -271,18 +271,18 @@ void	PmergeMe::_vectorInsertion(void){
 	size_t endpos, added, pos;
 	this->_vectorGetPositions();
 	added = 0;
-	for (it = _positions.begin(); it < _positions.end(); it++)
+	for (it = this->_positions.begin(); it < this->_positions.end(); it++)
 	{
-		tg = _pend.at(*it - 1);
+		tg = this->_pend.at(*it - 1);
 		endpos = *it + added;
-		pos = _vectorBinarySearch(tg, 0, endpos);
-		_main.insert(_main.begin() + pos, tg);
+		pos = this->_vectorBinarySearch(tg, 0, endpos);
+		this->_main.insert(this->_main.begin() + pos, tg);
 		added++;
 	}
 	if (_vector.size() % 2 != 0){
-		tg = _vector.at(_vector.size() - 1);
-		pos = _vectorBinarySearch(tg, 0, _main.size() - 1);
-		_main.insert(_main.begin() + pos, tg);
+		tg = this->_vector.at(this->_vector.size() - 1);
+		pos = this->_vectorBinarySearch(tg, 0, this->_main.size() - 1);
+		this->_main.insert(this->_main.begin() + pos, tg);
 	}
 }
 
@@ -380,15 +380,15 @@ void	PmergeMe::_dequeRecursiveSort(int n){
 		tmp.pop_back();
 		tmp.pop_back();
 	}
-    _dequeRecursiveSort(n - 1);
+    this->_dequeRecursiveSort(n - 1);
 }
 
 void	PmergeMe::_dequeCreateChains(void){
 	
 	this->_demain.push_back(this->_depair.at(0).second);
-	for (size_t i = 0; i < _depair.size(); i++){
-		this->_demain.push_back(_depair.at(i).first);
-		this->_depend.push_back(_depair.at(i).second);
+	for (size_t i = 0; i < this->_depair.size(); i++){
+		this->_demain.push_back(this->_depair.at(i).first);
+		this->_depend.push_back(this->_depair.at(i).second);
 	}
 }
 
@@ -398,24 +398,24 @@ void	PmergeMe::_dequeGetPositions(void){
 	size_t pos;
 	size_t i = 3;
 	
-	_positions.clear();
-	if (_depend.size() == 0)
+	this->_positions.clear();
+	if (this->_depend.size() == 0)
 		return ;
 	this->_getJacobsthalInsert("deque");
 	while (i < this->_jacobsthal.size())
 	{
 		val = this->_jacobsthal.at(i);
-		_positions.push_back(val);
+		this->_positions.push_back(val);
 		pos = val -1;
 		while (pos > last){
-			_positions.push_back(pos);
+			this->_positions.push_back(pos);
 			pos--;
 		}
 		last = val; 
 		i++;
 	}
-	while (val++ < _depend.size()){
-		_positions.push_back(val);
+	while (val++ < this->_depend.size()){
+		this->_positions.push_back(val);
 	}
 }
 
@@ -441,18 +441,18 @@ void	PmergeMe::_dequeInsertion(void){
 	size_t endpos, added, pos;
 	this->_dequeGetPositions();
 	added = 0;
-	for (it = _positions.begin(); it < _positions.end(); it++)
+	for (it = this->_positions.begin(); it < this->_positions.end(); it++)
 	{
-		tg = _depend.at(*it - 1);
+		tg = this->_depend.at(*it - 1);
 		endpos = *it + added;
-		pos = _dequeBinarySearch(tg, 0, endpos);
-		_demain.insert(_demain.begin() + pos, tg);
+		pos = this->_dequeBinarySearch(tg, 0, endpos);
+		this->_demain.insert(this->_demain.begin() + pos, tg);
 		added++;
 	}
-	if (_deque.size() % 2 != 0){
-		tg = _deque.at(_deque.size() - 1);
-		pos = _dequeBinarySearch(tg, 0, _demain.size() - 1);
-		_demain.insert(_demain.begin() + pos, tg);
+	if (this->_deque.size() % 2 != 0){
+		tg =this->_deque.at(_deque.size() - 1);
+		pos = this->_dequeBinarySearch(tg, 0, this->_demain.size() - 1);
+		this->_demain.insert(this->_demain.begin() + pos, tg);
 	}
 }
 
