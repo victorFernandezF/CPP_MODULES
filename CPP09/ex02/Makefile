@@ -30,7 +30,7 @@ nice_text:
 	         
 	@echo ""  
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) PmergeMe.hpp
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo "$(G) Program name : $(NAME)$(E)"
 	@echo ""
