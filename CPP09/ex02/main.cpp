@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/07 11:17:59 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/07 18:13:56 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int main(int argc, char **argv)
 	try{
 		PmergeMe pm;
 		pm.sortVector(argc, argv);
-		pm.sortDeque(argc, argv);	
-		pm.sortDeque(argc, argv);	
+		pm.sortDeque(argc, argv);
 	}catch(std::exception &e)
 	{
 		std::cout<<BR<<" ERROR: "<<e.what()<<W<<std::endl;

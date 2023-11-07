@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/02 18:43:24 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/07 18:26:00 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,6 @@ void leaks(void)
 	system("leaks -q RPN");
 }
 
-std::string delSpaces(std::string str){
-	std::string::iterator end_pos = std::remove(str.begin(), str.end(), ' ');
-	str.erase(end_pos, str.end());
-	return str;
-}
-
 int main(int argc, char **argv)
 {
  	std::string argument;
@@ -36,9 +30,15 @@ int main(int argc, char **argv)
 	if (argc != 2)
 	{
 		std::cout<<BR<<"Error: incorrect number of arguments"<<W<<std::endl;
-		return 0;
+		return -1;
 	}
-	Rpn rpn;
-	argument = argv[1];
-	rpn.rpn(argument);
+	try{
+		Rpn rpn;
+		argument = argv[1];
+		rpn.rpn(argument);
+	}catch (std::exception &e)
+	{
+		std::cout<<BR<<"ERROR: "<<e.what()<<W<<std::endl;
+	}
+	return 0;
 }

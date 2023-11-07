@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:23:06 by victofer          #+#    #+#             */
-/*   Updated: 2023/10/02 18:32:44 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/07 18:32:40 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@
 
 class Rpn{
 	private:
-		std::stack<int>_stack;
-		int	_makeOperation(int nb1, int nb2, char sign);
-		int	_isElementInt(char ele);
-		int _isSign(char ele);
-		int _checkStringErrors(std::string str);
-		std::string _transformString(std::string str);
+		std::stack<int> _stack;
+		
+		int			_makeOperation(int nb1, int nb2, char sign);
+		int			_isElementInt(char ele);
+		int 		_isSign(char ele);
+		void	 	_checkStringErrors(std::string str);
+		std::string	_transformString(std::string str);
+		
 	public:
 		Rpn();
 		Rpn(const Rpn &copy);
@@ -33,6 +35,9 @@ class Rpn{
 		~Rpn();
 		void rpn(std::string elements);
 		std::stack<int> getStack();
+
+		class BadInputException;
+		class BadNbOfElementsEception;
 };
 
 #endif
