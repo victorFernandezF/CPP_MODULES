@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/06 19:16:51 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/07 10:49:27 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,24 @@
 
 class PmergeMe::InvalidException: public std::exception{
 	public: virtual char *what() const throw(){
-		return ((char *)"Error: Invalid input. (Only positive integers allowed).");
+		return ((char *)"Invalid input. (Only positive integers allowed).");
+	}
+};
+class PmergeMe::BadCantArguments: public std::exception{
+	public: virtual char *what() const throw(){
+		return ((char *)"Incorrect number of arguments. (At least two needed)");
 	}
 };
 
 class PmergeMe::OutOfIntLimits: public std::exception{
 	public: virtual char *what() const throw(){
-		return ((char *)"Error: Some input is out of the limits of integer.");
+		return ((char *)"Some input is out of the integer's limits. (-2147483648, 2147483647)");
 	}
 };
 
 class PmergeMe::AlreadySorted: public std::exception{
 	public: virtual char *what() const throw(){
-		return ((char *)"Error: input is already sorted.");
+		return ((char *)"Input is already sorted.");
 	}
 };
 
@@ -90,14 +95,15 @@ int PmergeMe::_isVectorSorted(std::vector<int> vec){
 }
 
 void PmergeMe::_checkInts(int nb, char **args){
-	int i = 0;
-	double tmp;
+	int			i = 0;
+	double		tmp;
+	std::string	string;
 
-	while (i < nb){
-		tmp = strtod(args[i], NULL);
+	while (++i < nb){
+		string = args[i];
+		std::istringstream(string) >> tmp;
 		if (tmp >= 2147483647 || tmp <= -2147483648)
 			throw OutOfIntLimits();
-		i++;
 	}
 }
 
@@ -264,6 +270,8 @@ void	PmergeMe::_vectorGetPositions(void){
 }
 
 void PmergeMe::_check_errors(int nb, char **args){
+	if (nb < 3)
+		throw BadCantArguments();
 	this->_checkCorrectArgs(nb, args);
 	this->_checkInts(nb, args);
 	this->_checkAlreadySorted(nb, args);

@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/07 18:21:24 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/06 18:14:18 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/07 10:50:44 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,14 @@ void leaks(void)
 
 int main(int argc, char **argv)
 {
- 	std::string argument;
-	std::vector<int>vec;
-	if (argc < 3){
-		if (argc == 2)
-			std::cout<<BR<<" Only one number?\n"<<W<<std::endl;
-		else
-			std::cout<<BR<<" What am I supose to sort?\n"<<W<<std::endl;
-		return (1);
-	}
 	atexit(leaks);
-	PmergeMe pm;
 	try{
+		PmergeMe pm;
 		pm.sortVector(argc, argv);
 		pm.sortDeque(argc, argv);	
 	}catch(std::exception &e)
 	{
-		std::cout<<BR<<" "<<e.what()<<W<<std::endl;
+		std::cout<<BR<<" ERROR: "<<e.what()<<W<<std::endl;
 	}
 	return 0;
 }

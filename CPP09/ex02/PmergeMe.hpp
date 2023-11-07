@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:14:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/06 18:24:07 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/07 10:47:11 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ class PmergeMe{
 		class 	InvalidException;
 		class 	OutOfIntLimits;
 		class 	AlreadySorted;
+		class	BadCantArguments;
 };
 
 #endif
