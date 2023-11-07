@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/07 10:49:27 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:49:31 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int PmergeMe::_isVectorSorted(std::vector<int> vec){
 
 void PmergeMe::_checkInts(int nb, char **args){
 	int			i = 0;
-	double		tmp;
+	long int	tmp;
 	std::string	string;
 
 	while (++i < nb){
@@ -108,18 +108,16 @@ void PmergeMe::_checkInts(int nb, char **args){
 }
 
 void PmergeMe::_checkAlreadySorted(int nb, char **args){
+	std::vector<int> copy;
+	std::vector<int> vec;
+	std::string stmp;
 	int i = 1;
 	int tmp;
-	int size;
-	size = 0;
-	std::vector<int> vec;
-	std::vector<int> copy;
-	std::string stmp;
+
 	while (i < nb){
 		stmp = args[i];
 		std::istringstream(stmp) >> tmp;
 		vec.push_back(tmp);
-		size++;
 		i++;
 	}
 	copy = vec;
@@ -131,16 +129,15 @@ void PmergeMe::_checkAlreadySorted(int nb, char **args){
 
 // ----- V E C T O R   S T U F F ----- 
 void PmergeMe::_vectorFill(int nb, char **args){
-	int i = 1;
-	int tmp;
 	std::string stmp;
-	while (i < nb){
-		stmp = args[i];
+	int tmp;
+
+	while (++this->_vecSize < nb){
+		stmp = args[this->_vecSize];
 		std::istringstream(stmp) >> tmp;
 		this->_vector.push_back(tmp);
-		this->_vecSize++;
-		i++;
 	}
+	this->_vecSize--;
 }
 
 void PmergeMe::_vectorCreatePairs(void){
@@ -156,8 +153,8 @@ void PmergeMe::_vectorCreatePairs(void){
 }
 
 void PmergeMe::_vectorSortPairs(void){
-	int tmp = this->_vecPair.at(0).first;
-	
+	int tmp;
+
 	for (size_t i = 0; i < this->_vecPair.size(); i++)
 	{
 		if (this->_vecPair.at(i).first < this->_vecPair.at(i).second){
@@ -180,10 +177,10 @@ void PmergeMe::printVector(std::vector<int> vec, std::string msg){
 	std::cout<<BY<<"\n"<<msg<<W;
 	for (size_t i = 0; i < vec.size(); i++)
 		std::cout<<vec.at(i)<<" ";
-	std::cout<<"\n";
+	std::cout<<std::endl;
 }
 
-void	PmergeMe::_printPairs(std::string deqvec){
+/* void	PmergeMe::_printPairs(std::string deqvec){
 	if (deqvec == "vector"){
 		for (size_t i = 0; i < this->_vecPair.size(); i++){
 			std::cout<<"("<<this->_vecPair.at(i).first<<", "
@@ -198,7 +195,7 @@ void	PmergeMe::_printPairs(std::string deqvec){
 		}
 		std::cout<<std::endl;
 	}
-}
+} */
 
 void	PmergeMe::_vectorRecursiveSort(int n){
     std::vector<std::pair<int, int> >tmp;
@@ -228,17 +225,16 @@ void	PmergeMe::_vectorCreateChains(void){
 void PmergeMe::_getJacobsthalInsert(std::string cont){
  	size_t	size;
 	size_t	jindex;
-	size_t	index;
+	size_t	index = 3;
 	
-	this->_jacobsthal.clear();	
 	size = this->_vectorPend.size();
 	if (cont == "deque")
 		size = this->_dequePend.size();
-	index = 3;
 	jindex = this->_getJacobsthal(index);
 	while (jindex < size - 1){
 		this->_jacobsthal.push_back(jindex);
-		jindex = this->_getJacobsthal(index++);
+		jindex = this->_getJacobsthal(index);
+		index++;
 	}
 }
 
@@ -248,7 +244,6 @@ void	PmergeMe::_vectorGetPositions(void){
 	size_t pos;
 	size_t i = 3;
 	
-	_positions.clear();
 	if (_vectorPend.size() == 0)
 		return ;
 	this->_getJacobsthalInsert("vector");
@@ -357,16 +352,14 @@ void PmergeMe::sortVector(int nb, char **args){
 // ----- D E Q U E   S T U F F  -----
 
 void PmergeMe::_dequeFill(int nb, char **args){
-	int i = 1;
 	int tmp;
 	std::string stmp;
-	while (i < nb){
-		stmp = args[i];
+	while (++this->_deqSize < nb){
+		stmp = args[this->_deqSize];
 		std::istringstream(stmp) >> tmp;
 		this->_deque.push_back(tmp);
-		this->_deqSize++;
-		i++;
 	}
+	this->_deqSize--;
 }
 
 void PmergeMe::printDeque(std::deque<int> deq, std::string msg){
@@ -419,11 +412,11 @@ void	PmergeMe::_dequeRecursiveSort(int n){
 
 void	PmergeMe::_dequeCreateChains(void){
 	
-	this->_dequeMain.push_back(this->_deqPair.at(0).second);
 	for (size_t i = 0; i < this->_deqPair.size(); i++){
 		this->_dequeMain.push_back(this->_deqPair.at(i).first);
 		this->_dequePend.push_back(this->_deqPair.at(i).second);
 	}
+	this->_dequeMain.push_front(this->_dequePend.at(0));
 }
 
 void	PmergeMe::_dequeGetPositions(void){
@@ -432,7 +425,6 @@ void	PmergeMe::_dequeGetPositions(void){
 	size_t pos;
 	size_t i = 3;
 	
-	this->_positions.clear();
 	if (this->_dequePend.size() == 0)
 		return ;
 	this->_getJacobsthalInsert("deque");

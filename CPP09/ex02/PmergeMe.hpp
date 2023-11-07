@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:14:23 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/07 10:47:11 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/07 11:41:57 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class PmergeMe{
 		void 	_checkInts(int nb, char **args);
 		void	_checkAlreadySorted(int nb, char **args);
 		int		_getJacobsthal(int n);
-		void	_printPairs(std::string deqVec);
+		//void	_printPairs(std::string deqVec);
 		void	_getJacobsthalInsert(std::string cont);
 		void	_printTime(std::clock_t s, std::clock_t e, char cont);
 		
