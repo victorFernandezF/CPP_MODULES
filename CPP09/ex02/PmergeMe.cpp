@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/07 11:49:31 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/08 13:48:21 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -332,7 +332,7 @@ void PmergeMe::sortVector(int nb, char **args){
 
 	this->_check_errors(nb, args);
 	this->_clearDatas();
-	std::cout<<BC<<"-------------- VECTOR -----------------"<<W;
+	std::cout<<BC<<"-------------- VECTOR ----------------"<<W;
 	this->_vectorFill(nb, args);
 	this->_vectorCreatePairs();
 	this->printVector(this->_vector, "Before: ");
@@ -346,7 +346,7 @@ void PmergeMe::sortVector(int nb, char **args){
 	this->_printTime(start, end, 'V');
 	std::cout<<BY<<"Status: "<<W;
 	this->_isVectorSorted(_vectorMain);
-	std::cout<<BC<<"--------------------------------------"<<W<<"\n\n";
+	std::cout<<BC<<"-------------------------------------"<<W<<"\n\n";
 }
 
 // ----- D E Q U E   S T U F F  -----
@@ -516,7 +516,7 @@ void PmergeMe::sortDeque(int nb, char **args){
 	std::clock_t end;
 
 	this->_check_errors(nb, args);
-	std::cout<<BC<<"-------------- DEQUE -----------------"<<W;
+	std::cout<<BC<<"-------------- DEQUE ----------------"<<W;
 	this->_clearDatas();
 	this->_dequeFill(nb, args);
 	this->_dequeCreatePairs();
@@ -531,5 +531,5 @@ void PmergeMe::sortDeque(int nb, char **args){
 	this->_printTime(start, end, 'D');
 	std::cout<<BY<<"Status: "<<W;
 	this->_isDequeSorted(_dequeMain);
-	std::cout<<BC<<"--------------------------------------"<<W<<"\n\n";
+	std::cout<<BC<<"-------------------------------------"<<W<<"\n\n";
 }
