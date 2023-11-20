@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/08 13:48:21 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/20 19:16:39 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -402,8 +402,8 @@ void	PmergeMe::_dequeRecursiveSort(int n){
         tmp.push_back(_deqPair.at(i));
         tmp.push_back(_deqPair.at(i + 1));
 		std::sort(tmp.begin(), tmp.end());
-		_deqPair.at(i) = tmp.at(0);
-		_deqPair.at(i + 1) = tmp.at(1);
+		this->_deqPair.at(i) = tmp.at(0);
+		this->_deqPair.at(i + 1) = tmp.at(1);
 		tmp.pop_back();
 		tmp.pop_back();
 	}
