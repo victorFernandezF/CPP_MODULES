@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 19:17:40 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/20 19:16:39 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/21 18:56:04 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -309,7 +309,7 @@ void	PmergeMe::_vectorInsertion(void){
 	}
 }
 
-void PmergeMe::_printTime(std::clock_t s, std::clock_t e, char cont){
+void PmergeMe::_printTime(std::clock_t start, std::clock_t end, char cont){
 	double		milliseconds;
 	int			size;
 	std::string	container;
@@ -320,7 +320,7 @@ void PmergeMe::_printTime(std::clock_t s, std::clock_t e, char cont){
 		container = "std::deque ";
 		size = this->_deqSize;
 	}
-	milliseconds = 1000.0 * (e - s) / CLOCKS_PER_SEC;
+	milliseconds = 1000.0 * (end - start) / CLOCKS_PER_SEC;
 	std::cout
 		<<BY<<"\nTime to process a range of "<<BG<<size
 		<<BY<<" elements with "<<BM<<container<<W<<milliseconds<<" ms.\n";
