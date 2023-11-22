@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:55:31 by victofer          #+#    #+#             */
-/*   Updated: 2023/09/19 18:50:46 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/22 11:00:43 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,5 @@
 # define BM	"\x1B[95m"	// BRIGHT MAGENTA
 # define BC	"\x1B[96m"	// BRIGHT CYAN
 # define GR	"\x1B[90m" 	// GRAY
-
-# define TEST1 " This is the subject test.\n\
- Creates a MutantStack and do some operations.\n"
- 
-# define TEST2 " This is the subject test but replacing \n\
- MutantStack by a normal list. (changing the methods obviously)\n\
- It should be the same result.\n"
-
-# define TEST3 " Creates a MutantStack, add some elements and\n\
- iterate it for print its elements\n"
-
-# define TEST4 " Creates a MutantStack, add some elements and\n\
- iterate it but adding (+42) to each elements \n"
 
 #endif
