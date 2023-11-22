@@ -6,7 +6,7 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:23:06 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/07 18:32:40 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:39:03 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class Rpn{
 		int			_makeOperation(int nb1, int nb2, char sign);
 		int			_isElementInt(char ele);
 		int 		_isSign(char ele);
-		void	 	_checkStringErrors(std::string str);
+		std::string _checkStringErrors(std::string ogstring);
 		std::string	_transformString(std::string str);
 		
 	public:
@@ -38,6 +38,8 @@ class Rpn{
 
 		class BadInputException;
 		class BadNbOfElementsEception;
+		class NumberOverTheLimit;
+
 };
 
 #endif

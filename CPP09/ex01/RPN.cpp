@@ -6,11 +6,12 @@
 /*   By: victofer <victofer@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 19:23:03 by victofer          #+#    #+#             */
-/*   Updated: 2023/11/07 18:42:45 by victofer         ###   ########.fr       */
+/*   Updated: 2023/11/22 10:39:32 by victofer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+
 // E X C E P T I O N S
 class Rpn::BadInputException : public std::exception{
 	public: virtual char *what() const throw(){
@@ -21,6 +22,12 @@ class Rpn::BadInputException : public std::exception{
 class Rpn::BadNbOfElementsEception : public std::exception{
 	public: virtual char *what() const throw(){
 		return ((char *)"Incorrect number of signs or elements.");
+	}	
+};
+
+class Rpn::NumberOverTheLimit : public std::exception{
+	public: virtual char *what() const throw(){
+		return ((char *)"Incorrect input. numbers must be less than 10.");
 	}	
 };
 
@@ -68,11 +75,17 @@ int	Rpn::_makeOperation(int nb1, int nb2, char sign){
 	return 0;
 }
 
-void Rpn::_checkStringErrors(std::string str){
+std::string Rpn::_checkStringErrors(std::string ogstring){
 	int nb = 0;
 	int op = 0;
+	std::string str;
+	
+	str = this->_transformString(ogstring);
+	for (size_t i = 0; i < ogstring.size(); i++)
+		if (this->_isElementInt(ogstring[i]) && this->_isElementInt(ogstring[i + 1]))
+			throw NumberOverTheLimit();
 	for (size_t i = 0; i < str.size(); i++)
-		if (!((str[i] >= '0' && str[i] <= '9') || (this->_isSign(str[i]))))
+		if (!(this->_isElementInt(str[i]) || (this->_isSign(str[i]))))
 			throw BadInputException();
 	for (size_t i = 0; i < str.size(); i++){
 		if (this->_isElementInt(str[i]))
@@ -80,13 +93,14 @@ void Rpn::_checkStringErrors(std::string str){
 		if (this->_isSign(str[i]))
 			op++;
 	}
-	if (nb - op == 2 || nb - op <= 0)
+	if (nb - op >= 2 || nb - op <= 0)
 		throw BadNbOfElementsEception();
+	return (str);
 }
 
 void Rpn::rpn(std::string elements){
-	std::string operation = this->_transformString(elements);
-	this->_checkStringErrors(operation);
+	std::string operation;
+	operation = this->_checkStringErrors(elements);
 	this->_stack.push(operation.at(0) - '0');
 	for (size_t i = 1; i < operation.size(); i++)
 	{
